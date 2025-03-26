@@ -1,0 +1,202 @@
+.movie-carousel {
+    width: 100%;
+    height: 875px;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+
+    .carousel-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .slide-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.3s ease;
+        }
+
+        .slide-content {
+            position: relative;
+            left: -260px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            color: white;
+            width: 700px;
+            padding: 0 40px;
+
+            .cinemax-choice {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                color: #979797;
+
+                .divider {
+                    display: inline-block;
+                    width: 40px;
+                    height: 1px;
+                    background: #979797;
+                }
+            }
+
+            .slide-title {
+                font-size: 3rem;
+                font-weight: bold;
+                margin-top: 22px;
+                width: 200px;
+            }
+
+            .slide-year {
+                font-size: 1.25rem;
+                opacity: 0.8;
+                margin-top: 20px;
+            }
+
+            .slide-description {
+                margin-top: 18px;
+                font-size: 1.125rem;
+                max-width: 48rem;
+            }
+
+            .about-button {
+                display: flex;
+                margin-top: 24px;
+                padding: 12px 24px;
+                width: 180px;
+                height: 52px;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                background: #F57520;
+                color: white;
+                border: none;
+                border-radius: 15px;
+                font-size: 1.25rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
+
+                &.disabled {
+                    cursor: not-allowed;
+                    opacity: 0.6;
+                }
+
+                &.active {
+                    background: #E1610C;
+                }
+            }
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 24px;
+            left: auto;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            align-items: center;
+
+            .indicator {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: #6b7280;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &.active {
+                    background: #F57520;
+                    width: 21px;
+                    height: 21px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        height: 700px;
+        .carousel-container {
+            .slide-background {
+                height: 100%;
+                background-size: cover;
+                
+            }
+            .slide-content {
+                left: 0;
+                width: 600px;
+                padding: 0 30px;
+                .slide-title {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 550px;
+        .carousel-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            .slide-background {
+                height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .slide-content {
+                width: 90%;
+                padding: 0 20px;
+                .slide-title {
+                    font-size: 2rem;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        height: 450px;
+        .carousel-container {
+            .slide-background {
+                height: 100%;
+                background-size: cover;
+            }
+            .slide-content {
+                width: 100%;
+                padding: 0 15px;
+                .slide-title {
+                    font-size: 1.75rem;
+                }
+                .slide-description {
+                    font-size: 1rem;
+                }
+            }
+
+            .slide-indicators {
+                bottom: 12px;
+                .indicator {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+}
+
+.loading {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.error {
+    color: #ef4444;
+}
