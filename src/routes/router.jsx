@@ -8,8 +8,14 @@ export const myRouter = createBrowserRouter([
         path: "/",
         element: <Layout/>,
         children: [
-            { path: "/", element: <Home/> },
-            { path: "whishList", element: <WhishList/> },
+            { 
+                path: "/", 
+                element: <Home/> 
+            },
+            {
+                 path: "whishList",
+                  element: <WhishList/>
+             },
             
 
             
