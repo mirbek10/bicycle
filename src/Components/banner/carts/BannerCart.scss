@@ -1,0 +1,117 @@
+.down-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 252px;
+  
+    .banner-cart {
+      width: 100%;
+      background: #101010;
+      color: white;
+      height: 100%;
+      padding: 50px;
+      font-size: 24px;
+      transition: all 0.3s ease-out;
+      cursor: pointer;
+    //   position: relative; // Для правильного позиционирования при масштабировании
+  
+      p {
+        display: none;
+        margin-top: 44px;
+        color: #fff;
+      }
+  
+      &.active {
+        background: #F57520;
+        transform: scale(1.08);
+        border-radius: 7px;
+        z-index: 1; // Чтобы активный элемент был поверх остальных
+      }
+  
+      .visible {
+        display: block;
+      }
+    }
+  
+    // Медиазапросы для адаптивности
+    @media (max-width: 1200px) {
+      height: 220px;
+      
+  
+      .banner-cart {
+        padding: 40px;
+        font-size: 22px;
+  
+        p {
+          margin-top: 35px;
+        }
+      }
+    }
+  
+    @media (max-width: 992px) {
+      height: auto;
+      flex-wrap: wrap; 
+      justify-content: center; // ��ентрируем блоки по горизонтали
+      margin: 20px auto 20px auto; 
+      gap: 15px;
+  
+      .banner-cart {
+        padding: 30px;
+        font-size: 20px;
+  
+        p {
+          margin-top: 25px;
+          font-size: 16px;
+        }
+  
+        &.active {
+          transform: scale(1.05); 
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      height: auto;
+      flex-direction: column; 
+      margin: 20px 0;
+  
+      .banner-cart {
+        width: 100%;
+        height: 150px;
+        padding: 20px;
+        margin-bottom: 15px;
+        font-size: 14px;
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+  
+        p {
+          margin-top: 15px;
+          font-size: 14px;
+        }
+  
+        &.active {
+          transform: none;
+          height: 170px; 
+        }
+      }
+    }
+  
+    @media (max-width: 576px) {
+      .banner-cart {
+        height: 120px;
+        padding: 15px;
+        font-size: 10px;
+  
+        p {
+          margin-top: 10px;
+          font-size: 12px;
+        }
+  
+        &.active {
+          height: 140px;
+        }
+      }
+    }
+  }

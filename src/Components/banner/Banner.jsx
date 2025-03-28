@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import bike1 from '../../assets/image/MirbekImg/bike1.png';
 import bike2 from '../../assets/image/MirbekImg/bike2.png'
 import bike3 from '../../assets/image/MirbekImg/bike3.1.png'
+import BannerCart from './carts/BannerCart';
 
 
 
@@ -43,6 +44,7 @@ const Banner = () => {
     const currentSlide = slides[currentIndex];
   
     return (
+        <>
       <div className="movie-carousel">
         <div className="carousel-container">
           {/* Фоновое изображение */}
@@ -76,6 +78,8 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      <BannerCart/>
+        </>
     );
   };
   
