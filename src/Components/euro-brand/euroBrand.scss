@@ -1,0 +1,116 @@
+.feature-content {
+    width: 100%;
+    background: #1e1e1e; // Тёмный фон
+
+    .feature {
+        background: #1e1e1e;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        flex-wrap: wrap; // Позволяет элементам переноситься на новую строку
+
+        .feature-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 274px;
+            gap: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px; 
+
+            .feature-midle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
+            }          
+
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+                opacity: 0.7;
+                transition: opacity 0.3s ease;
+            }
+
+            .feature-title {
+                color: rgb(255, 255, 255);
+                font-family: Inter;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 160%;
+                letter-spacing: 1%;
+                text-align: center; // Выравнивание заголовка по центру
+            }
+
+            .feature-text {
+                color: rgba(255, 255, 255, 0.711);
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: center; // Выравнивание текста по центру
+            }
+
+            // Анимация появления при загрузке
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            // Эффект при наведении
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
+
+                .feature-icon {
+                    opacity: 1; // Иконка становится ярче
+                }
+            }
+        }
+    }
+
+    // ==== 📲 Адаптив для планшетов (iPad) ====
+    @media (max-width: 1024px) {
+        .feature {
+            justify-content: center; // Выравнивание карточек по центру
+            gap: 20px;
+        }
+        
+        .feature-card {
+            width: 45%; // Две карточки в ряд
+        }
+    }
+
+    // ==== 📱 Адаптив для телефонов ====
+    @media (max-width: 768px) {
+        .feature {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .feature-card {
+            width: 90%; // Одна карточка в ряд
+        }
+    }
+}
+
+
+  
+  
+  
+  
+  

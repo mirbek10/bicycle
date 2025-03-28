@@ -254,6 +254,7 @@
           max-width: 400px;
           height: auto;
           margin-top: 20px;
+          object-fit: cover;
         }
       }
   
@@ -338,9 +339,7 @@
         }
   
         .foot-right img {
-          width: 100%;
-          max-width: 350px;
-          margin-top: 10px;
+         display: none;
         }
       }
   

@@ -88,26 +88,56 @@
     }
   
     // Адаптация для телефонов
-    @media (max-width: 768px) {
-      .header-right {
-        gap: 60px; // Уменьшаем отступы для мобильных устройств
-      }
+/* 📱 Adaptive styles for screens max-width: 768px (iPhone level) */
+@media (max-width: 768px) { 
+  .header-content {
+      justify-content: space-around;
+  }
+
+  .header-right {
+      width: auto;
+      gap: 10px;
+      justify-content: center; /* Reduce padding for mobile */
+  }
+
+  .main-menu {
+      display: none; /* Hide menu on phone */
+  }
+
+  .header-left img {
+      width: 60px; /* Smaller logo for mobile */
+  }
+
+  .logo-menu {
+      gap: 16px; /* Reduced gap between icons */
+  }
+
+  .header-menu img {
+      width: 28px; /* Smaller menu icons */
+      height: 22px;
+  }
+}
+
+/* 📱 🔹 Additional responsive styles for iPhone max-width: 480px */
+@media (max-width: 480px) {
+  .header-content {
+      justify-content: left; /* Stack elements in a column */
+      align-items: center;
+      gap: 30px;
+  }
+
+  .header-right {
+      gap: 45px; /* Tighter gap between right header items */
+  }
+
+  .header-left img {
+      width: 50px; /* Even smaller logo */
+  }
+
+  .logo-menu {
+      gap: 10px; /* Reduced gap between icons */
+  }
+
+  }
   
-      .main-menu {
-        display: none; // Скрываем меню на телефоне
-      }
-  
-      .header-left img {
-        width: 60px; // Уменьшаем размер логотипа
-      }
-  
-      .logo-menu {
-        gap: 16px; // Уменьшаем расстояние между иконками на мобильных
-      }
-  
-      .header-menu img {
-        width: 28px; // Уменьшаем размер иконок в меню
-        height: 22px;
-      }
-    }
   }
