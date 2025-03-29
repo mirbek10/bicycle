@@ -1,0 +1,353 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.mountain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 40px;
+    height: auto;
+background: rgb(248, 248, 248);
+padding: 30px;
+.mountain-title{
+    h2{
+        color: rgb(16, 16, 16);
+        font-family: Bebas Neue Cyrillic;
+        font-size: 64px;
+        font-weight: 400;
+        line-height: 123%;
+        letter-spacing: 5%;
+        text-align: left;
+    }
+}
+.mountain-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 150px;
+    .mountain-content{
+        display: flex;
+        flex-direction: column;
+        .mountain-cards{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 16px;
+            .card{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 302px;
+                height: 233px;
+                padding: 15px;
+                border-radius: 10px;
+                background: rgb(52, 49, 45);
+                gap: 30px;
+               .card-content{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                img{
+                    height: 60px;
+                    width: 70px;
+                }
+                h3{
+                    /* desk mob 20 */
+                color: rgb(255, 255, 255);
+                font-family: Inter;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 160%;
+                letter-spacing: 1%;
+                text-align: left;
+                }
+            }
+            p{
+            color: rgb(255, 255, 255);
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 160%;
+            letter-spacing: 0%;
+            text-align: left;
+            }
+            }
+        }
+    }
+    .mountain-image{
+        img{
+            width: 509.67px;
+            height: 257px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        p{
+                    /* desk mob text 16 */
+        color: rgb(76, 76, 76);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
+        }
+        button{
+            width: 180px;
+            height: 52px;
+            /* desk mob cta */
+            color: rgb(255, 255, 255);
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 123%;
+            letter-spacing: 0%;
+            text-align: center;
+            border: none;
+            border-radius: 10px;
+            background: rgb(245, 117, 32);
+        }
+    }
+}
+}
+/* Адаптация для мобильных и планшетов */
+@media (max-width: 768px) {
+    .mountain {
+        height: auto;
+        padding: 20px;
+    }
+
+    .mountain-title h2 {
+        font-size: 28px;
+        letter-spacing: 1%;
+        text-align: center;
+    }
+
+    .mountain-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .mountain-content {
+        align-items: center;
+        width: 100%;
+    }
+
+    .mountain-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .card p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .mountain-image {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mountain-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .mountain-image p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .mountain-image button {
+        width: 140px;
+        height: 40px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+/* Адаптация для мобильных телефонов (портретная ориентация) */
+@media (max-width: 480px) {
+    .mountain-title h2 {
+        font-size: 22px;
+        letter-spacing: 1%;
+        text-align: center;
+    }
+
+    .mountain-container {
+        gap: 15px;
+    }
+
+    .mountain-cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 8px;
+    }
+
+    .card-content h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .card p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .mountain-image {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mountain-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .mountain-image p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .mountain-image button {
+        width: 120px;
+        height: 36px;
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
+
+/* Для iPhone X и более крупных устройств (ширина: 375px и выше) */
+@media (min-width: 375px) and (max-width: 812px) {
+    .mountain-title h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .mountain-container {
+        gap: 25px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mountain-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 12px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .card p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .mountain-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .mountain-image button {
+        width: 150px;
+        height: 44px;
+        font-size: 14px;
+    }
+}
+
+/* Адаптация для маленьких ноутбуков (ширина: 812px - 1024px) */
+@media (min-width: 812px) and (max-width: 1024px) {
+    .mountain {
+        height: auto;
+        padding: 30px;
+    }
+
+    .mountain-title h2 {
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: 2%;
+    }
+
+    .mountain-container {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .mountain-content {
+        align-items: flex-start;
+        width: 60%;
+    }
+
+    .mountain-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .card-content h3 {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .card p {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .mountain-image {
+        width: 40%;
+        text-align: center;
+    }
+
+    .mountain-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .mountain-image p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .mountain-image button {
+        width: 160px;
+        height: 48px;
+        font-size: 16px;
+    }
+}
