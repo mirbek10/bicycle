@@ -1,0 +1,74 @@
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  
+    &.open {
+      transform: translateX(0);
+    }
+  
+    .sidebar-header {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+  
+      .close-icon {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+  
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin-bottom: 10px;
+  
+        h3 {
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px;
+          background: #f6f6f6;
+          color: black;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: background 0.3s;
+          
+          &:hover {
+            background: #ddd;
+          }
+        }
+  
+        ul {
+          list-style: none;
+          padding-left: 15px;
+          display: none;
+          
+          &.active {
+            display: block; /* Показываем подменю, когда категория активна */
+          }
+  
+          li {
+            padding: 8px 0;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  
