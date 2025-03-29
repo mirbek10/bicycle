@@ -1,5 +1,5 @@
 import React from "react";
-import mountainPng from "../../assets/image/mountain.png"
+import mountainPng from "../../assets/image/NurislamImg/mountain.png"
 import detail from "../../assets/svg/set.svg"
 import detail2 from "../../assets/svg/comp.svg"
 import detail3 from "../../assets/svg/detail.svg"
@@ -10,8 +10,8 @@ const Mountain = () => {
   return (
     <section className="mountain">
         <div className="mountain-title container">
-        <h2>ГОРНЫЕ <br />
-         ВЕЛОСИПЕДЫ</h2>
+        <h1>ГОРНЫЕ <br />
+         ВЕЛОСИПЕДЫ</h1>
         </div>
         <div className="mountain-container container">
       <div className="mountain-content">
