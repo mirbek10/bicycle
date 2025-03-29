@@ -1,7 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+import bikeReducer from './bikeSlice.js';
+import accessoriesReducer from './accessoriesSlice.js';
+import partsReducer from './partsSlice.js';
 
 const myStore = configureStore({
-    reducer: {}, // Add your reducers here
+    reducer: {
+        bike: bikeReducer,
+        accessories: accessoriesReducer,
+        parts: partsReducer,
+      }, 
     
 })
 
