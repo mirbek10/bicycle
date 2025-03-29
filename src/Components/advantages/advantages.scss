@@ -1,0 +1,156 @@
+.advantages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
+    margin-top:70px ;
+    h1{
+            /* desk h2 */
+        color: rgb(16, 16, 16);
+        font-family: Bebas Neue Cyrillic;
+        font-size: 69px;
+        font-weight: 400;
+        line-height: 123%;
+        letter-spacing: 5%;
+        text-align: left;
+    }
+    .advan-content{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        .advan1{
+            width: auto;
+            height: 574px;
+            object-fit: cover;
+        }
+        .advan2{
+            width: auto;
+            height: 574px;
+            object-fit: cover;
+        }
+        .advan-blocks{
+            display: grid;
+            grid-template-columns:repeat(2,1fr);
+            gap: 25px;
+            
+            .advan-block{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+                padding: 20px;
+
+                border-radius: 10px;
+                background: rgb(245, 117, 32);
+                width: 290px;
+                height: 267px;
+                .details{
+                text-decoration: none;/* desk mob cta */
+                p{
+                    color: rgb(255, 255, 255);
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 123%;
+                letter-spacing: 0%;
+                text-align: left;
+                }
+                }
+                h3{
+                color: rgb(255, 255, 255);
+                font-family: Inter;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 160%;
+                letter-spacing: 1%;
+                text-align: left;
+                }
+                p{
+                    /* desk mob 16 light */
+                color: rgb(255, 255, 255);
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                }
+
+            }
+        }
+    }
+}
+/* 💻 Large Laptops & Desktops (1440px+) */
+@media (max-width: 1440px) {
+    .advantages {
+        padding: 4vw;
+    }
+    .advan-content {
+        gap: 30px;
+    }
+}
+
+/* 🖥️ Standard Laptops & Large Tablets (1200px - 1300px) */
+@media (max-width: 1300px) {
+    .advan-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .advan-blocks {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 📱 Tablets & Small Laptops (1024px - 1200px) */
+@media (max-width: 1200px) {
+    .advantages {
+        padding: 3vw;
+    }
+    .advan2{
+        display: none;
+    }
+
+    .advan1 {
+        max-width: 20%;
+    }
+
+}
+
+/* 📟 Small Tablets & Large Phones (700px - 1024px) */
+@media (max-width: 1024px) {
+    .advan1, .advan2 {
+        display: none; /* Убираем изображения */
+    }
+    .advan-blocks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 📲 Phones (500px - 700px) */
+@media (max-width: 700px) {
+    .advantages {
+        gap: 20px;
+    }
+    .advan-block {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* 📳 Small Phones (до 500px) */
+@media (max-width: 500px) {
+    .advantages h1 {
+        font-size: 28px;
+    }
+    .advan-block {
+        width: 100%;
+        border-radius: 8px;
+    }
+}
+

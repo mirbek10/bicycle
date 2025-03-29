@@ -1,5 +1,5 @@
 import React from 'react';
-import BicyclePerson from "../../assets/image/bicyclePerson.png"
+import BicyclePerson from "../../assets/image/NurislamImg/bicyclePerson.png"
 import { Link } from 'react-router-dom';
 import logo from "../../assets/svg/logo.svg"
 import locale from "../../assets/svg/locale.svg"

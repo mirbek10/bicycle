@@ -71,8 +71,22 @@
       }
     }
   
-    // Адаптация для планшетов
-    @media (max-width: 1024px) {
+    @media (max-width: 1300px) {
+      .header-right {
+        gap: 30px; // Увеличиваем отступы между иконками на планшетах
+      }
+  
+      .main-menu ul {
+        gap: 10px; // Увеличиваем отступы в меню на планшетах
+      }
+  
+      .header-left img {
+        width: 75px;
+        padding: 5px; // Уменьшаем размер логотипа
+      }
+    }
+
+    @media (max-width: 1124px) {
       .header-right {
         gap: 30px; // Увеличиваем отступы между иконками на планшетах
       }
