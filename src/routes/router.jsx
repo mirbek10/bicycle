@@ -13,7 +13,7 @@ export const myRouter = createBrowserRouter([
                 element: <Home/> 
             },
             {
-                 path: "whishList",
+                 path: "/whishList",
                   element: <WhishList/>
              },
             

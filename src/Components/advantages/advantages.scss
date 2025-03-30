@@ -20,7 +20,7 @@
         display: flex;
         width: 100%;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 20px;
         .advan1{
             width: auto;
@@ -31,11 +31,15 @@
             width: auto;
             height: 574px;
             object-fit: cover;
+            display: none;
         }
         .advan-blocks{
             display: grid;
             grid-template-columns:repeat(2,1fr);
             gap: 25px;
+            @media (max-width: 768px){
+                grid-template-columns: repeat(1,1fr);
+            }
             
             .advan-block{
                 display: flex;
