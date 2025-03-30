@@ -1,15 +1,12 @@
-// src/store/bikeSlice.js
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Async action для получения данных о велосипедах
 export const fetchBicycles = createAsyncThunk('bike/fetchBicycles', async () => {
   const response = await axios.get('https://67d015f4823da0212a848a3b.mockapi.io/bicycle');
   return response.data;
 });
 
-// Создаем slice для велосипедов
 const bikeSlice = createSlice({
   name: 'bike',
   initialState: {
