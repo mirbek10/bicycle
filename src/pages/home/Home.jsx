@@ -6,6 +6,7 @@ import Advantages from '../../Components/advantages/Advantages'
 import Block3 from '../../Components/Block-3/Block3'
 import Menu from '../../Components/menu/Menu'
 import Contacts from '../../Components/contacts/Contacts'
+import Block8 from '../../Components/Block-8/Block8'
 
 function Home() {
     return (
@@ -16,6 +17,7 @@ function Home() {
             <EuroBrand/>
             <Mountain/>
             <Advantages/>
+            <Block8/>
             <Contacts/>
         </div>
     )
