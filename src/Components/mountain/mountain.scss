@@ -19,20 +19,24 @@ padding: 30px;
         line-height: 123%;
         letter-spacing: 5%;
         text-align: left;
+        @media (max-width:900px) {
+            font-size: 40px;
+        }
     }
 }
 .mountain-container{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 150px;
+    gap: 45px;
     .mountain-content{
         display: flex;
         flex-direction: column;
         .mountain-cards{
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 16px;
+            width: 100%;
             .card{
                 display: flex;
                 flex-direction: column;
@@ -90,6 +94,10 @@ padding: 30px;
         line-height: 160%;
         letter-spacing: 0%;
         text-align: left;
+        width: 400px;
+        @media (max-width:900px) {
+            width: 100%;
+        }
         }
         button{
             width: 180px;
@@ -124,7 +132,7 @@ padding: 30px;
 
     .mountain-container {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         align-items: center;
     }
 
@@ -189,10 +197,11 @@ padding: 30px;
 
     .mountain-container {
         gap: 15px;
+        align-items: flex-start;
     }
 
     .mountain-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
     }
 
@@ -251,12 +260,12 @@ padding: 30px;
     }
 
     .mountain-cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 15px;
     }
 
     .card {
-        width: 100%;
+        width: 90%;
         height: auto;
         padding: 12px;
     }

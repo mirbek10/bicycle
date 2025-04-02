@@ -1,0 +1,105 @@
+$primary: #F57520;
+$secondary: #000;
+$accent: #F9A05B;
+$background: #000;
+$text-light: #FFF;
+
+.bike-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: $background;
+  overflow: hidden;
+
+  .loader-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+  }
+
+  .bike-wheel {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid $primary;
+    border-radius: 50%;
+    animation: rotate 1.5s linear infinite;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background: $primary;
+      border-radius: 50%;
+    }
+
+    .wheel-spokes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: $primary;
+        transform-origin: center;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .track {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    height: 4px;
+    background: rgba($color: #333, $alpha: 0.5);
+    border-radius: 2px;
+    overflow: hidden;
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, $primary, $accent);
+      transition: width 0.3s ease;
+    }
+  }
+
+  .progress-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}

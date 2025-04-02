@@ -124,7 +124,7 @@
 
         .footer-menu {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             gap: 91px;
 
             ul {
