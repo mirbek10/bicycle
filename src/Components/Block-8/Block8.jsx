@@ -8,16 +8,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { getEquipment } from "../../store/Equipmentslice/EquipmentSLice";
+import BikeLoader from "../../shared/loader/BikeLoader";
 function Block8() {
     const dispatch = useDispatch();
-    const { data } = useSelector(state => state.equipment);
+    const { data, loading } = useSelector(state => state.equipment);
     useEffect(() => {
         dispatch(getEquipment());
     }, [dispatch])
 
+    if (loading) return <BikeLoader />;
+
     return (
-                <div className="products">
-            {data?.length > 0 ? (
+        <div className="products">
+            <h2 className="title">Экипировка</h2>
+           
                 <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={20}
@@ -43,9 +47,7 @@ function Block8() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            ) : (
-                <p>Загрузка...</p>
-            )}
+            
         </div>
     )
 }

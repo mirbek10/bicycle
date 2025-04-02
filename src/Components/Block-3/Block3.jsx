@@ -8,9 +8,10 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import BikeLoader from "../../shared/loader/BikeLoader";
 
 function Block3() {
-    const { bicycles } = useSelector((state) => state.bike);
+    const { bicycles, status } = useSelector((state) => state.bike);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,10 +21,14 @@ function Block3() {
     useEffect(() => {
         console.log(bicycles);
     }, [bicycles]);
+    if (status === "loading") {
+        return <BikeLoader />;
+    }
 
     return (
         <div className="products">
-            {bicycles?.length > 0 ? (
+            <h2 className="title">Новинки</h2>
+            
                 <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={20}
@@ -49,9 +54,7 @@ function Block3() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            ) : (
-                <p>Загрузка...</p>
-            )}
+            
         </div>
     );
 }

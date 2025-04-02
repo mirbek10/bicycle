@@ -12,6 +12,7 @@ const bikeSlice = createSlice({
   initialState: {
     bicycles: [],
     status: 'idle',
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {

@@ -3,6 +3,28 @@
     flex-wrap: wrap;
     gap: 20px;
     margin: 40px auto;
+    text-align: center;
+    justify-content: center;
+    h2{
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        
+    }
+    .title{
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-family: 'Montserrat', sans-serif;
+        color: #000;
+        transition: all 0.3s ease;
+        margin: 0 auto;
+        &:hover{
+            color: #E1610C;
+            font-weight: 600;
+            
+        }
+    }
 }
 .products {
     max-width: 100%;
