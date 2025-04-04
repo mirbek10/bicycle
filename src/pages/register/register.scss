@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.register{
+    width: 100%;
+    height: auto    ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    .register-content{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 32px;
+   .register-menu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    
+    .reg-btn{
+        /* desk mob 24 */
+color: rgb(16, 16, 16);
+font-family: Inter;
+font-size: 24px;
+font-weight: 500;
+line-height: 160%;
+letter-spacing: 1%;
+text-align: left;
+.sign-link{
+    text-decoration: none;
+}
+    }
+    .sign-btn{
+        /* desk mob med 18 */
+color: rgb(119, 119, 119);
+font-family: Inter;
+font-size: 18px;
+font-weight: 500;
+line-height: 160%;
+letter-spacing: 1%;
+text-align: left;
+text-decoration: none;
+list-style: none;
+    }
+   }
+   .register-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .register-input{
+        p{
+            /* desk mob text 16 */
+color: rgb(76, 76, 76);
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 160%;
+letter-spacing: 0%;
+text-align: left;
+        }
+        input{
+            border-radius: 10px;
+            background: rgb(248, 248, 248);
+            width: 350px;
+            height: 58px;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+    }
+   }
+   .register-short{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    button{
+        width: 350px;
+        height: 52px;
+        border-radius: 10px;
+        background: rgb(245, 117, 32);
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 123%;
+        letter-spacing: 0%;
+        text-align: center;
+        border: none;
+    }
+    button:hover{
+        background: rgba(245, 117, 32, 0.908);
+    }
+    p{
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+   }
+    }
+}
+
+/* --- LAPTOP (до 1024px) --- */
+@media (max-width: 1024px) {
+    .register {
+        margin-top: 100px;
+    }
+
+    .register-content {
+        max-width: 400px;
+    }
+}
+
+/* --- TABLET (до 768px) --- */
+@media (max-width: 768px) {
+    .register {
+        margin-top: 80px;
+    }
+
+    .register-content {
+        max-width: 350px;
+    }
+
+    .register-menu {
+        gap: 20px;
+    }
+
+    .register-inputs .register-input input {
+        height: 45px;
+    }
+
+    .register-short button {
+        height: 45px;
+    }
+}
+
+/* --- IPHONE & PHONE (до 480px) --- */
+@media (max-width: 480px) {
+    .register {
+        margin-top: 100px;
+    }
+
+    .register-content {
+        
+        max-width: 90%;
+    }
+
+    .register-menu {
+        gap: 10px;
+        text-align: center;
+    }
+
+    .register-menu .reg-btn, .register-menu .sign-btn {
+        font-size: 16px;
+    }
+
+    .register-inputs .register-input input {
+        height: 42px;
+    }
+
+    .register-short button {
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .register-short p {
+        text-align: center;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  // применим к форме
+  .register-content {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  // инпуты плавно появляются
+  .register-input {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+  
+  // для всех инпутов с задержкой, чтобы они "всплывали" по очереди
+  .register-input:nth-child(1) { animation-delay: 0.4s; }
+  .register-input:nth-child(2) { animation-delay: 0.5s; }
+  .register-input:nth-child(3) { animation-delay: 0.6s; }
+  .register-input:nth-child(4) { animation-delay: 0.7s; }
+  
+  // кнопка ховер-анимация
+  .register-short button {
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .register-short button:hover {
+    transform: scale(1.02);
+    background: rgba(245, 117, 32, 0.95);
+  }
+  
