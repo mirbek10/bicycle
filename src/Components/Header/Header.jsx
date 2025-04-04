@@ -56,7 +56,7 @@ function Header() {
         <header className='header'>
             <div className="header-content container">
                 <div className="header-left">
-                    <img src={logo} alt="Logo" />
+                    <Link to="/"><img src={logo} alt="Logo" /></Link>
                 </div>
                 <div className="header-right">
                     <div className="main-menu">
@@ -97,7 +97,7 @@ function Header() {
                     </div>
                     <div className="logo-menu">
                         <img src={search} alt="Search" />
-                        <img src={profile} alt="Profile" />
+                        <Link to="/register"><img src={profile} alt="Profile" /></Link>
                         <img src={heart} alt="Favorites" />
                         <img src={cart} alt="Cart" />
                     </div>
