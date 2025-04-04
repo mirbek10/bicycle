@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchBicycles } from "../../store/bikeSlice";
 import { fetchAccessories } from "../../store/accessoriesSlice";
 import { fetchParts } from "../../store/partsSlice";
+import { getEquipment } from '../../store/Equipmentslice/EquipmentSLice';
 import logo from "../../assets/svg/logo.svg";
 import logoB from "../../assets/svg/logoBlack.svg";
 import heart from "../../assets/svg/heart.svg";
@@ -14,23 +15,26 @@ import { IoClose } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import './header.scss';
 
+
 function Header() {
     const dispatch = useDispatch();
     
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenu, setOpenSubMenu] = useState(null);
 
-    // Получаем данные из Redux store
     const { bicycles } = useSelector(state => state.bike);
     const { accessories } = useSelector(state => state.accessories);
     const { parts } = useSelector(state => state.parts);
+    const { data: equipment } = useSelector(state => state.equipment); // ✅ получаем экипировку
     
-    // Загружаем данные при монтировании компонента
+    
     useEffect(() => {
         dispatch(fetchBicycles());
         dispatch(fetchAccessories());
         dispatch(fetchParts());
+        dispatch(getEquipment()); // ✅
     }, [dispatch]);
+    
 
     const toggleMenu = () => {
         setIsMenuOpen(prevState => {
@@ -72,26 +76,11 @@ function Header() {
                             </li>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("equipment")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Экипировка
-                                {openSubMenu === "equipment" && (
-                                    <ul className="sub-menu">
-                                        <li>Велокуртки</li>
-                                        <li>Термобелье</li>
-                                        <li>Велообувь</li>
-                                    </ul>
-                                )}
+                                {openSubMenu === "equipment" && <ul className='sub-menu'>{renderSubMenu(equipment, "Экипировка")}</ul>}
                             </li>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("accessories")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Аксессуары
                                 {openSubMenu === "accessories" && <ul className="sub-menu">{renderSubMenu(accessories, "аксессуаров")}</ul>}
-                            </li>
-                            <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("trainers")} onMouseLeave={() => setOpenSubMenu(null)}>
-                                Велостанки
-                                {openSubMenu === "trainers" && (
-                                    <ul className="sub-menu">
-                                        <li>Механические</li>
-                                        <li>Электрические</li>
-                                    </ul>
-                                )}
                             </li>
                         </ul>
                     </div>

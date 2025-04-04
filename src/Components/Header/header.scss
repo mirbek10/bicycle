@@ -23,7 +23,24 @@
     background-color: #f9f9f9;
     width: 200px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+    /* Добавляем скролл */
+    max-height: 300px; /* можно изменить по желанию */
+    overflow-y: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ccc transparent; /* Firefox */
   }
+  
+  /* Стилизация скролла для Webkit-браузеров (Chrome, Safari) */
+  .sub-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .sub-menu::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+  
 
   .main-menu li:hover .sub-menu,
   .sub-menu.open {
@@ -247,7 +264,9 @@
 
   @media (max-width: 1124px) {
     .header-right {
-      gap: 30px;
+      .main-menu{
+        display: none;
+      }
     }
 
     .main-menu ul {
