@@ -1,286 +1,211 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-.mountain{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-   justify-content: center;
-   align-items: flex-start;
-   gap: 40px;
-    height: auto;
-background: rgb(248, 248, 248);
-padding: 30px;
-.mountain-title{
-    h1{
-        color: rgb(16, 16, 16);
-        font-family: Bebas Neue Cyrillic;
-        font-size: 64px;
-        font-weight: 400;
-        line-height: 123%;
-        letter-spacing: 5%;
-        text-align: left;
-        @media (max-width:900px) {  
-            font-size: 40px;
-        }
+
+.mountain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  height: auto;
+  background: rgb(248, 248, 248);
+  padding: 30px;
+
+  .mountain-title {
+    h1 {
+      color: rgb(16, 16, 16);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 123%;
+      letter-spacing: 5%;
+      text-align: left;
+
+      @media (max-width: 900px) {
+        font-size: 40px;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 28px;
+        text-align: center;
+      }
     }
-}
-.mountain-container{
+  }
+
+  .mountain-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 45px;
-    .mountain-content{
-        display: flex;
-        flex-direction: column;
-        .mountain-cards{
-            display:grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 16px;
+
+    @media (max-width: 1030px) {
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .mountain-content {
+      display: flex;
+      flex-direction: column;
+
+      .mountain-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+          grid-template-columns: 1fr;
+          gap: 15px;
+          width: 100%;
+        }
+
+        .card {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 302px;
+          height: 233px;
+          padding: 15px;
+          border-radius: 10px;
+          background: rgb(52, 49, 45);
+          gap: 30px;
+
+          @media (max-width: 1030px) {
+            width: 90%;
+            height: auto;
+            padding: 12px;
+          }
+
+          @media (max-width: 480px) {
             width: 100%;
-            .card{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 302px;
-                height: 233px;
-                padding: 15px;
-                border-radius: 10px;
-                background: rgb(52, 49, 45);
-                gap: 30px;
-               .card-content{
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                img{
-                    height: 60px;
-                    width: 70px;
-                }
-                h3{
-                    /* desk mob 20 */
-                color: rgb(255, 255, 255);
-                font-family: Inter;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 160%;
-                letter-spacing: 1%;
-                text-align: left;
-                }
+            padding: 10px;
+            box-sizing: border-box;
+          }
+
+          .card-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            img {
+              height: 60px;
+              width: 70px;
             }
-            p{
-            color: rgb(255, 255, 255);
+
+            h3 {
+              color: #fff;
+              font-family: Inter;
+              font-size: 20px;
+              font-weight: 500;
+              line-height: 160%;
+              letter-spacing: 1%;
+              text-align: left;
+
+              @media (max-width: 1030px) {
+                font-size: 18px;
+                text-align: center;
+              }
+
+              @media (max-width: 480px) {
+                font-size: 16px;
+                text-align: center;
+              }
+            }
+          }
+
+          p {
+            color: #fff;
             font-family: Inter;
             font-size: 16px;
             font-weight: 400;
             line-height: 160%;
             letter-spacing: 0%;
             text-align: left;
+
+            @media (max-width: 1030px) {
+              font-size: 14px;
+              text-align: center;
             }
+
+            @media (max-width: 480px) {
+              font-size: 12px;
+              text-align: center;
             }
+          }
         }
+      }
     }
-    .mountain-image{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        img{
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        p{
-                    /* desk mob text 16 */
-        color: rgb(76, 76, 76);
-        font-family: Inter;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 160%;
-        letter-spacing: 0%;
-        text-align: center;
-        width: 400px;
-        @media (max-width:900px) {
-            width: 100%;
-        }
-        }
-        button{
-            width: 180px;
-            height: 52px;
-            /* desk mob cta */
-            color: rgb(255, 255, 255);
-            font-family: Inter;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 123%;
-            letter-spacing: 0%;
-            text-align: center;
-            border: none;
-            border-radius: 10px;
-            background: rgb(245, 117, 32);
-        }
-    }
-}
-}
+  }
 
-/* Adaptation for screens smaller than 1030px */
-@media (max-width: 1030px) {
-    .mountain {
-        padding: 20px;
-    }
+  .mountain-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 
-    .mountain-title h1 {
-        font-size: 48px;
-        text-align: center;
-    }
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
 
-    .mountain-container {
-        flex-direction: column;
-        gap: 25px;
-        align-items: center;
-    }
-
-    .mountain-cards {
-        gap: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .card {
-        width: 90%;
-        height: auto;
-        padding: 12px;
-    }
-
-    .card-content h3 {
-        font-size: 18px;
-        text-align: center;
-    }
-
-    .card p {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .mountain-image {
-        width: 100%;
-        text-align: center;
-    }
-
-    .mountain-image img {
+      @media (max-width: 768px) {
         width: 100%;
         height: auto;
+      }
     }
 
-    .mountain-image button {
+    p {
+      color: rgb(76, 76, 76);
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 160%;
+      text-align: center;
+      width: 400px;
+
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+    }
+
+    button {
+      width: 180px;
+      height: 52px;
+      color: #fff;
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      background: rgb(245, 117, 32);
+
+      @media (max-width: 768px) {
         width: 150px;
         height: 45px;
-    }
-}
+      }
 
-/* Adaptation for iPads and larger phones (768px) */
-@media (max-width: 768px) {
-    .mountain-title h1 {
-        font-size: 36px;
-        text-align: center;
-    }
-
-    .mountain-container {
-        gap: 30px;
-        align-items: center;
-    }
-
-    .mountain-cards {
-        gap: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-    }
-
-    .card {
-        width: 100%;
-        padding: 12px;
-    }
-
-    .card-content h3 {
-        font-size: 18px;
-        text-align: center;
-    }
-
-    .card p {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .mountain-image {
-        width: 100%;
-        text-align: center;
-    }
-
-    .mountain-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .mountain-image button {
-        width: 140px;
-        height: 40px;
-    }
-}
-
-
-@media (max-width: 480px) {
-    .mountain-title h1 {
-        font-size: 28px;
-        text-align: center;
-    }
-
-    .mountain-container {
-        display: flex;
-        flex-direction: column; /* Ensure the container uses column layout */
-        gap: 15px;
-        align-items: center; /* Center content */
-        width: 100%; /* Ensure full width for mobile */
-        padding: 10px; /* Add some padding to ensure elements don't touch edges */
-    }
-
-    .mountain-cards {
-        display: grid; 
-        grid-template-columns: 1fr; /* Ensures the cards are displayed in a single column */
-        gap: 15px;
-        width: 100%; /* Make sure cards take full width */
-    }
-
-    .card {
-        width: 100%; /* Full width to make sure cards are responsive */
-        padding: 10px;
-        box-sizing: border-box; /* Ensures padding is included in width */
-    }
-
-    .card-content h3 {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .card p {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .mountain-image {
-        width: 100%;
-        text-align: center;
-    }
-
-    .mountain-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .mountain-image button {
+      @media (max-width: 480px) {
         width: 120px;
         height: 38px;
+      }
     }
+  }
 }
+
