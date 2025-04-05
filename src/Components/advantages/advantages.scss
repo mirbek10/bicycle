@@ -1,153 +1,148 @@
-.advantages{
+.advantages {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     gap: 40px;
-    margin-top:70px ;
-    h1{
-            /* desk h2 */
-        color: rgb(16, 16, 16);
-        font-family: Bebas Neue Cyrillic;
-        font-size: 69px;
-        font-weight: 400;
-        line-height: 123%;
-        letter-spacing: 5%;
-        text-align: left;
+    margin-top: 70px;
+  
+    h1 {
+      color: rgb(16, 16, 16);
+      font-family: 'Bebas Neue Cyrillic';
+      font-size: 69px;
+      font-weight: 400;
+      line-height: 123%;
+      letter-spacing: 5%;
+      text-align: left;
+  
+      @media (max-width: 500px) {
+        font-size: 28px;
+        text-align: center;
+      }
     }
-    .advan-content{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-around;
-        gap: 20px;
-        .advan1{
-            width: auto;
-            height: 574px;
-            object-fit: cover;
-        }
-        .advan2{
-            width: auto;
-            height: 574px;
-            object-fit: cover;
-            display: none;
-        }
-        .advan-blocks{
-            display: grid;
-            grid-template-columns:repeat(2,1fr);
-            gap: 25px;
-            @media (max-width: 500px){
-                grid-template-columns: repeat(1,1fr);
-            }
-            
-            .advan-block{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 15px;
-                padding: 20px;
-
-                border-radius: 10px;
-                background: rgb(245, 117, 32);
-                width: 290px;
-                height: 267px;
-                .details{
-                text-decoration: none;/* desk mob cta */
-                p{
-                    color: rgb(255, 255, 255);
-                font-family: Inter;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 123%;
-                letter-spacing: 0%;
-                text-align: left;
-                }
-                }
-                h3{
-                color: rgb(255, 255, 255);
-                font-family: Inter;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 160%;
-                letter-spacing: 1%;
-                text-align: left;
-                }
-                p{
-                    /* desk mob 16 light */
-                color: rgb(255, 255, 255);
-                font-family: Inter;
-                font-size: 16px;
-                font-weight: 300;
-                line-height: 160%;
-                letter-spacing: 0%;
-                text-align: left;
-                }
-
-            }
-        }
-    }
-}
-/* 💻 Large Laptops & Desktops (1440px+) */
-@media (max-width: 1440px) {
-    .advantages {
-        padding: 4vw;
-    }
+  
     .advan-content {
-        gap: 30px;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+  
+      .advan1,
+      .advan2 {
+        width: auto;
+        height: 574px;
+        object-fit: cover;
+  
+        @media (max-width: 1200px) {
+          max-width: 20%;
+        }
+  
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
+  
+      .advan2 {
+        display: none;
+      }
+  
+      .advan-blocks {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+  
+        @media (max-width: 500px) {
+          grid-template-columns: 1fr;
+        }
+  
+        .advan-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 15px;
+          padding: 20px;
+          border-radius: 10px;
+          background: rgb(245, 117, 32);
+          width: 290px;
+          height: 267px;
+  
+          h3 {
+            color: #fff;
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 160%;
+            letter-spacing: 1%;
+            text-align: left;
+          }
+  
+          p {
+            color: #fff;
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 160%;
+            letter-spacing: 0%;
+            text-align: left;
+          }
+  
+          .details {
+            text-decoration: none;
+  
+            p {
+              color: #fff;
+              font-family: Inter;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 123%;
+              letter-spacing: 0%;
+              text-align: left;
+            }
+          }
+  
+          @media (max-width: 700px) {
+            width: 90%;
+            padding: 15px;
+          }
+  
+          @media (max-width: 500px) {
+            width: 100%;
+            border-radius: 8px;
+  
+            h3,
+            p {
+              text-align: center;
+            }
+          }
+        }
+      }
     }
-}
-
-@media (max-width: 1300px) {
-    .advan-content {
+  
+    // General responsiveness paddings
+    @media (max-width: 1440px) {
+      padding: 4vw;
+    }
+  
+    @media (max-width: 1300px) {
+      .advan-content {
         flex-wrap: wrap;
         justify-content: center;
-    }
-    .advan-blocks {
+      }
+  
+      .advan-blocks {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+      }
     }
-}
-
-
-@media (max-width: 1200px) {
-    .advantages {
-        padding: 3vw;
+  
+    @media (max-width: 1200px) {
+      padding: 3vw;
     }
-    .advan2{
-        display: none;
+  
+    @media (max-width: 700px) {
+      gap: 20px;
     }
-
-    .advan1 {
-        max-width: 20%;
-    }
-
-}
-
-@media (max-width: 1024px) {
-    .advan1, .advan2 {
-        display: none; 
-    }
-}
-
-@media (max-width: 700px) {
-    .advantages {
-        gap: 20px;
-    }
-    .advan-block {
-        width: 90%;
-        padding: 15px;
-    }
-}
-
-
-@media (max-width: 500px) {
-    .advantages h1 {
-        font-size: 28px;
-    }
-    .advan-block {
-        width: 100%;
-        border-radius: 8px;
-    }
-}
-
+  }
+  
