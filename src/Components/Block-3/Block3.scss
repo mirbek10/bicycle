@@ -5,6 +5,7 @@
     margin: 40px auto;
     text-align: center;
     justify-content: center;
+
     h2{
         font-size: 2.5rem;
         margin-bottom: 15px;
@@ -35,6 +36,7 @@
   .swiper-slide {
     display: flex;
     justify-content: center;
+    height: auto !important;
   }
 .swiper-pagination-bullets {
     width: 12px;
@@ -71,5 +73,7 @@
 .swiper-button-next {
   right: 10px;
 }
-
+.modal-overlay {
+  z-index: 1000 !important;
+}
 

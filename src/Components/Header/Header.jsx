@@ -16,7 +16,7 @@ import './header.scss';
 
 function Header() {
     const dispatch = useDispatch();
-    
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenu, setOpenSubMenu] = useState(null);
 
@@ -24,7 +24,7 @@ function Header() {
     const { bicycles } = useSelector(state => state.bike);
     const { accessories } = useSelector(state => state.accessories);
     const { parts } = useSelector(state => state.parts);
-    
+
     // Загружаем данные при монтировании компонента
     useEffect(() => {
         dispatch(fetchBicycles());
@@ -34,12 +34,11 @@ function Header() {
 
     const toggleMenu = () => {
         setIsMenuOpen(prevState => {
-          console.log("Sidebar open state:", !prevState); // Проверяем изменение состояния
-          return !prevState;
+            console.log("Sidebar open state:", !prevState); // Проверяем изменение состояния
+            return !prevState;
         });
-      };
-      
-    console.log(isMenuOpen)
+    };
+
 
     const toggleSubMenuInHeader = (menuId) => {
         setOpenSubMenu(openSubMenu === menuId ? null : menuId);
@@ -61,7 +60,7 @@ function Header() {
                 <div className="header-right">
                     <div className="main-menu">
                         <ul>
-                            <Link className='main-li' to="/trade-in"><li>Trade In</li></Link>
+                            <Link className='main-li' to="/"><li>Trade In</li></Link>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("bikes")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Велосипеды
                                 {openSubMenu === "bikes" && <ul className="sub-menu">{renderSubMenu(bicycles, "велосипедов")}</ul>}
@@ -99,37 +98,41 @@ function Header() {
                         <img src={search} alt="Search" />
                         <img src={profile} alt="Profile" />
                         <img src={heart} alt="Favorites" />
-                        <img src={cart} alt="Cart" />
+                        <Link to='/cart'>
+                            <img src={cart} alt="Cart" />
+                        </Link>
                     </div>
                     <div className="header-menu">
-  <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
-</div>
+                        <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
+                    </div>
                 </div>
             </div>
             {isMenuOpen && (
-  <div className="sidebar-menu">
-    <div className="sidebar-header">
-        <img src={logoB} alt="" />
-      <IoClose className="close-icon" onClick={toggleMenu} />
-    </div>
-    
-    <ul className="sidebar-links">
-      <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
-      <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
-      <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
-      <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
-      <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
-      <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
-    </ul>
+                <div className="sidebar-menu">
+                    <div className="sidebar-header">
+                        <img src={logoB} alt="" />
+                        <IoClose className="close-icon" onClick={toggleMenu} />
+                    </div>
 
-    <div className="sidebar-icons">
-      <img src={search} alt="Search" />
-      <img src={profile} alt="Profile" />
-      <img src={heart} alt="Favorites" />
-      <img src={cart} alt="Cart" />
-    </div>
-  </div>
-)}
+                    <ul className="sidebar-links">
+                        <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
+                        <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
+                        <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
+                        <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
+                        <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
+                        <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
+                    </ul>
+
+                    <div className="sidebar-icons">
+                        <img src={search} alt="Search" />
+                        <img src={profile} alt="Profile" />
+                        <img src={heart} alt="Favorites" />
+                        <Link to='/cart'>
+                            <img src={cart} alt="Cart" />
+                        </Link>
+                    </div>
+                </div>
+            )}
 
         </header>
     );

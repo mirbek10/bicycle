@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBicycles } from "../../store/bikeSlice";
-import Card from "../Card/Card";
 import './Block3.scss'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -9,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import BikeLoader from "../../shared/loader/BikeLoader";
+import Card from "../Card/Card";
 
 function Block3() {
     const { bicycles, status } = useSelector((state) => state.bike);
@@ -17,10 +17,6 @@ function Block3() {
     useEffect(() => {
         dispatch(fetchBicycles());
     }, [dispatch]);
-
-    useEffect(() => {
-        console.log(bicycles);
-    }, [bicycles]);
     if (status === "loading") {
         return <BikeLoader />;
     }
@@ -54,6 +50,7 @@ function Block3() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                
             
         </div>
     );

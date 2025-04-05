@@ -17,3 +17,15 @@
     width: 1300px;
     margin: 0 auto;
 }
+.color-button{
+    background: #F57520;
+    color: #fff;
+    border: none;
+
+    &:hover{
+    background: #F57F2A;
+    }
+    &:active{
+        background: #E1610C;
+    }
+}
