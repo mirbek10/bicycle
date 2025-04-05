@@ -25,14 +25,14 @@ function Header() {
     const { bicycles } = useSelector(state => state.bike);
     const { accessories } = useSelector(state => state.accessories);
     const { parts } = useSelector(state => state.parts);
-    const { data: equipment } = useSelector(state => state.equipment); // ✅ получаем экипировку
-    const isAuth = useSelector(state => state.auth.isAuthenticated); // Проверяем авторизацию
+    const { data: equipment } = useSelector(state => state.equipment);
+    const isAuth = useSelector(state => state.auth.isAuthenticated);
 
     useEffect(() => {
         dispatch(fetchBicycles());
         dispatch(fetchAccessories());
         dispatch(fetchParts());
-        dispatch(getEquipment()); // ✅
+        dispatch(getEquipment());
     }, [dispatch]);
 
     const toggleMenu = () => {
@@ -52,9 +52,9 @@ function Header() {
 
     const handleProfileClick = () => {
         if (isAuth) {
-            navigate("/profile"); // Перенаправление в личный кабинет
+            navigate("/profile");
         } else {
-            navigate("/signIn"); // Перенаправление на страницу входа
+            navigate("/signIn");
         }
     };
 
@@ -67,7 +67,7 @@ function Header() {
                 <div className="header-right">
                     <div className="main-menu">
                         <ul>
-                            <Link className='main-li' to="/trade-in"><li>Trade In</li></Link>
+                            <Link className='main-li' to="/"><li>Trade In</li></Link>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("bikes")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Велосипеды
                                 {openSubMenu === "bikes" && <ul className="sub-menu">{renderSubMenu(bicycles, "велосипедов")}</ul>}
@@ -78,7 +78,7 @@ function Header() {
                             </li>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("equipment")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Экипировка
-                                {openSubMenu === "equipment" && <ul className='sub-menu'>{renderSubMenu(equipment, "Экипировка")}</ul>}
+                                {openSubMenu === "equipment" && <ul className='sub-menu'>{renderSubMenu(equipment, "экипировки")}</ul>}
                             </li>
                             <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("accessories")} onMouseLeave={() => setOpenSubMenu(null)}>
                                 Аксессуары
@@ -94,17 +94,20 @@ function Header() {
                             <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
                         )}
                         <img src={heart} alt="Favorites" />
-                        <img src={cart} alt="Cart" />
+                        <Link to='/cart'>
+                            <img src={cart} alt="Cart" />
+                        </Link>
                     </div>
                     <div className="header-menu">
                         <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
                     </div>
                 </div>
             </div>
+
             {isMenuOpen && (
                 <div className="sidebar-menu">
                     <div className="sidebar-header">
-                        <img src={logoB} alt="" />
+                        <img src={logoB} alt="Logo Black" />
                         <IoClose className="close-icon" onClick={toggleMenu} />
                     </div>
 
@@ -125,7 +128,9 @@ function Header() {
                             <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
                         )}
                         <img src={heart} alt="Favorites" />
-                        <img src={cart} alt="Cart" />
+                        <Link to='/cart'>
+                            <img src={cart} alt="Cart" />
+                        </Link>
                     </div>
                 </div>
             )}
@@ -134,9 +139,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
-
-
-

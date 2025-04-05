@@ -1,10 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Card.scss';
-import { LuMousePointerClick } from "react-icons/lu";
+import { FaCartArrowDown } from "react-icons/fa";
+import { addToCart } from '../../store/cart/CartSlise';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 
 function Card({el}) {
+    const dispatch = useDispatch();
 
+    const CartAdd = () => {
+        dispatch(addToCart(el));
+        toast.success(`${el.name} добавлен в корзину!`);
+    };
 
 
     return (
@@ -19,9 +27,9 @@ function Card({el}) {
 
             <div className="bike-info">
                 <h2 className="bike-model">{el.name}</h2>
-                <p className="bike-price">{el.price}</p>
+                <p className="bike-price">{el.price}$</p>
             </div>
-                <button> <LuMousePointerClick/> В 1 клик</button>
+                <button onClick={CartAdd}><FaCartArrowDown/>В карзину</button>
         </div>
     );
 }

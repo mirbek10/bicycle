@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Components/Layout/Layout";
 import Home from "../pages/home/Home";
 import WhishList from "../pages/whishList/WhishList";
+import Cart from "../pages/Cart/Cart";
 import Register from "../pages/register/Register";
 import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
@@ -22,6 +23,12 @@ export const myRouter = createBrowserRouter([
                   element: <WhishList/>
              },
              {
+                 path: "/cart",
+                  element: <Cart/>
+             },
+            
+
+            {
                 path: "/register",
                  element: <Register/>
             },
