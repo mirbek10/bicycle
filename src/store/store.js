@@ -5,6 +5,7 @@ import partsReducer from './partsSlice.js';
 import EquipmentReducer from './Equipmentslice/EquipmentSLice.js';
 import CardReducer from './cart/CartSlise.js'
 
+import authReducer from "./authSlice.js"
 const myStore = configureStore({
   reducer: {
     bike: bikeReducer,
@@ -12,6 +13,7 @@ const myStore = configureStore({
     parts: partsReducer,
     equipment: EquipmentReducer,
     cart:CardReducer,
+    auth: authReducer,
   },
 });
 
