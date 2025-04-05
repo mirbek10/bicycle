@@ -12,13 +12,13 @@ import search from "../../assets/svg/search.svg";
 import profile from "../../assets/svg/profile.svg";
 import menuIcon from "../../assets/svg/menu.svg";
 import { IoClose } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.scss';
-
 
 function Header() {
     const dispatch = useDispatch();
-    
+    const navigate = useNavigate();
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenu, setOpenSubMenu] = useState(null);
 
@@ -26,24 +26,18 @@ function Header() {
     const { accessories } = useSelector(state => state.accessories);
     const { parts } = useSelector(state => state.parts);
     const { data: equipment } = useSelector(state => state.equipment); // ✅ получаем экипировку
-    
-    
+    const isAuth = useSelector(state => state.auth.isAuthenticated); // Проверяем авторизацию
+
     useEffect(() => {
         dispatch(fetchBicycles());
         dispatch(fetchAccessories());
         dispatch(fetchParts());
         dispatch(getEquipment()); // ✅
     }, [dispatch]);
-    
 
     const toggleMenu = () => {
-        setIsMenuOpen(prevState => {
-          console.log("Sidebar open state:", !prevState); // Проверяем изменение состояния
-          return !prevState;
-        });
-      };
-      
-    console.log(isMenuOpen)
+        setIsMenuOpen(prevState => !prevState);
+    };
 
     const toggleSubMenuInHeader = (menuId) => {
         setOpenSubMenu(openSubMenu === menuId ? null : menuId);
@@ -54,6 +48,14 @@ function Header() {
             return <li className="no-data">{`Нет доступных ${categoryName}`}</li>;
         }
         return data.map(item => <li key={item.id}>{item.name}</li>);
+    };
+
+    const handleProfileClick = () => {
+        if (isAuth) {
+            navigate("/profile"); // Перенаправление в личный кабинет
+        } else {
+            navigate("/signIn"); // Перенаправление на страницу входа
+        }
     };
 
     return (
@@ -86,45 +88,53 @@ function Header() {
                     </div>
                     <div className="logo-menu">
                         <img src={search} alt="Search" />
-                        <Link to="/register"><img src={profile} alt="Profile" /></Link>
+                        {isAuth ? (
+                            <img src={profile} alt="Profile" onClick={handleProfileClick} />
+                        ) : (
+                            <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
+                        )}
                         <img src={heart} alt="Favorites" />
                         <img src={cart} alt="Cart" />
                     </div>
                     <div className="header-menu">
-  <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
-</div>
+                        <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
+                    </div>
                 </div>
             </div>
             {isMenuOpen && (
-  <div className="sidebar-menu">
-    <div className="sidebar-header">
-        <img src={logoB} alt="" />
-      <IoClose className="close-icon" onClick={toggleMenu} />
-    </div>
-    
-    <ul className="sidebar-links">
-      <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
-      <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
-      <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
-      <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
-      <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
-      <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
-    </ul>
+                <div className="sidebar-menu">
+                    <div className="sidebar-header">
+                        <img src={logoB} alt="" />
+                        <IoClose className="close-icon" onClick={toggleMenu} />
+                    </div>
 
-    <div className="sidebar-icons">
-      <img src={search} alt="Search" />
-      <img src={profile} alt="Profile" />
-      <img src={heart} alt="Favorites" />
-      <img src={cart} alt="Cart" />
-    </div>
-  </div>
-)}
+                    <ul className="sidebar-links">
+                        <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
+                        <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
+                        <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
+                        <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
+                        <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
+                        <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
+                    </ul>
 
+                    <div className="sidebar-icons">
+                        <img src={search} alt="Search" />
+                        {isAuth ? (
+                            <img src={profile} alt="Profile" onClick={handleProfileClick} />
+                        ) : (
+                            <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
+                        )}
+                        <img src={heart} alt="Favorites" />
+                        <img src={cart} alt="Cart" />
+                    </div>
+                </div>
+            )}
         </header>
     );
 }
 
 export default Header;
+
 
 
 
