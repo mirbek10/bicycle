@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '/src/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import EyeToggle from '../../Components/eye-password/EyeToggle';
 import './register.scss';
 
 function Register() {
@@ -120,9 +120,7 @@ function Register() {
                 value={password}
                 type={showPassword ? 'text' : 'password'}
               />
-              <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <FaEye /> : <FaEyeSlash />}
-              </span>
+              <EyeToggle className="eye-icon" showPassword={showPassword} togglePassword={() => setShowPassword(!showPassword)} />
             </div>
           </div>
           {passwordError && <p className="error-message">{passwordError}</p>}
@@ -138,9 +136,7 @@ function Register() {
                 value={confirmPassword}
                 type={showConfirmPassword ? 'text' : 'password'}
               />
-              <span className="eye-icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
-                {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
-              </span>
+              <EyeToggle className="eye-icon" showPassword={showConfirmPassword} togglePassword={() => setShowConfirmPassword(!showConfirmPassword)} />
             </div>
           </div>
           {confirmPasswordError && <p className="error-message">{confirmPasswordError}</p>}
@@ -158,4 +154,5 @@ function Register() {
 }
 
 export default Register;
+
 

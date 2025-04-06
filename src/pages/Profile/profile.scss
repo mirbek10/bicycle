@@ -1,4 +1,261 @@
-.profile{
-    margin-top: 100px;
-    
-}
+.account-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 200px;
+    margin-top: 150px;
+    // width: 100%;
+  
+    .account-menu {
+      width: 290px;
+      height: 418px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+  
+      h2 {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: 1%;
+        text-align: left;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+  
+        li {
+          color: rgb(16, 16, 16);
+          font-family: Inter;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+          cursor: pointer;
+          transition: background 0.3s ease;
+          border-radius: 10px;
+          padding: 16px;
+          width: 290px;
+  
+          &.active,
+          &:hover {
+            background: rgb(245, 117, 32);
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  
+    .account-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+  
+      h2 {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 123%;
+        letter-spacing: 5%;
+        text-align: left;
+      }
+  
+      .account-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+  
+        input {
+          padding: 15px;
+          border-radius: 10px;
+          background: rgb(248, 248, 248);
+          border: none;
+          outline: none;
+        }
+  
+        .form-row {
+          display: flex;
+          gap: 16px;
+  
+          input {
+            flex: 1;
+          }
+        }
+  
+        button {
+          width: fit-content;
+          background-color: #ff6600;
+          color: #fff;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+          width: 180px;
+height: 46px;
+  
+          &:hover {
+            background-color: #e65500;
+          }
+        }
+      }
+    }
+    .password-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 36px;
+      h2{
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 123%;
+        letter-spacing: 5%;
+        text-align: left;
+      }
+      .password-form{
+        display: flex;
+      flex-direction: column;
+        gap: 16px;
+        .password-wrapper {
+          position: relative;
+        
+          .password-eye {
+            position: absolute;
+            right: 15px; // Добавил отступ, если нужно
+            top: 50%; // Чтобы глаз был по центру
+            transform: translateY(-50%); // Для точного выравнивания по центру
+          }
+        
+          input{
+            border-radius: 10px;
+            background: rgb(248, 248, 248);
+            width: 620px;
+            height: 58px;
+            padding: 15px;
+            border: none;
+            outline: none;
+          }
+        }
+      }
+      button {
+        width: fit-content;
+        background-color: #ff6600;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 180px;
+        height: 46px;
+        
+        &:hover {
+          background-color: #e65500;
+        }
+      }
+
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .account-container {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+  
+      .account-menu {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+  
+      .account-content {
+        width: 100%;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .account-container {
+      padding: 15px;
+      margin-top: 80px;
+    }
+    .account-content{
+        margin-top: 50px;
+    }
+  
+    .account-form {
+      .form-row {
+        flex-direction: column;
+        gap: 10px;
+  
+        input {
+          width: 100%;
+        }
+      }
+  
+      input {
+        font-size: 14px;
+        padding: 10px;
+      }
+  
+      button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  
+    .account-menu {
+      h2 {
+        font-size: 20px;
+      }
+  
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        li {
+          font-size: 16px;
+          padding: 10px;
+          text-align: center;
+        }
+      }
+    }
+  
+    .account-content h2 {
+      font-size: 22px;
+      text-align: center;
+    }
+  }
+  
+
+  @media screen and (max-width: 480px) {
+    .account-form input {
+      font-size: 13px;
+      padding: 8px;
+    }
+  
+    .account-menu li {
+      font-size: 14px;
+    }
+  
+    .account-content h2 {
+      font-size: 20px;
+    }
+  }
+  
