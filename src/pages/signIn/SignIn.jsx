@@ -37,7 +37,7 @@ function SignIn() {
     if (!validateForm()) return;
 
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password);
+      const res = await signInWithEmailAndPassword(auth, email.trim(), password);
       console.log(res);
 
       const userData = {
@@ -58,6 +58,8 @@ function SignIn() {
       console.error(error);
       if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
         toast.error('Неправильный email или пароль');
+      } else if (error.code === 'auth/invalid-credential') {
+        toast.error('Некорректные учетные данные. Проверьте ваш email и пароль.');
       } else {
         toast.error('Ошибка входа: ' + error.message);
       }
@@ -113,6 +115,7 @@ function SignIn() {
 }
 
 export default SignIn;
+
 
 
 

@@ -1,81 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .contacts {
   display: flex;
   flex-direction: column;
   gap: 45px;
   margin-top: 80px;
-    .contacts-title {
-color: rgb(16, 16, 16);
-font-family: Bebas Neue Cyrillic;
-font-size: 64px;
-font-weight: 400;
-line-height: 123%;
-letter-spacing: 5%;
-text-align: left;
-    }
-    .contacts-content{
-        display: flex;
-        flex-direction: column;
-        gap: 38px;
 
-            
+  .contacts-title {
+    color: rgb(16, 16, 16);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 123%;
+    letter-spacing: 5%;
+    text-align: left;
+  }
+
+  .contacts-content {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .map-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .map {
+      width: 100%;
+      max-width: 1920px;
+      height: 500px;
     }
-    .map-content {
-        width: 100%;
-        .map{
-            width: 100%;
-          max-width:1920px;
-          height: 500px;
-      }
-    }
-  
-    .contact-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      
-  
-      .info-item {
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info-item {
       display: flex;
       justify-content: center;
       gap: 16px;
-        P {
-         color: rgb(16, 16, 16);
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 160%;
-  letter-spacing: 0%;
-  text-align: left;
+
+      p {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
       }
-      img{
+
+      img {
         width: 32px;
         height: 32px;
         display: flex;
         align-items: center;
       }
-  
-      }
     }
-  
   }
-  
-  // Media Queries for mobile
+
   @media (max-width: 768px) {
     .contacts-title {
-      font-size: 24px; // Smaller title on mobile
+      font-size: 24px;
     }
-  
+
     .contact-info {
-      flex-direction: column; // Stack items vertically on smaller screens
-      align-items: center; // Center the items
-    }
-  
-    .info-item {
-      font-size: 16px; // Slightly smaller text
-      margin: 10px 0; // Adjust margin for mobile
+      
+      flex-direction: column;
+      align-items: last baseline;
+      justify-content: center;
+
+      .info-item {
+        font-size: 16px;
+        margin: 10px 0;
+      }
     }
   }
+}
+
   
   
   

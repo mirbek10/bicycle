@@ -8,7 +8,9 @@ import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
 import Catalog from "../pages/catalog/Catalog";
-
+import ForgotPassword from "../pages/forgetPassword/ForgotPassword";
+import EmailSent from "../pages/emailSend/EmailSent";
+import ResetPassword from "../pages/ressetPassword/RessetPassword";
 
 export const myRouter = createBrowserRouter([
     {
@@ -49,6 +51,19 @@ export const myRouter = createBrowserRouter([
                 path: "/catalog",
                  element: <Catalog/>
             },            
+            {
+                 path: "/forgot-password",
+                  element: <ForgotPassword />
+             },
+             {
+                path: "/email-sent",
+                 element: <EmailSent />
+             },
+             {
+                path: "/reset-password",
+                 element: <ResetPassword />
+             },    
+
         ]
     }
 ])
