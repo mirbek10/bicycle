@@ -113,7 +113,7 @@ function Header() {
 
                     <ul className="sidebar-links">
                         <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
-                        <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
+                        <li><Link to="/catalog" className='sid-link'>Велосипеды</Link></li>
                         <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
                         <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
                         <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>

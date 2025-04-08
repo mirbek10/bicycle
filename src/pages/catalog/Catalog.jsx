@@ -10,6 +10,7 @@ import ProductList from '../../Components/ProducList/ProductList'
 import Banner from '../../Components/banner/Banner'
 import { CiFilter } from "react-icons/ci"
 import { IoClose } from "react-icons/io5"
+import NotFoundMessage from './notFound/NoteFound'
 
 
 
@@ -164,7 +165,6 @@ const Catalog = () => {
     <>
       <Banner />
       <div className='all-catalog'>
-        {/* Overlay для мобильной версии */}
         <div
           className={`filter-overlay ${open ? 'active' : ''}`}
           onClick={() => setOpen(false)}
@@ -276,7 +276,7 @@ const Catalog = () => {
           {filteredProducts.length > 0 ? (
             <ProductList data={filteredProducts} />
           ) : (
-            <p>Товары не найдены. Измените параметры фильтрации.</p>
+           <NotFoundMessage/>
           )}
         </div>
       </div>
