@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
-import { auth } from "../../firebase";  // Убедитесь, что путь правильный
+import { auth } from "../../firebase"; 
 import { toast } from "react-toastify";
 
 const ResetPassword = () => {
@@ -28,10 +28,10 @@ const ResetPassword = () => {
   
     setOobCode(code);
   
-    // Проверка действительности кода сброса пароля
+
     verifyPasswordResetCode(auth, code)
       .then(() => {
-        // Код действителен
+ 
       })
       .catch((err) => {
         setError("Недействительный код сброса пароля.");
@@ -45,7 +45,7 @@ const ResetPassword = () => {
     try {
       await confirmPasswordReset(auth, oobCode, newPassword);
       toast.success("Пароль успешно сброшен!");
-      navigate("/signin");  // Перенаправление на страницу входа
+      navigate("/signin"); 
     } catch (err) {
       console.error(err);
       setError("Ошибка при сбросе пароля. Попробуйте снова.");

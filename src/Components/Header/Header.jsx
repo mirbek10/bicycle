@@ -118,6 +118,13 @@ function Header() {
                         <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
                         <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
                         <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
+                        <li><Link to="/aboutUs" className='sid-link'>О нас</Link></li>
+                        <li><Link to="/contacts" className='sid-link'>Контакты</Link></li>
+                        <li><Link to="/workshop" className='sid-link'>Веломастерская</Link></li>
+                        <li><Link to="/storage" className='sid-link'>Хранение</Link></li>
+                        <li><Link to="/guarantees" className='sid-link'>Гарантии</Link></li>
+                        <li><Link to="/deliveryPayment" className='sid-link'>Доставка и оплата</Link></li>
+                        <li><Link to="/userAgreement" className='sid-link'>Пользовательское соглашение</Link></li>
                     </ul>
 
                     <div className="sidebar-icons">
