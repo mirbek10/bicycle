@@ -7,6 +7,7 @@ import Register from "../pages/register/Register";
 import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
+import Catalog from "../pages/catalog/Catalog";
 
 
 export const myRouter = createBrowserRouter([
@@ -43,6 +44,10 @@ export const myRouter = createBrowserRouter([
                     <Profile />
                   </PrivateRoute>
                 ),
+            },
+            {
+                path: "/catalog",
+                 element: <Catalog/>
             },            
         ]
     }
