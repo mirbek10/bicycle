@@ -1,0 +1,46 @@
+.catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    gap: 1px 10px;
+
+    .filters-section {
+        flex: 0 0 250px;
+        max-width: 250px;
+    }
+
+    .products-section {
+        flex: 1;
+        max-width: calc(100% - 260px); 
+    }
+
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+
+        .filters-section {
+            flex: 1;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .products-section {
+            flex: 1;
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding: 10px;
+
+        .filters-section {
+            order: 2;
+        }
+
+        .products-section {
+            order: 1;
+        }
+    }
+}

@@ -1,15 +1,13 @@
-// src/store/partsSlice.js
+
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Async action для получения данных о запчастях
 export const fetchParts = createAsyncThunk('parts/fetchParts', async () => {
   const response = await axios.get('https://67d015f4823da0212a848a3b.mockapi.io/bicycleProduct?category=%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D1%8C');
   return response.data;
 });
 
-// Создаем slice для запчастей
 const partsSlice = createSlice({
   name: 'parts',
   initialState: {
