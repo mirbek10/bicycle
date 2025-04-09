@@ -67,23 +67,14 @@ function Header() {
                 <div className="header-right">
                     <div className="main-menu">
                         <ul>
-                            <Link className='main-li' to="/"><li>Trade In</li></Link>
-                            <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("bikes")} onMouseLeave={() => setOpenSubMenu(null)}>
-                                Велосипеды
-                                {openSubMenu === "bikes" && <ul className="sub-menu">{renderSubMenu(bicycles, "велосипедов")}</ul>}
-                            </li>
-                            <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("parts")} onMouseLeave={() => setOpenSubMenu(null)}>
-                                Запчасти
-                                {openSubMenu === "parts" && <ul className="sub-menu">{renderSubMenu(parts, "запчастей")}</ul>}
-                            </li>
-                            <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("equipment")} onMouseLeave={() => setOpenSubMenu(null)}>
-                                Экипировка
-                                {openSubMenu === "equipment" && <ul className='sub-menu'>{renderSubMenu(equipment, "экипировки")}</ul>}
-                            </li>
-                            <li className='main-li' onMouseEnter={() => toggleSubMenuInHeader("accessories")} onMouseLeave={() => setOpenSubMenu(null)}>
-                                Аксессуары
-                                {openSubMenu === "accessories" && <ul className="sub-menu">{renderSubMenu(accessories, "аксессуаров")}</ul>}
-                            </li>
+                            <Link to='/'><li className='main-li'>Главное</li></Link>
+                            <Link><li className='main-li'>О нас</li></Link>
+                            <Link><li className='main-li'>Веломастерская</li></Link>
+                            <Link><li className='main-li'>Гарантии</li></Link>
+                            <Link><li className='main-li'>Пользовательское соглашение</li></Link>
+                            <Link><li className='main-li'>Доставка и оплата</li></Link>
+                            <Link><li className='main-li'>Блог</li></Link>
+                            <Link><li className='main-li'>Контакты</li></Link>
                         </ul>
                     </div>
                     <div className="logo-menu">
@@ -104,28 +95,25 @@ function Header() {
                 </div>
             </div>
 
-            {isMenuOpen && (
-                <div className="sidebar-menu">
+            
+                <div className={`sidebar-menu ${isMenuOpen ? 'active':''}`}>
                     <div className="sidebar-header">
                         <img src={logoB} alt="Logo Black" />
                         <IoClose className="close-icon" onClick={toggleMenu} />
                     </div>
 
                     <ul className="sidebar-links">
-                        <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
-                        <li><Link to="/catalog" className='sid-link'>Велосипеды</Link></li>
-                        <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
-                        <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
-                        <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
-                        <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
-                        <li><Link to="/aboutUs" className='sid-link'>О нас</Link></li>
-                        <li><Link to="/contacts" className='sid-link'>Контакты</Link></li>
-                        <li><Link to="/workshop" className='sid-link'>Веломастерская</Link></li>
-                        <li><Link to="/storage" className='sid-link'>Хранение</Link></li>
-                        <li><Link to="/guarantees" className='sid-link'>Гарантии</Link></li>
-                        <li><Link to="/deliveryPayment" className='sid-link'>Доставка и оплата</Link></li>
-                        <li><Link to="/userAgreement" className='sid-link'>Пользовательское соглашение</Link></li>
-                    </ul>
+
+                        <li><Link to="/" className='sid-link'>О нас</Link></li>
+                        <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
+                        <li><Link to="/" className='sid-link'>Хранение</Link></li>
+                        <li><Link to="/" className='sid-link'>Гарантии</Link></li>
+                        <li><Link to="/" className='sid-link'>Пользовательское соглашение</Link></li>
+                        <li><Link to="/" className='sid-link'>Доставка и оплата</Link></li>
+                        <li><Link to="/" className='sid-link'>Блог</Link></li>
+                        <li><Link to="/" className='sid-link'>Контакты</Link></li>
+
+         </ul>
 
                     <div className="sidebar-icons">
                         <img src={search} alt="Search" />
@@ -140,7 +128,7 @@ function Header() {
                         </Link>
                     </div>
                 </div>
-            )}
+          
         </header>
     );
 }
