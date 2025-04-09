@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../store/authSlice"; 
 import { useNavigate } from 'react-router-dom';
 import Userinfo from './Userinfo';
-import OrderHistory from './OrderHistory';  // Пример компонента для истории заказов
-import ChangePassword from './ChangePassword';  // Пример компонента для смены пароля
+import OrderHistory from './OrderHistory';
+import ChangePassword from './ChangePassword';  
 import "./profile.scss";
 
 function Profile() {

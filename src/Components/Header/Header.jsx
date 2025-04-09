@@ -103,6 +103,7 @@ function Header() {
                     </div>
 
                     <ul className="sidebar-links">
+
                         <li><Link to="/" className='sid-link'>О нас</Link></li>
                         <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
                         <li><Link to="/" className='sid-link'>Хранение</Link></li>
@@ -111,7 +112,8 @@ function Header() {
                         <li><Link to="/" className='sid-link'>Доставка и оплата</Link></li>
                         <li><Link to="/" className='sid-link'>Блог</Link></li>
                         <li><Link to="/" className='sid-link'>Контакты</Link></li>
-                    </ul>
+
+         </ul>
 
                     <div className="sidebar-icons">
                         <img src={search} alt="Search" />
