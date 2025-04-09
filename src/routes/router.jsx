@@ -6,6 +6,7 @@ import Register from "../pages/register/Register";
 import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
+import About from "../pages/about/About";
 
 
 export const myRouter = createBrowserRouter([
@@ -16,6 +17,10 @@ export const myRouter = createBrowserRouter([
             { 
                 path: "/", 
                 element: <Home/> 
+            },
+            {
+                path: "/about",
+                 element: <About/>
             },
             {
                  path: "/whishList",
