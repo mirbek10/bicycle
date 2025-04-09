@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '/src/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import EyeToggle from '../../Components/eye-password/EyeToggle';
 import './register.scss';
 
 function Register() {
@@ -17,11 +17,13 @@ function Register() {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [username, setUsername] = useState('');
   const [usernameError, setUsernameError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
-    if (!email.includes('@')) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
       setEmailError('Пожалуйста, введите корректный email');
       return false;
     }
@@ -48,30 +50,73 @@ function Register() {
   };
 
   const validateUsername = (username) => {
-    if (!username) {
+    if (!username.trim()) {
       setUsernameError('Имя пользователя не может быть пустым');
+      return false;
+    }
+    if (username.length < 3) {
+      setUsernameError('Имя пользователя должно содержать минимум 3 символа');
       return false;
     }
     setUsernameError('');
     return true;
   };
 
-  const handleCreateUser = async () => {
-    if (!validateEmail(email) || !validatePassword(password) || !validateConfirmPassword(confirmPassword) || !validateUsername(username)) {
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+
+    if (!validateEmail(email) ||
+      !validatePassword(password) ||
+      !validateConfirmPassword(confirmPassword) ||
+      !validateUsername(username)) {
       toast.error('Пожалуйста, исправьте ошибки перед регистрацией');
       return;
     }
 
+    setIsLoading(true);
+
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(res);
-      if (res) {
-        toast.success('Пользователь успешно создан');
-        navigate('/profile');
-      }
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      await sendEmailVerification(userCredential.user, {
+        url: `${window.location.origin}/email-verified`,
+        handleCodeInApp: true,
+      });
+
+      toast.success(
+        <div>
+          <p>Регистрация прошла успешно!</p>
+          <p>Письмо с подтверждением отправлено на {email}</p>
+        </div>,
+        { autoClose: 5000 }
+      );
+
+      navigate('/verify-email-message', {
+        state: { email }
+      });
+
     } catch (error) {
-      console.log(error);
-      toast.error(error.message);
+      console.error('Ошибка регистрации:', error);
+
+      let errorMessage = 'Ошибка при регистрации';
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          errorMessage = 'Этот email уже используется';
+          break;
+        case 'auth/invalid-email':
+          errorMessage = 'Неверный формат email';
+          break;
+        case 'auth/weak-password':
+          errorMessage = 'Пароль слишком слабый';
+          break;
+        case 'auth/operation-not-allowed':
+          errorMessage = 'Регистрация временно недоступна';
+          break;
+      }
+
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -82,80 +127,101 @@ function Register() {
           <h1 className="reg-btn">Регистрация</h1>
           <Link to="/signIn" className="sign-btn">Войти</Link>
         </div>
-        <div className="register-inputs">
+
+        <form onSubmit={handleCreateUser} className="register-inputs">
           <div className="register-input">
             <p>Имя пользователя</p>
             <input
+              id="username"
               type="text"
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value);
                 validateUsername(e.target.value);
               }}
+              disabled={isLoading}
             />
+            {usernameError && <p className="error-message">{usernameError}</p>}
           </div>
-          {usernameError && <p className="error-message">{usernameError}</p>}
 
           <div className="register-input">
             <p>E-mail</p>
             <input
+              id="email"
               onChange={(e) => {
                 setEmail(e.target.value);
                 validateEmail(e.target.value);
               }}
               value={email}
               type="email"
+              disabled={isLoading}
             />
+            {emailError && <p className="error-message">{emailError}</p>}
           </div>
-          {emailError && <p className="error-message">{emailError}</p>}
 
           <div className="register-input">
             <p>Пароль</p>
             <div className="password-wrapper">
               <input
+                id="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                   validatePassword(e.target.value);
                 }}
                 value={password}
                 type={showPassword ? 'text' : 'password'}
+                disabled={isLoading}
               />
-              <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
-                {showPassword ? <FaEye /> : <FaEyeSlash />}
-              </span>
+              <EyeToggle className="eye-icon" showPassword={showPassword} togglePassword={() => setShowPassword(!showPassword)} />
             </div>
+            {passwordError && <p className="error-message">{passwordError}</p>}
           </div>
-          {passwordError && <p className="error-message">{passwordError}</p>}
 
           <div className="register-input">
             <p>Подтвердите пароль</p>
             <div className="password-wrapper">
               <input
+                id="confirmPassword"
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
                   validateConfirmPassword(e.target.value);
                 }}
                 value={confirmPassword}
                 type={showConfirmPassword ? 'text' : 'password'}
+                disabled={isLoading}
               />
-              <span className="eye-icon" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
-                {showConfirmPassword ? <FaEye /> : <FaEyeSlash />}
-              </span>
+              <EyeToggle
+                className="eye-icon"
+                showPassword={showConfirmPassword}
+                togglePassword={() => setShowConfirmPassword(!showConfirmPassword)}
+              />
             </div>
+            {confirmPasswordError && <p className="error-message">{confirmPasswordError}</p>}
           </div>
-          {confirmPasswordError && <p className="error-message">{confirmPasswordError}</p>}
 
           <div className="register-short">
-            <button onClick={handleCreateUser} disabled={emailError || passwordError || confirmPasswordError || usernameError}>
-              Регистрация
+            <button
+              type="submit"
+              disabled={
+                isLoading ||
+                emailError ||
+                passwordError ||
+                confirmPasswordError ||
+                usernameError ||
+                !email ||
+                !password ||
+                !confirmPassword ||
+                !username
+              }
+            >
+              {isLoading ? 'Регистрация...' : 'Регистрация'}
             </button>
-            <p>Уже регистрировались? <Link to="/signIn"> Войти</Link></p>
+            <p>Уже регистрировались? <Link to="/signIn">Войти</Link></p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
 }
 
 export default Register;
-

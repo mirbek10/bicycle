@@ -47,13 +47,10 @@ const Banner = () => {
         <>
       <div className="movie-carousel">
         <div className="carousel-container">
-          {/* Фоновое изображение */}
           <div 
             className="slide-background"
             style={{ backgroundImage: `url(${currentSlide.image})` }}
           />
-  
-          {/* Контент */}
           <div className="slide-content">
            
             <h1 className="slide-title">{currentSlide.title}</h1>
@@ -66,7 +63,6 @@ const Banner = () => {
             
           </div>
   
-          {/* Индикаторы слайдов */}
           <div className="slide-indicators">
             {slides.map((_, index) => (
               <div
@@ -78,7 +74,6 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <BannerCart/>
         </>
     );
   };

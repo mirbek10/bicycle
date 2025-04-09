@@ -202,7 +202,138 @@
             text-transform: uppercase;
         }
     }
+
+    @keyframes fadeInError {
+      from {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .error-text {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+      animation: fadeInError 0.3s ease-out forwards;
+    }
+    
+    @keyframes fadeInModal {
+      from {
+        opacity: 0;
+        transform: translateY(-10px); 
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleUp {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeInModal 0.3s ease-out forwards; 
+    
+      @media (max-width: 600px) {
+        .modal-content {
+          width: 85%; 
+          padding: 20px;
+          font-size: 14px;
+        }
+    
+        .close {
+          font-size: 20px; 
+        }
+    
+        .success-icon {
+          font-size: 80px; 
+        }
+      }
+    
+      @media (max-width: 768px) {
+        .modal-content {
+          width: 70%;
+          padding: 25px;
+        }
+    
+        .close {
+          font-size: 22px; 
+        }
+    
+        .success-icon {
+          font-size: 90px; 
+        }
+      }
+    
+      @media (max-width: 1280px) {
+        .modal-content {
+          width: 50%; 
+          padding: 30px;
+        }
+    
+        .success-icon {
+          font-size: 100px; 
+        }
+      }
+    
+      .modal-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        width: 300px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: scaleUp 0.3s ease-out forwards; 
+    
+        .success-icon {
+          color: orange;
+          font-size: 120px;
+        }
+      }
+    
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333; 
+        transition: color 0.3s ease;
+    
+        &:hover {
+          color: red; 
+        }
+      }
+    }
+    
+
 }
+
 
 @media (max-width: 1024px) {
     .footer {
@@ -216,7 +347,7 @@
           text-align: center;
           
           h1 {
-            font-size: 2rem; /* adjust font size */
+            font-size: 2rem; 
             line-height: 1.3;
           }
   
