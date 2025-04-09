@@ -8,7 +8,7 @@ import "./Layout.scss";
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 2, y: -10 },
+  // exit: { opacity: 1, y: -10 },
 };
 
 const Layout = () => {
