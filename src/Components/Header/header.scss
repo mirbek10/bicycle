@@ -49,10 +49,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px;
+    gap: 60px;
 
     @media (max-width: 1300px) {
-      gap: 30px;
+      gap: 25px;
     }
 
     @media (max-width: 770px) {
@@ -69,9 +69,10 @@
       ul {
         display: flex;
         list-style: none;
-        gap: 35px;
+        gap: 20px;
         padding: 0;
         margin: 0;
+        text-decoration: none;
 
         @media (max-width: 1300px) {
           gap: 10px;
@@ -80,11 +81,11 @@
         .main-li {
           color: #fff;
           font-family: Inter;
-          font-size: 12px;
-          font-weight: 400;
-          line-height: 160%;
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 260%;
           text-transform: uppercase;
-          transition: 0.3s;
+          transition:all 0.3s ease;
           text-decoration: none;
 
           &:hover {
@@ -92,9 +93,12 @@
             color: rgb(245, 117, 32);
           }
         }
+        a{
+          text-decoration-line: none;
+        }
       }
 
-      @media (max-width: 1124px) {
+      @media (max-width: 1224px) {
         display: none;
       }
     }
@@ -128,6 +132,11 @@
       width: 32px;
       height: 26px;
       cursor: pointer;
+      display: none;
+
+      @media (max-width: 1224px) {
+        display: block;
+      }
 
       @media (max-width: 768px) {
         width: 28px;
@@ -137,6 +146,7 @@
       @media (max-width: 480px) {
         width: 24px;
         height: 20px;
+        display: block;
       }
     }
   }
@@ -187,7 +197,7 @@
   .sidebar-menu {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -1000px;
     width: 360px;
     height: 100vh;
     background: white;
@@ -201,6 +211,7 @@
     overflow-y: auto;
     gap: 30px;
     z-index: 1001;
+    transition: all 0.5s ease;
 
     @media (max-width: 480px) {
       width: 100%;
@@ -307,6 +318,10 @@
         gap: 20px;
       }
     }
+  }
+  .active{
+    right: 0;
+    transition: all 0.5s ease;
   }
 
   // Мобильная адаптация общего блока
