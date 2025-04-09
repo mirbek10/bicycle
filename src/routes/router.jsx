@@ -11,6 +11,8 @@ import Catalog from "../pages/catalog/Catalog";
 import ForgotPassword from "../pages/forgetPassword/ForgotPassword";
 import EmailSent from "../pages/emailSend/EmailSent";
 import ResetPassword from "../pages/ressetPassword/RessetPassword";
+import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
+import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
 
 export const myRouter = createBrowserRouter([
     {
@@ -63,6 +65,14 @@ export const myRouter = createBrowserRouter([
                 path: "/reset-password",
                  element: <ResetPassword />
              },    
+             {
+                path: "/verify-email-message",
+                element:<VerifyEmailMessage/>
+             },
+             {
+                path: "/resend-verification",
+                element:<EmailVerified/>
+             }
 
         ]
     }
