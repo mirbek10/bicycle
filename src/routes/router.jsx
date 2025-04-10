@@ -7,12 +7,17 @@ import Register from "../pages/register/Register";
 import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
+
+import About from "../pages/about/About";
+
+
 import Catalog from "../pages/catalog/Catalog";
 import ForgotPassword from "../pages/forgetPassword/ForgotPassword";
 import EmailSent from "../pages/emailSend/EmailSent";
 import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
+
 
 export const myRouter = createBrowserRouter([
     {
@@ -22,6 +27,10 @@ export const myRouter = createBrowserRouter([
             { 
                 path: "/", 
                 element: <Home/> 
+            },
+            {
+                path: "/about",
+                 element: <About/>
             },
             {
                  path: "/whishList",
