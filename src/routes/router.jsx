@@ -14,6 +14,10 @@ import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
 
+import About from "../pages/about/About";
+
+
+
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +26,10 @@ export const myRouter = createBrowserRouter([
             { 
                 path: "/", 
                 element: <Home/> 
+            },
+            {
+                path: "/about",
+                 element: <About/>
             },
             {
                  path: "/whishList",

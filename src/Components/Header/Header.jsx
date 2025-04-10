@@ -45,7 +45,7 @@ function Header() {
 
     const renderSubMenu = (data, categoryName) => {
         if (data.length === 0) {
-            return <li className="no-data">{`Нет доступных ${categoryName}`}</li>;
+            return <li className="no-data">Нет доступных {categoryName}</li>;
         }
         return data.map(item => <li key={item.id}>{item.name}</li>);
     };
@@ -103,6 +103,7 @@ function Header() {
                     </div>
 
                     <ul className="sidebar-links">
+<<<<<<< HEAD
 
                         <li><Link to="/" className='sid-link'>О нас</Link></li>
                         <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
@@ -114,6 +115,19 @@ function Header() {
                         <li><Link to="/" className='sid-link'>Контакты</Link></li>
 
          </ul>
+=======
+                        <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
+                        <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
+                        <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
+                        <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
+                        <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
+                        <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
+                        <li><Link to="/about" className='sid-link'>About</Link></li>
+
+                    </ul>
+>>>>>>> about
+
+                 
 
                     <div className="sidebar-icons">
                         <img src={search} alt="Search" />
@@ -133,4 +147,8 @@ function Header() {
     );
 }
 
+<<<<<<< HEAD
 export default Header;
+=======
+export default Header;
+>>>>>>> about
