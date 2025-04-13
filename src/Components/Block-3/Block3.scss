@@ -12,17 +12,19 @@
         
     }
     .title{
-        text-align: center;
-        font-size: 2rem;
+      color: rgb(16, 16, 16);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 123%;
+      letter-spacing: 5%;
+        text-align: left;
         margin-bottom: 20px;
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
-        color: #000;
         transition: all 0.3s ease;
         margin: 0 auto;
         &:hover{
             color: #E1610C;
-            font-weight: 600;
+            font-weight: 500;
             
         }
     }

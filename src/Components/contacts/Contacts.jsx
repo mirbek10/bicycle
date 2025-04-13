@@ -1,5 +1,5 @@
 import React from "react";
-import "./contact.scss";
+import "./contacts.scss";
 import phone from "../../assets/svg/orangeP.svg"
 import day from "../../assets/svg/day.svg"
 import email from "../../assets/svg/emailO.svg"
@@ -8,7 +8,7 @@ import locale from "../../assets/svg/localeO.svg"
 const Contacts = () => {
   return (
     <section className="contacts">
-      <h2 className="contacts-title container">КОНТАКТЫ</h2>
+      <h1 className="contacts-title container">КОНТАКТЫ</h1>
 <div className="contacts-content">
       <div className="map-content">
       <iframe
