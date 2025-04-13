@@ -50,16 +50,63 @@
     font-size: 16px;
     color: #555;
     overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.5s ease; /* Плавные переходы для max-height и opacity */
+    transition: max-height 0.5s ease, opacity 0.5s ease; 
   }
   
   .faq-item.open .faq-answer {
-    max-height: 200px;  /* Ограничение по высоте */
+    max-height: 200px;  
     opacity: 1;
     padding: 12px 24px;
   }
+  .faq-service-list {
+    margin-top: 12px;
+    list-style: none;
+    padding: 0;
+    max-height: 16  0px; 
+    overflow-y:scroll;
+    scrollbar-width: thin; 
+    scrollbar-color: #ccc transparent;
   
-  /* Убираем правило, которое заставляло вопросы закрываться при отсутствии ховера */
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed #ddd;
+  
+      span {
+        font-size: 16px;
+        color: #444;
+  
+        &:last-child {
+          font-weight: 600;
+          color: #000;
+        }
+      }
+  
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  
+    /* Кастомный скроллбар для WebKit (Chrome, Safari) */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+  }
+  
+  
+  
+  
+
   
   
   
