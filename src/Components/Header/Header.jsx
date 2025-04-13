@@ -70,7 +70,7 @@ function Header() {
                             <Link to='/'><li className='main-li'>Главное</li></Link>
                             <Link to='/about'><li className='main-li'>О нас</li></Link>
                             <Link to='/contact'><li className='main-li'>Контакты</li></Link>
-                            <Link><li className='main-li'>Веломастерская</li></Link>
+                            <Link to='workshop'><li className='main-li'>Веломастерская</li></Link>
                             <Link><li className='main-li'>Гарантии</li></Link>
                             <Link><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>

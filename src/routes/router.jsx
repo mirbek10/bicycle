@@ -16,6 +16,7 @@ import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
 import Contact from "../pages/contact/Contact";
+import Workshop from "../pages/workshop/Workshop";
 
 
 export const myRouter = createBrowserRouter([
@@ -88,6 +89,10 @@ export const myRouter = createBrowserRouter([
              {
                 path: "/contact",
                 element:<Contact/>
+             },
+             {
+                path: "/workshop",
+                element:<Workshop/>
              }
 
         ]

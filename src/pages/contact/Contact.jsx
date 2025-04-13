@@ -4,6 +4,7 @@ import mapBanner from '../../assets/image/NurislamImg/contactBanner.png'
 import messageIMG from '../../assets/image/NurislamImg/orangeB.png'
 import "./contact.scss"
 import BikeBrands from '../../Components/BikeBrand/Bikebrands'
+import { faqs } from '../../data/faqData'
 import FaqList from '../../Components/FaqList/FaqList'
 
 
@@ -117,7 +118,7 @@ function Contact() {
       </div>
       <div className="contact-vopros">
         <h1 className='vapros container'>Часто задаваемые вопросы:</h1>
-        <FaqList/>
+        <FaqList data={faqs}/>
       </div>
       <BikeBrands/>
     </div>
