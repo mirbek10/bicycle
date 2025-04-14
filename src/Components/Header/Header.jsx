@@ -14,6 +14,7 @@ import menuIcon from "../../assets/svg/menu.svg";
 import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import './header.scss';
+import ProductList from '../ProducList/ProductList';
 
 function Header() {
     const dispatch = useDispatch();
@@ -73,7 +74,7 @@ function Header() {
                             <Link><li className='main-li'>Гарантии</li></Link>
                             <Link><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>
-                            <Link><li className='main-li'>Блог</li></Link>
+                            <Link to="/productlist"><li className='main-li'>Блог</li></Link>
                             <Link><li className='main-li'>Контакты</li></Link>
                         </ul>
                     </div>
