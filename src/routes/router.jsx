@@ -9,14 +9,14 @@ import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
 
 import About from "../pages/about/About";
-
-
 import Catalog from "../pages/catalog/Catalog";
 import ForgotPassword from "../pages/forgetPassword/ForgotPassword";
 import EmailSent from "../pages/emailSend/EmailSent";
 import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
+import Contact from "../pages/contact/Contact";
+import Workshop from "../pages/workshop/Workshop";
 
 
 
@@ -84,6 +84,18 @@ export const myRouter = createBrowserRouter([
              {
                 path: "/resend-verification",
                 element:<EmailVerified/>
+             },
+             {
+                path: "/about",
+                element:<About/>
+             },
+             {
+                path: "/contact",
+                element:<Contact/>
+             },
+             {
+                path: "/workshop",
+                element:<Workshop/>
              }
 
         ]

@@ -1,0 +1,491 @@
+.contact-page{
+    display: flex;
+    flex-direction: column;
+    .contact-head {
+        position: relative;
+        img {
+          width: 100%;
+          height: 278px;
+          object-fit: cover;
+          filter: brightness(50%);
+        }
+      
+        .contact-head-text {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      
+          .head-text {
+              display: flex;
+              justify-content: left;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+      
+            .home-link {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            
+            p {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: #FFA500;
+              margin: 0;
+            }
+          }
+      
+          h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 10px;
+            text-align: left;
+          }
+        }
+      }
+    .contact-map{ 
+  .map-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .map {
+      width: 100%;
+      max-width: 1920px;
+      height: 500px;
+    }
+  }
+  
+  .contact-map-content{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      margin-top: 50px;
+  .contactM-part{
+      display: flex;
+      flex-direction: column;
+      align-items:flex-start;
+      .contactM-block{
+          h3{
+                              /* desk mob med 18 */
+              color: rgb(16, 16, 16);
+              font-family: Inter;
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 160%;
+              letter-spacing: 1%;
+              text-align: left;
+          }
+          p{
+              /* desk mob 16 light */
+              color: rgb(16, 16, 16);
+              font-family: Inter;
+              font-size: 16px;
+              font-weight: 300;
+              line-height: 160%;
+              letter-spacing: 0%;
+              text-align: left;
+          }
+      }
+  }
+  .contactM-part2{
+      display: flex;
+      flex-direction: column;
+      .contactM-block2{
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 37px;
+          p{
+
+color: rgb(119, 119, 119);
+font-family: Inter;
+font-size: 16px;
+font-weight: 300;
+line-height: 160%;
+letter-spacing: 0%;
+text-align: left;
+          }
+          h3{
+color: rgb(16, 16, 16);
+font-family: Inter;
+font-size: 16px;
+font-weight: 300;
+line-height: 160%;
+letter-spacing: 0%;
+text-align: left;
+          }
+      }
+  }
+  }
+    }
+    .contact-message{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-height: 636px;
+        max-height: 750px;
+background: rgb(245, 117, 32);
+
+        .message-left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            h1{
+            color: rgb(255, 255, 255);
+            font-family: Bebas Neue Cyrillic;
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 123%;
+            letter-spacing: 5%;
+            text-align: center;
+            }
+            .message-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                .message-row{
+                    display: flex;
+                    gap: 20px;
+                    input{
+                        width: 302px;
+                        height: 46px;
+                        border-radius: 10px;
+                        background: rgb(255, 255, 255);
+                        padding: 10px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+                input{
+                    width: 617px;
+                    height: 154px;
+                    border-radius: 10px;
+                    background: rgb(255, 255, 255);
+                    padding: 10px;
+                    border: none;
+                    outline: none;
+                }
+            }
+            button{
+                width: 608px;
+                height: 52px;
+                border-radius: 10px;
+                background: rgb(255, 255, 255);
+                border: none;
+                color: rgb(245, 117, 32);
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 123%;
+                letter-spacing: 0%;
+                text-align:center;
+            }
+            
+        }
+        .message-right{
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .vapros{
+        /* desk h3 */
+color: rgb(16, 16, 16);
+font-family: Bebas Neue Cyrillic;
+font-size: 40px;
+font-weight: 400;
+line-height: 123%;
+letter-spacing: 5%;
+text-align: left;
+padding: 20px;
+    }
+    }
+
+    
+    @media (max-width: 1200px) {
+        .contact-page {
+          .contact-map-content {
+            padding: 20px;
+            align-items: center;
+          }
+      
+          .contact-message {
+            padding: 20px;
+            .message-left {
+              h1 {
+                font-size: 48px;
+              }
+              .message-form {
+                .message-row {
+                  gap: 10px;
+      
+                  input {
+                    width: 100%;
+                  }
+                }
+                input {
+                  width: 100%;
+                }
+              }
+      
+              button {
+                width: 60%;
+              }
+            }
+      
+            .message-right {
+                display: none;
+            }
+          }
+        }
+      }
+      
+      @media (max-width: 770px) {
+        .contact-page {
+          .contact-head {
+            img {
+              height: 200px;
+            }
+      
+            .contact-head-text {
+                margin-top: 25px;
+              h1 {
+                font-size: 28px;
+               
+              }
+      
+            
+            }
+          }
+          .contact-map{
+            .contact-map-content{
+            align-items: center;
+            }
+          }
+      
+          .vapros {
+            font-size: 28px;
+            text-align: center;
+          }
+      
+          .contact-message {
+            .message-left {
+                padding: 20px;
+              h1 {
+                font-size: 36px;
+              }
+      
+              .message-form {
+                input {
+                  height: 120px;
+                }
+              }
+      
+              button {
+                height: 48px;
+                font-size: 14px;
+              }
+            }
+
+            .message-right {
+                display: none;
+              }
+          }
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .contact-page {
+          .contact-head {
+            .contact-head-text {
+              top: 70%;
+              gap: 5px;
+      
+              h1 {
+                font-size: 24px;
+              }
+            }
+          }
+      
+          .contact-map {
+            .map-content .map {
+              height: 300px;
+            }
+      
+            .contact-map-content {
+              margin-top: 30px;
+              padding: 0 10px;
+            }
+      
+            .contactM-part,
+            .contactM-part2 {
+              width: 100%;
+            }
+      
+          }
+      
+          .contact-message {
+            .message-left {
+              padding: 20px;
+              .message-form {
+                gap: 10px;
+                .message-row {
+                  input {
+                    width: 100%;
+                    height: 40px;
+                  }
+                }
+      
+                input {
+                  height: 100px;
+                }
+              }
+      
+              button {
+                width: 100%;
+              }
+            }
+      
+            .message-right {
+              display: none;
+            }
+          }
+      
+          .vapros {
+            font-size: 22px;
+            padding: 10px;
+          }
+        }
+      }
+      
+    // Simple fadeIn animation for h1
+    @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+    }
+    
+    
+    .contact-page {
+        .contact-head {
+          .contact-head-text {
+            .head-text {
+              .home-link {
+                position: relative;
+                display: inline-block;
+                transition: color 0.3s ease;
+      
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  bottom: -2px;
+                  width: 0%;
+                  height: 2px;
+                  background: #ffa500;
+                  transition: width 0.3s ease;
+                }
+      
+                &:hover {
+                  color: #ffa500;
+      
+                  &::after {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      
+        .contact-map {
+          .contact-map-content {
+            .contactM-part,
+            .contactM-part2 {
+              .contactM-block,
+              .contactM-block2 {
+                h3, p {
+                  transition: all 0.3s ease-in-out;
+                }
+      
+                h3:hover,
+                p:hover {
+                  color: #f57520;
+                  transform: translateX(8px);
+                }
+              }
+            }
+          }
+        }
+      
+        .contact-message {
+          .message-left {
+            h1 {
+              animation: fadeInDown 0.6s ease forwards;
+              opacity: 0;
+            }
+      
+            .message-form {
+              input {
+                transition: all 0.3s ease;
+      
+                &:focus {
+                  border: 2px solid #fff;
+                  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                }
+      
+                &:hover {
+                  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+                }
+              }
+            }
+      
+            button {
+              transition: all 0.3s ease;
+      
+              &:hover {
+                background: #fff3e0;
+                color: #f57520;
+                transform: translateY(-3px);
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+              }
+      
+              &:active {
+                transform: translateY(1px);
+              }
+            }
+          }
+        }
+      }
+
+
+  
+  
