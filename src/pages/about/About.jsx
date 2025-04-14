@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import about from "../../assets/image/aidanimg/about.png";
 import { FaOdnoklassniki, FaVk, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { FaSquarePhone } from "react-icons/fa6";
@@ -13,20 +14,21 @@ import "./About.scss";
 function About() {
   return (
     <div className='about'>
-      <div className='banner'>
+      <div className='about-head'>
         <img src={about} alt="banner" />
-        <div className='banner-text'>
-          <p>Главная / <span>О нас</span></p>
-          <h1>О нас</h1>
+        <div className='about-head-text container'>
+        <div className="head-text">
+                <Link to='/' className='home-link'>Главная /</Link><p>О нас</p>
+                </div>
+              <h1>О нас</h1>
         </div>
-      </div>
-
+    </div>
       <div className='content'>
-        <div className='content-text'>
+        <div className='content-text container'>
           <h1><span>Велосипед</span> – это не просто средство передвижения!</h1>
         </div>
 
-        <div className='content-section'>
+        <div className='content-section container'>
           <div className='content-box'>
             <h5>Хранение</h5>
             <p>Любишь кататься — люби и велосипед в квартире на зиму парковать или сдавай к нам на хранение и обслуживание.</p>
@@ -46,9 +48,8 @@ function About() {
           </div>
         </div>
       </div>
-
       <div className='frame'>
-        <div className='des-frame'>
+        <div className='des-frame container'>
           <h1>НЕСКОЛЬКО СЛОВ О НАС И НАШЕМ ДЕЛЕ</h1>
           <p>Велосипед — это не просто транспорт. Для нас это жизнь, свобода и приключения.</p>
           <p>Мы любим своё дело и хотим, чтобы вы полюбили велосипед так же сильно.</p>
@@ -59,23 +60,21 @@ function About() {
             <div className='icon'><h6><FaWhatsapp /></h6></div>
             <div className='icon'><h6><FaSquarePhone /></h6></div>
           </div>
+        </div>
           <div className='frame-image'>
             <img src={cycle} alt="bike" />
           </div>
-        </div>
       </div>
-
       <div className='ad'>
-        <h1>МЫ СОБРАЛИ ДЛЯ ВАС ЛУЧШЕЕ ИЗ ВЕЛОСИПЕДНОГО МИРА</h1>
-        <div className='thum'>
+        <h1 className='container'>МЫ СОБРАЛИ ДЛЯ ВАС ЛУЧШЕЕ ИЗ ВЕЛОСИПЕДНОГО МИРА</h1>
+        <div className='thum container'>
           <h6>World-Bike специализируется на продаже и обслуживании велосипедов, запчастей, аксессуаров и экипировки.</h6>
           <p>У нас только качественные премиальные товары. А под заказ соберём уникальный кастомный велосипед специально для вас.</p>
         </div>
         <img src={cycle2} alt="cycle-promo" />
       </div>
-
       <div className='slice'>
-        <h1>Мы — официальные дилеры лучших брендов:</h1>
+        <h1 className='container'>Мы — официальные дилеры лучших брендов:</h1>
         <div className='slicer-content'>
           <div className='brands-card'>
             <h5>Велосипеды</h5>
@@ -99,7 +98,7 @@ function About() {
       </div>
 
       <div className='contact'>
-        <div className='des-contact'>
+        <div className='des-contact container'>
           <h1>Остались вопросы? </h1>
           <p>Позвоните нам по номеру</p>
           <h1>+7 (495) 055-75-86</h1>

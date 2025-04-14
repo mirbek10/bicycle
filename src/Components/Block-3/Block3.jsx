@@ -23,7 +23,7 @@ function Block3() {
 
     return (
         <div className="products">
-            <h2 className="title">Новинки</h2>
+            <h1 className="title">Новинки</h1>
             
                 <Swiper
                     modules={[Navigation, Pagination]}

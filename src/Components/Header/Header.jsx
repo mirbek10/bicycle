@@ -69,12 +69,16 @@ function Header() {
                         <ul>
                             <Link to='/'><li className='main-li'>Главное</li></Link>
                             <Link to='/about'><li className='main-li'>О нас</li></Link>
+<<<<<<< HEAD
                             <Link><li className='main-li'>Веломастерская</li></Link>
+=======
+                            <Link to='/contact'><li className='main-li'>Контакты</li></Link>
+                            <Link to='workshop'><li className='main-li'>Веломастерская</li></Link>
+>>>>>>> 79a4290280ea8a86cf9e6f341adbda759d487f99
                             <Link><li className='main-li'>Гарантии</li></Link>
                             <Link><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>
                             <Link><li className='main-li'>Блог</li></Link>
-                            <Link><li className='main-li'>Контакты</li></Link>
                         </ul>
                     </div>
                     <div className="logo-menu">
@@ -95,10 +99,55 @@ function Header() {
                 </div>
             </div>
 
+<<<<<<< HEAD
             <div className={`sidebar-menu ${isMenuOpen ? 'active' : ''}`}>
                 <div className="sidebar-header">
                     <img src={logoB} alt="Logo Black" />
                     <IoClose className="close-icon" onClick={toggleMenu} />
+=======
+            
+                <div className={`sidebar-menu ${isMenuOpen ? 'active':''}`}>
+                    <div className="sidebar-header">
+                        <img src={logoB} alt="Logo Black" />
+                        <IoClose className="close-icon" onClick={toggleMenu} />
+                    </div>
+
+                    <ul className="sidebar-links">
+
+                        <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
+                        <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
+                        <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
+                        <li><Link to="/equipment" className='sid-link'>Экипировка</Link></li>
+                        <li><Link to="/accessories" className='sid-link'>Аксессуары</Link></li>
+                        <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
+                        <li><Link to="/about" className='sid-link'>О нас</Link></li>
+                        <li><Link to="/contact" className='sid-link'>Контакты</Link></li>
+                        <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
+                        <li><Link to="/" className='sid-link'>Хранение</Link></li>
+                        <li><Link to="/" className='sid-link'>Гарантии</Link></li>
+                        <li><Link to="/" className='sid-link'>Доставка и оплата</Link></li>
+                        <li><Link to="/" className='sid-link'>Пользовательское соглашение</Link></li>
+                        <li><Link to="/" className='sid-link'>Блог</Link></li>
+
+         </ul>
+         
+
+
+                 
+
+                    <div className="sidebar-icons">
+                        <img src={search} alt="Search" />
+                        {isAuth ? (
+                            <img src={profile} alt="Profile" onClick={handleProfileClick} />
+                        ) : (
+                            <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
+                        )}
+                        <img src={heart} alt="Favorites" />
+                        <Link to='/cart'>
+                            <img src={cart} alt="Cart" />
+                        </Link>
+                    </div>
+>>>>>>> 79a4290280ea8a86cf9e6f341adbda759d487f99
                 </div>
 
                 <ul className="sidebar-links">
@@ -136,3 +185,8 @@ function Header() {
 }
 
 export default Header;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 79a4290280ea8a86cf9e6f341adbda759d487f99
