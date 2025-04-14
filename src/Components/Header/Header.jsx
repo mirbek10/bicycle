@@ -74,7 +74,7 @@ function Header() {
                             <Link><li className='main-li'>Гарантии</li></Link>
                             <Link><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>
-                            <Link to="/productlist"><li className='main-li'>Блог</li></Link>
+                            <Link to='/ProductList'><li className='main-li'>Блог</li></Link>
                             <Link><li className='main-li'>Контакты</li></Link>
                         </ul>
                     </div>
