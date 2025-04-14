@@ -9,6 +9,7 @@ import Contacts from '../../Components/contacts/Contacts'
 import Block8 from '../../Components/Block-8/Block8'
 import BikeBrands from '../../Components/BikeBrand/Bikebrands'
 import BannerCart from '../../Components/banner/carts/BannerCart'
+import ProductList from '../productList/ProductList'
 
 function Home() {
     return (
@@ -23,6 +24,7 @@ function Home() {
             <Advantages/>
             <Block8/>
             <Contacts/>
+            <ProductList/>
         </div>
     )
 }

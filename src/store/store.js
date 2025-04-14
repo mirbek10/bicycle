@@ -17,7 +17,7 @@ const myStore = configureStore({
     cart:CardReducer,
     auth: authReducer,
     bikeStation: bikeStationReducer, 
-    product:productReducer,
+    products:productReducer,
   },
 });
 

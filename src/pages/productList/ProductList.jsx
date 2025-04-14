@@ -1,9 +1,11 @@
-// components/ProductList.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts, toggleShowAll } from '../features/products/productsSlice';
+// import { fetchProducts, toggleShowAll } from '../features/products/productsSlice';
+import { fetchProducts,toggleShowAll } from '../../store/product/productSlice';
 import { Link } from 'react-router-dom';
 import './ProductList.scss';
+import { FcLike } from "react-icons/fc";
+import { FaUsersViewfinder } from "react-icons/fa6";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -22,10 +24,16 @@ const ProductList = () => {
         {status === 'succeeded' &&
           visibleItems.map((item) => (
             <div className="card" key={item.id}>
-              <img src={item.image} alt={item.name} />
+              <img src={item.image} alt={item.title} />
               <div className="content">
-                <div className="date">24.01.2023</div>
-                <h3>{item.name}</h3>
+                <div className="date">{item.date}</div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <h6>{item.category}</h6>
+                <div className='icon'>
+                <h5>views:{item.views}</h5>
+                <h5>likes:{item.likes}</h5>
+                </div>
                 <Link to={`/product/${item.id}`}>Подробнее</Link>
               </div>
             </div>
