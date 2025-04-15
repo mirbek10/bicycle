@@ -70,9 +70,9 @@ function Header() {
                             <Link to='/'><li className='main-li'>Главное</li></Link>
                             <Link to='/about'><li className='main-li'>О нас</li></Link>
                             <Link to='/contact'><li className='main-li'>Контакты</li></Link>
-                            <Link to='workshop'><li className='main-li'>Веломастерская</li></Link>
+                            <Link to='/workshop'><li className='main-li'>Веломастерская</li></Link>
                             <Link><li className='main-li'>Гарантии</li></Link>
-                            <Link><li className='main-li'>Пользовательское соглашение</li></Link>
+                            <Link to='/userAgreement'><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>
                             <Link><li className='main-li'>Блог</li></Link>
                         </ul>
@@ -112,11 +112,11 @@ function Header() {
                         <li><Link to="/trainers" className='sid-link'>Велостанки</Link></li>
                         <li><Link to="/about" className='sid-link'>О нас</Link></li>
                         <li><Link to="/contact" className='sid-link'>Контакты</Link></li>
-                        <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
+                        <li><Link to="/workshop" className='sid-link'>Веломастерская</Link></li>
                         <li><Link to="/" className='sid-link'>Хранение</Link></li>
                         <li><Link to="/" className='sid-link'>Гарантии</Link></li>
                         <li><Link to="/" className='sid-link'>Доставка и оплата</Link></li>
-                        <li><Link to="/" className='sid-link'>Пользовательское соглашение</Link></li>
+                        <li><Link to="/userAgreement" className='sid-link'>Пользовательское соглашение</Link></li>
                         <li><Link to="/" className='sid-link'>Блог</Link></li>
 
          </ul>
