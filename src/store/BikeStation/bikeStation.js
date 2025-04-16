@@ -18,22 +18,22 @@ const bikeStationSlice = createSlice({
   name: "bikeStation",
   initialState: {
     list: [],
-    loading: false,
+    status: false,
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getbikeStation.pending, (state) => {
-        state.loading = true;
+        state.status = true;
         state.error = null;
       })
       .addCase(getbikeStation.fulfilled, (state, action) => {
-        state.loading = false;
+        state.status = false;
         state.list = action.payload; // исправлено здесь
       })
       .addCase(getbikeStation.rejected, (state, action) => {
-        state.loading = false;
+        state.status = false;
         state.error = action.payload?.message || "Ошибка загрузки данных";
       });
   },

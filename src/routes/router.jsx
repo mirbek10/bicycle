@@ -17,6 +17,7 @@ import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
 import Contact from "../pages/contact/Contact";
 import Workshop from "../pages/workshop/Workshop";
+import DetailBike from "../pages/BikeDetails/BikeDetails";
 
 
 export const myRouter = createBrowserRouter([
@@ -93,6 +94,10 @@ export const myRouter = createBrowserRouter([
              {
                 path: "/workshop",
                 element:<Workshop/>
+             },
+             {
+                path: "/product-details",
+                 element: <DetailBike/>
              }
 
         ]
