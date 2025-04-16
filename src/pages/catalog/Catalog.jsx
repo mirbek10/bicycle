@@ -12,8 +12,6 @@ import { CiFilter } from "react-icons/ci"
 import { IoClose } from "react-icons/io5"
 import NotFoundMessage from './notFound/NoteFound'
 
-
-
 const Catalog = () => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
@@ -54,6 +52,7 @@ const Catalog = () => {
   })
 
   const [inStockOnly, setInStockOnly] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(9)
 
   useEffect(() => {
     dispatch(fetchBicycles())
@@ -62,7 +61,6 @@ const Catalog = () => {
     dispatch(getEquipment())
     dispatch(getbikeStation())
   }, [dispatch])
-  
 
   const allProducts = useMemo(() => {
     const result = []
@@ -82,12 +80,13 @@ const Catalog = () => {
     if (categories.equipment && equipment) {
       result.push(...equipment.map(item => ({ ...item, productType: 'equipment' })))
     }
+
     if (categories.bikeStation && list) {
-      result.push(...list.map(item => ({...item, productType: 'bikeStation' })))
+      result.push(...list.map(item => ({ ...item, productType: 'bikeStation' })))
     }
 
     return result
-  }, [bicycles, parts, accessories, equipment, list , categories])
+  }, [bicycles, parts, accessories, equipment, list, categories])
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
@@ -111,6 +110,10 @@ const Catalog = () => {
       return true
     })
   }, [allProducts, priceRange, inStockOnly, materials, colors])
+
+  const visibleProducts = useMemo(() => {
+    return filteredProducts.slice(0, visibleCount)
+  }, [filteredProducts, visibleCount])
 
   const handleCategoryChange = (category) => {
     setCategories(prev => ({
@@ -157,8 +160,13 @@ const Catalog = () => {
       'Carbon': false
     })
     setColors(colors.map(color => ({ ...color, selected: false })))
-    setPriceRange([0, 600])
+    setPriceRange([0, 1600])
     setInStockOnly(false)
+    setVisibleCount(12)
+  }
+
+  const handleShowMore = () => {
+    setVisibleCount(prev => prev + 12)
   }
 
   return (
@@ -273,10 +281,19 @@ const Catalog = () => {
               <CiFilter /> Фильтры
             </button>
           </div>
-          {filteredProducts.length > 0 ? (
-            <ProductList data={filteredProducts} />
+          {visibleProducts.length > 0 ? (
+            <>
+              <ProductList data={visibleProducts} />
+              {visibleCount < filteredProducts.length && (
+                <div className="show-more-wrapper">
+                  <button className="show-more-button" onClick={handleShowMore}>
+                    Показать ещё
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-           <NotFoundMessage/>
+            <NotFoundMessage />
           )}
         </div>
       </div>

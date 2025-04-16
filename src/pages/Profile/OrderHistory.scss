@@ -25,16 +25,71 @@
         padding: 12px 16px;
         cursor: pointer;
         transition: background 0.2s;
-  
+        gap: 8px;
+      
         &:hover {
           background-color: #f0f0f0;
         }
-  
+      
         .status-cell {
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 6px;
+        }
+      
+        // Адаптация для планшетов
+        @media (max-width: 992px) {
+          grid-template-columns: 1.5fr 2fr 2fr;
+          
+          // Скрываем последнюю колонку на планшетах
+          & > *:nth-child(4) {
+            display: none;
+          }
+        }
+      
+        // Адаптация для мобильных устройств
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          padding: 16px;
+          gap: 12px;
+          border-bottom: 1px solid #e0e0e0;
+      
+          // Показываем все элементы в одну колонку
+          & > * {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            
+            // Добавляем подписи для ячеек
+            &:before {
+              content: attr(data-label);
+              font-weight: 500;
+              color: #666;
+              margin-right: 12px;
+            }
+          }
+      
+          .status-cell {
+            flex-direction: row; // Оставляем горизонтальное расположение
+            justify-content: space-between;
+            width: 100%;
+          }
+        }
+      
+        // Дополнительная оптимизация для маленьких экранов
+        @media (max-width: 480px) {
+          padding: 12px;
+          gap: 8px;
+      
+          & > * {
+            font-size: 14px;
+            
+            &:before {
+              font-size: 13px;
+              margin-right: 8px;
+            }
+          }
         }
       }
   
