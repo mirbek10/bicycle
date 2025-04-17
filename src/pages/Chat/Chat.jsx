@@ -224,9 +224,9 @@ function Chat() {
                 ref={ref}
                 className={`message ${isOwn ? "own" : ""}`}
                 variants={messageVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
                 layout
               >
                 <div className="avatar">{getInitials(msg.email)}</div>

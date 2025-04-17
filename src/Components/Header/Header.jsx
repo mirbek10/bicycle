@@ -13,6 +13,7 @@ import profile from "../../assets/svg/profile.svg";
 import menuIcon from "../../assets/svg/menu.svg";
 import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
+import { navigateWithAuth } from '../../shared/hooks/navigateWithAuth';
 import './header.scss';
 
 function Header() {
@@ -50,14 +51,6 @@ function Header() {
         return data.map(item => <li key={item.id}>{item.name}</li>);
     };
 
-    const handleProfileClick = () => {
-        if (isAuth) {
-            navigate("/profile");
-        } else {
-            navigate("/signIn");
-        }
-    };
-
     return (
         <header className='header'>
             <div className="header-content container">
@@ -67,10 +60,13 @@ function Header() {
                 <div className="header-right">
                     <div className="main-menu">
                         <ul>
-                            {/* <Link to='/'><li className='main-li'>Главное</li></Link> */}
                             <Link to='/about'><li className='main-li'>О нас</li></Link>
                             <Link to='/contact'><li className='main-li'>Контакты</li></Link>
                             <Link to='/workshop'><li className='main-li'>Веломастерская</li></Link>
+
+                            <Link><li className='main-li'>Гарантии</li></Link>
+                            <Link><li className='main-li'>Пользовательское соглашение</li></Link>
+
                             <Link  to="/guarantees"><li className='main-li'>Гарантии</li></Link>
                             <Link to='/userAgreement'><li className='main-li'>Пользовательское соглашение</li></Link>
                             <Link><li className='main-li'>Доставка и оплата</li></Link>
@@ -80,15 +76,16 @@ function Header() {
                     </div>
                     <div className="logo-menu">
                         <img src={search} alt="Search" />
-                        {isAuth ? (
-                            <img src={profile} alt="Profile" onClick={handleProfileClick} />
-                        ) : (
-                            <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
-                        )}
+
+                        <div onClick={() => navigateWithAuth(isAuth, navigate, "/profile")} style={{ cursor: 'pointer' }}>
+                            <img src={profile} alt="Profile" />
+                        </div>
+
                         <img src={heart} alt="Favorites" />
-                        <Link to='/cart'>
+
+                        <div onClick={() => navigateWithAuth(isAuth, navigate, "/cart")} style={{ cursor: 'pointer' }}>
                             <img src={cart} alt="Cart" />
-                        </Link>
+                        </div>
                     </div>
                     <div className="header-menu">
                         <img src={menuIcon} alt="Menu" onClick={toggleMenu} />
@@ -96,14 +93,30 @@ function Header() {
                 </div>
             </div>
 
-            
-                <div className={`sidebar-menu ${isMenuOpen ? 'active':''}`}>
-                    <div className="sidebar-header">
-                        <img src={logoB} alt="Logo Black" />
-                        <IoClose className="close-icon" onClick={toggleMenu} />
-                    </div>
+            <div className={`sidebar-menu ${isMenuOpen ? 'active' : ''}`}>
+                <div className="sidebar-header">
+                    <img src={logoB} alt="Logo Black" />
+                    <IoClose className="close-icon" onClick={toggleMenu} />
+                </div>
 
-                    <ul className="sidebar-links">
+               <ul className="sidebar-links">
+                    <li><Link to="/" className='sid-link'>О нас</Link></li>
+                    <li><Link to="/" className='sid-link'>Веломастерская</Link></li>
+                    <li><Link to="/" className='sid-link'>Хранение</Link></li>
+                    <li><Link to="/" className='sid-link'>Гарантии</Link></li>
+                    <li><Link to="/" className='sid-link'>Пользовательское соглашение</Link></li>
+                    <li><Link to="/" className='sid-link'>Доставка и оплата</Link></li>
+                    <li><Link to="/" className='sid-link'>Блог</Link></li>
+                    <li><Link to="/" className='sid-link'>Контакты</Link></li>
+                </ul>
+
+                <div className="sidebar-icons">
+                    <img src={search} alt="Search" />
+
+                    <div onClick={() => navigateWithAuth(isAuth, navigate, "/profile")} style={{ cursor: 'pointer' }}>
+                        <img src={profile} alt="Profile" />
+                    </div>
+                   <ul className="sidebar-links">
                         <li><Link to="/trade-in" className='sid-link'>Trade In</Link></li>
                         <li><Link to="/bicycles" className='sid-link'>Велосипеды</Link></li>
                         <li><Link to="/parts" className='sid-link'>Запчасти</Link></li>
@@ -120,20 +133,13 @@ function Header() {
                         <li><Link to="/" className='sid-link'>Блог</Link></li>
          </ul>
 
-                    <div className="sidebar-icons">
-                        <img src={search} alt="Search" />
-                        {isAuth ? (
-                            <img src={profile} alt="Profile" onClick={handleProfileClick} />
-                        ) : (
-                            <Link to="/signIn"><img src={profile} alt="Profile" /></Link>
-                        )}
-                        <img src={heart} alt="Favorites" />
-                        <Link to='/cart'>
-                            <img src={cart} alt="Cart" />
-                        </Link>
+                    <img src={heart} alt="Favorites" />
+
+                    <div onClick={() => navigateWithAuth(isAuth, navigate, "/cart")} style={{ cursor: 'pointer' }}>
+                        <img src={cart} alt="Cart" />
                     </div>
                 </div>
-          
+            </div>
         </header>
     );
 }

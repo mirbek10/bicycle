@@ -12,13 +12,19 @@ const BikeSpecs = ({ bike }) => {
     return () => clearInterval(interval);
   }, []);
 
-  const specs = {
+  // Определяем, является ли товар велосипедом
+  const isBicycle = bike.productType === 'bicycle';
+  const baseSpecs = {
     "Цвет": bike.color,
+    "Страна": bike.country || "Неизвестно",
+    "Гарантия": "2 года"
+  };
+
+  const bicycleSpecs = {
     "Год": "2023",
     "Диаметр колеса": "29\"",
     "Материал рамы": "Карбон",
     "Размер": "M (18\")",
-    "Страна": bike.country,
     "Производитель": "Scott",
     "Покрышки": "SCHWALDE ROCKET RON EVO / 2.1 127EPI KEVLAT Bead Tubeless Easy / PaceStar compound",
     "Рама": "Scale Carbon / HMX-технология / технология IMP / Коническая рулевая труба / BB92 / Технология SDS / Дропауты IDS SL",
@@ -34,24 +40,25 @@ const BikeSpecs = ({ bike }) => {
     "Система шатунов": "SRAM XXI GXP PF DM Carbon crankarm / QF 156 700 Series: 34T / 900 Series: 32T",
     "Задний переключатель": "SRAM XXI",
     "Цепь": "SRAM PC-XX1",
-    "Количество скоростей": "11",
-    "Гарантия": "2 года"
+    "Количество скоростей": "11"
   };
+
+  const specs = isBicycle ? { ...baseSpecs, ...bicycleSpecs } : baseSpecs;
 
   return (
     <div className="bike-specs-container">
-      
-      
       <div className="specs-grid">
         {Object.entries(specs).map(([key, value]) => (
           <React.Fragment key={key}>
             <div className='flex-box'>
-            <div className="spec-key">{key}</div>
-            <div className="spec-value">{value}</div>
-
+              <div className="spec-key">{key}</div>
+              <div className="spec-value">{value}</div>
             </div>
           </React.Fragment>
         ))}
+      </div>
+      <div className="last-updated">
+        Последнее обновление: {lastUpdated.toLocaleTimeString()}
       </div>
     </div>
   );

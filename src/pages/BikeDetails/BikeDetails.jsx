@@ -12,6 +12,8 @@ import { addToWishList, removeFromWishList, selectWishListItems } from '../../st
 const DetailBike = () => {
     const wishListItems = useSelector(selectWishListItems);
     const { currentDetail } = useSelector((state) => state.detail);
+    const isAuth = useSelector(state => state.auth.isAuthenticated);
+
     const dispatch = useDispatch();
 
     const isInWishList = currentDetail ? wishListItems.some(item => item.id === currentDetail.id) : false;
@@ -59,6 +61,10 @@ const DetailBike = () => {
     };
 
     const handleWishListClick = () => {
+        if (!isAuth) {
+            toast.warning('Для добавления в избранное необходимо авторизоваться');
+            return;
+        }
         if (!currentDetail) return;
         
         if (isInWishList) {
@@ -130,7 +136,7 @@ const DetailBike = () => {
                             <button 
                                 onClick={handleAddToCart} 
                                 className="cart-btn color-button"
-                                disabled={!selectedSize || !selectedColor}
+                                disabled={!selectedSize || !selectedColor || !currentDetail.byuing}
                             >
                                 В корзину
                             </button>

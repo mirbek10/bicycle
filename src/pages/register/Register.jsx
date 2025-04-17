@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { auth } from '/src/firebase';
-import { 
-  createUserWithEmailAndPassword, 
+import { auth, db } from '/src/firebase';
+import {
+  createUserWithEmailAndPassword,
   sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup
 } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import EyeToggle from '../../Components/eye-password/EyeToggle';
 import './register.scss';
@@ -73,10 +74,12 @@ function Register() {
   const handleCreateUser = async (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email) ||
+    if (
+      !validateEmail(email) ||
       !validatePassword(password) ||
       !validateConfirmPassword(confirmPassword) ||
-      !validateUsername(username)) {
+      !validateUsername(username)
+    ) {
       toast.error('Пожалуйста, исправьте ошибки перед регистрацией');
       return;
     }
@@ -85,8 +88,16 @@ function Register() {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-      await sendEmailVerification(userCredential.user, {
+      // Сохраняем имя пользователя в Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        username,
+        email: user.email,
+        createdAt: new Date(),
+      });
+
+      await sendEmailVerification(user, {
         url: `${window.location.origin}/email-verified`,
         handleCodeInApp: true,
       });
@@ -102,7 +113,6 @@ function Register() {
       navigate('/verify-email-message', {
         state: { email }
       });
-
     } catch (error) {
       console.error('Ошибка регистрации:', error);
 
@@ -132,9 +142,8 @@ function Register() {
     setIsGoogleLoading(true);
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      // Пользователь успешно вошел через Google
       toast.success('Вы успешно вошли через Google');
-      navigate('/'); // Перенаправляем на главную страницу или dashboard
+      navigate('/');
     } catch (error) {
       console.error('Ошибка входа через Google:', error);
       let errorMessage = 'Ошибка при входе через Google';
@@ -244,11 +253,11 @@ function Register() {
             >
               {isLoading ? 'Регистрация...' : 'Регистрация'}
             </button>
-            
+
             <div className="google-auth">
               <p>Или</p>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="google-btn"
                 onClick={signInWithGoogle}
                 disabled={isLoading || isGoogleLoading}
@@ -257,7 +266,7 @@ function Register() {
                 {isGoogleLoading ? 'Вход...' : 'Войти через Google'}
               </button>
             </div>
-            
+
             <p>Уже регистрировались? <Link to="/signIn">Войти</Link></p>
           </div>
         </form>
