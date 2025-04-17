@@ -36,7 +36,7 @@ function Card({ el }) {
 
             <div className="product-card__info">
                 <h2 className="product-card__title">{el.name}</h2>
-                <p className="product-card__price">{el.price}$</p>
+                <p className="product-card__price">{el.price}₽</p>
             </div>
 
             <button

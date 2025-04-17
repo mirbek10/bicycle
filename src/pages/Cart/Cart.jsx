@@ -128,15 +128,15 @@ function Cart() {
           <div className="cart-summary">
             <p>
               <span>Товары ({cartItems.length})</span>
-              <span>${totalPrice.toFixed(2)}</span>
+              <span>₽{totalPrice.toFixed(2)}</span>
             </p>
             <p>
               <span>Скидка</span>
-              <span className="discount">−${discount.toFixed(2)}</span>
+              <span className="discount">−₽{discount.toFixed(2)}</span>
             </p>
             <h2>
               <span>Итого</span>
-              <span>${roundedPrice}</span>
+              <span>₽{roundedPrice}</span>
             </h2>
 
             <button 
@@ -156,7 +156,7 @@ function Cart() {
 
     <div className="order-details">
       <p><strong>Номер заказа:</strong> {orderNumber}</p>
-      <p><strong>Сумма к оплате:</strong> ${roundedPrice}</p>
+      <p><strong>Сумма к оплате:</strong> ₽{roundedPrice}</p>
       <p>После подтверждения вы получите номер для отслеживания заказа.</p>
     </div>
 

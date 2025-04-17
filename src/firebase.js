@@ -1,3 +1,4 @@
+import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -12,7 +13,10 @@ const firebaseConfig = {
   measurementId: "G-8RTNN9E128"
 };
 
-// Initialize Firebase
+// Инициализация Firebase
 const app = initializeApp(firebaseConfig);
+
+// Экспорты
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const storage = getStorage(app); 
