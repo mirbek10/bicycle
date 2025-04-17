@@ -1,3 +1,46 @@
+export const worksShop = [
+  {
+    work: "Диагностика",
+    priceWork: "Бесплатно"
+  },
+  {
+    work: "Техобслуживание",
+    priceWork: "2 500 сом"
+  },
+  {
+    work: "Мойка велосипеда",
+    priceWork: "1 500 сом"
+  },
+  {
+    work: "Настройка тормозов",
+    priceWork: "1 200 сом"
+  },
+  {
+    work: "Регулировка переключателей",
+    priceWork: "1 000 сом"
+  },
+  {
+    work: "Чистка и смазка цепи",
+    priceWork: "800 сом"
+  },
+  {
+    work: "Прокачка тормозов",
+    priceWork: "1 800 сом"
+  },
+  {
+    work: "Замена камеры",
+    priceWork: "600 сом"
+  },
+  {
+    work: "Выравнивание колеса",
+    priceWork: "1 000 сом"
+  },
+  {
+    work: "Замена тормозных колодок",
+    priceWork: "900 сом"
+  }
+];
+
 export const serviceData = [
     {
       title: 'Вилка',

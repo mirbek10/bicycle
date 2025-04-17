@@ -7,13 +7,14 @@ import OrderHistory from './OrderHistory';
 import ChangePassword from './ChangePassword';  
 import "./profile.scss";
 import WhishList from '../whishList/WhishList';
+import Account from './Accaunt/Account';
 
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isAuthenticated, user } = useSelector(state => state.auth);
-  const [activeTab, setActiveTab] = useState("userinfo");
+  const [activeTab, setActiveTab] = useState("myAcc");
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -37,8 +38,10 @@ function Profile() {
         return <ChangePassword />;
         case "whishlist":
           return <WhishList/>
+        case "myAcc":
+        return <Account info={user}/>  
       default:
-        return <Userinfo user={user} />;
+        return <Account info={user} />;
     }
   };
 
@@ -47,7 +50,7 @@ function Profile() {
   return (
     <div className="account-container container">
       <aside className="account-menu">
-        <h2>Мой аккаунт</h2>
+        <h2 onClick={()=> setActiveTab("myAcc")}>Мой аккаунт</h2>
         <hr />
         <ul>
           <li className={activeTab === 'userinfo'? 'active':''} onClick={() => setActiveTab("userinfo")}>Персональные данные</li>

@@ -28,10 +28,19 @@
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease; /* Плавный эффект при ховере */
+    a{
+      text-decoration: none;
+
+    }
+   
+    &:hover .a-href span {
+      color: #ff7f50;
+    }
   }
   
   .faq-button:hover {
-    color: #ff7f50; /* Изменение цвета при наведении */
+    color: #ff7f50;
+    transition: all 0.3s ease; 
   }
   
   .faq-button span {

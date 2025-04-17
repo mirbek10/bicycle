@@ -1,0 +1,213 @@
+.agrement{
+    margin-top: 170px;
+    .agrement-head {
+        position: relative;
+        .agrement-head-text {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color:black;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+
+      
+          .head-text {
+              display: flex;
+              justify-content: left;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+      
+            .home-link {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: black;
+                text-decoration: none;
+                font-weight: 500;
+                position: relative;
+                display: inline-block;
+                transition: color 0.3s ease;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 0%;
+                    height: 2px;
+                    background: #ffa500;
+                    transition: width 0.3s ease;
+                  }
+        
+                  &:hover {
+                    color: #ffa500;
+        
+                    &::after {
+                      width: 100%;
+                    }
+                  }
+            }
+            
+            p {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: #FFA500;
+              margin: 0;
+            }
+          }
+      
+          h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 10px;
+            text-align: left;
+          }
+        }
+      }
+    .agrement-main{
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 50px;
+
+        .agrement-top{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 16px;
+            p{
+                /* desk mob text 16 */
+            color: rgb(16, 16, 16);
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 160%;
+            letter-spacing: 0%;
+            text-align: left;
+            transition: color 0.3s;
+
+&:hover {
+  color: #ffa500;
+}
+
+            }
+            h5{
+                        /* desk mob text 16 */
+            color: rgb(16, 16, 16);
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 160%;
+            letter-spacing: 0%;
+            text-align: left;
+            transition: color 0.3s;
+
+&:hover {
+  color: #ffa500;
+}
+
+            }
+        }
+        .agrement-bottom{
+            border-radius: 10px;
+            padding: 20px;
+            background: rgb(248, 248, 248);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+&:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+            h1{
+                            /* desk mob 20 */
+            color: rgb(16, 16, 16);
+            font-family: Inter;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 160%;
+            letter-spacing: 1%;
+            text-align: left;
+            transition: color 0.3s;
+
+&:hover {
+  color: #ffa500;
+}
+
+            }
+            ul{
+                display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 25px;
+                li{
+                                    /* desk 200 14 */
+                color: rgb(16, 16, 16);
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 200%;
+                letter-spacing: 0%;
+                text-align: left;
+                transition: color 0.3s;
+
+&:hover {
+  color: #ffa500;
+}
+
+                }
+            }
+            p{
+                                /* desk 200 14 */
+                color: rgb(16, 16, 16);
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 200%;
+                letter-spacing: 0%;
+                text-align: left;
+                transition: color 0.3s;
+
+&:hover {
+  color: #ffa500;
+}
+
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
