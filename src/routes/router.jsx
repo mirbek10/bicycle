@@ -18,6 +18,8 @@ import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmai
 import Contact from "../pages/contact/Contact";
 import Workshop from "../pages/workshop/Workshop";
 import DetailBike from "../pages/BikeDetails/BikeDetails";
+import ProductList from "../pages/productList/ProductList";
+import ProductDetail from "../pages/productDetail/ProductDetail";
 
 
 
@@ -35,6 +37,14 @@ export const myRouter = createBrowserRouter([
             {
                 path: "/about",
                  element: <About/>
+            },
+            {
+                path: "/ProductList",
+                 element: <ProductList/>
+            },
+            {
+                path: "/product/:id",
+                 element: < ProductDetail/>
             },
             {
                  path: "/whishList",
