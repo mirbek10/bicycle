@@ -20,6 +20,7 @@ import Agreement from "../pages/agreement/Agreement";
 import DetailBike from "../pages/BikeDetails/BikeDetails";
 import Chat from "../pages/Chat/Chat";
 import Grant from "../pages/grant/Grant";
+import Delivery from "../pages/delivery/Delivery";
 
 
 export const myRouter = createBrowserRouter([
@@ -111,6 +112,10 @@ export const myRouter = createBrowserRouter([
                 path: "/guarantees",
                  element: <Grant/>
              },
+             {
+                path:"/deliveryAndPayment",
+                element:<Delivery/>
+             }
 
         ]
     }
