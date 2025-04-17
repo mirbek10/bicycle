@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-// Загрузка состояния из localStorage
 const loadStateFromLocalStorage = () => {
   try {
     const cartData = localStorage.getItem("cart");
@@ -19,7 +18,6 @@ const loadStateFromLocalStorage = () => {
   }
 };
 
-// Сохранение состояния в localStorage
 const saveStateToLocalStorage = (cartItems, orders) => {
   try {
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -35,7 +33,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // Добавление товара в корзину
     addToCart: (state, action) => {
       const existing = state.cartItems.find(
         (item) => item.id === action.payload.id
@@ -46,23 +43,21 @@ const cartSlice = createSlice({
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
       saveStateToLocalStorage(state.cartItems, state.orders);
+      
     },
 
-    // Увеличение количества товара
     incrementQuantity: (state, action) => {
       const item = state.cartItems.find((i) => i.id === action.payload);
       if (item) item.quantity += 1;
       saveStateToLocalStorage(state.cartItems, state.orders);
     },
 
-    // Уменьшение количества товара
     decrementQuantity: (state, action) => {
       const item = state.cartItems.find((i) => i.id === action.payload);
       if (item && item.quantity > 1) item.quantity -= 1;
       saveStateToLocalStorage(state.cartItems, state.orders);
     },
 
-    // Удаление товара из корзины
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== action.payload
@@ -71,36 +66,55 @@ const cartSlice = createSlice({
       toast.info("Товар удален из корзины");
     },
 
-    // Очистка корзины
     clearCart: (state) => {
       state.cartItems = [];
       saveStateToLocalStorage(state.cartItems, state.orders);
     },
 
-    // Оформление заказа
-    checkout: (state) => {
-      if (state.cartItems.length === 0) {
-        toast.error("Корзина пуста");
+    // Обновленный метод для оформления заказа
+    checkout: (state, action) => {
+      let itemsToCheckout = [];
+      let orderTotal = 0;
+      
+      // Если переданы данные для покупки в один клик
+      if (action.payload && action.payload.items) {
+        itemsToCheckout = action.payload.items;
+        orderTotal = action.payload.total;
+      } 
+      // Иначе оформляем текущую корзину
+      else if (state.cartItems.length > 0) {
+        itemsToCheckout = [...state.cartItems];
+        orderTotal = state.cartItems.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+      } 
+      // Если нет ни корзины, ни переданных товаров
+      else {
+        toast.error("Нет товаров для оформления");
         return;
       }
 
       const newOrder = {
-        id: Date.now().toString(),
+        id: action.payload?.orderNumber || Date.now().toString(),
         date: new Date().toISOString(),
-        items: [...state.cartItems],
-        total: state.cartItems.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0
-        ),
+        items: itemsToCheckout,
+        total: orderTotal,
+        customer: action.payload?.customer || null,
+        status: "В обработке"
       };
 
-      state.orders.unshift(newOrder); // Добавляем новый заказ в начало массива
-      state.cartItems = [];
+      state.orders.unshift(newOrder);
+      
+      // Очищаем корзину только если оформляем её, а не покупку в один клик
+      if (!action.payload) {
+        state.cartItems = [];
+      }
+      
       saveStateToLocalStorage(state.cartItems, state.orders);
-      toast.success("Заказ оформлен успешно!");
+      toast.success(`Заказ №${newOrder.id} оформлен успешно!`);
     },
 
-    // Очистка истории заказов
     clearOrders: (state) => {
       state.orders = [];
       saveStateToLocalStorage(state.cartItems, state.orders);

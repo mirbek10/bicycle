@@ -1,0 +1,297 @@
+.detail-bike {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+    margin-top: 55px;
+    justify-content: center;
+    align-items: center;
+
+    .current-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 1200px;
+
+        .current-detail-card {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            border-radius: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                max-width: 500px;
+                border-radius: 15px;
+                object-fit: contain;
+            }
+
+            .detail-card {
+                flex: 1;
+                min-width: 300px;
+
+                h3 {
+                    font-size: 2rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .availability {
+                    color: #00ff80;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                }
+
+                .price {
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    margin: 1rem 0;
+
+                    .current {
+                        color: #F57520;
+                        margin-right: 1rem;
+                    }
+
+                    .old {
+                        text-decoration: line-through;
+                        color: #888;
+                        font-size: 1.4rem;
+                    }
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.4;
+                }
+
+                .sizes,
+                .colors {
+                    margin-top: 1.5rem;
+
+                    p {
+                        margin-bottom: 0.3rem;
+                        font-weight: 500;
+                    }
+                }
+
+                .size-options {
+                    position: relative;
+                    display: flex;
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    @media (max-width: 480px) {
+                        height: auto;
+                        
+                    }
+
+                    .highlight {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        border-radius: 12px;
+                        background-color: #000;
+                        z-index: 0;
+                        transition: all 0.3s ease;
+                        @media (max-width: 480px) { 
+                            height: 84%;
+                        }
+                    }
+
+                    .size-btn {
+                        position: relative;
+                        z-index: 1;
+                        border: 2px solid #444;
+                        padding: 0.5rem 1.2rem;
+                        border-radius: 12px;
+                        cursor: pointer;
+                        background: transparent;
+                        transition: color 0.3s ease;
+                        overflow: hidden;
+                        @media (max-width: 480px) {
+                        
+                            padding: 0.5rem 1rem;
+                            font-size: 14px;
+                            margin-bottom: 0.5rem;
+
+                        }
+
+                        &.active {
+                            color: #fff;
+                        }
+
+                        &:hover {
+                            border-color: #888;
+                        }
+                    }
+                }
+
+                .color-options {
+                    position: relative;
+                    display: flex;
+                    gap: 0.75rem;
+                    margin-top: 0.5rem;
+                    flex-wrap: wrap;
+
+                    .highlightcolor {
+                        position: absolute;
+                        top: -3px;
+                        left: 0;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: #F57520;
+                        z-index: 0;
+                        transition: all 0.3s ease;
+                        pointer-events: none;
+                    }
+
+                    .color-btn {
+                        position: relative;
+                        z-index: 1;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        border: none;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        border: 3px solid #fff;
+
+                        &.selected {
+                            outline-offset: 2px;
+                        }
+                    }
+                }
+
+                .actions {
+                    margin-top: 2rem;
+                    display: flex;
+                    gap: 1.5rem;
+                    flex-wrap: wrap;
+
+                    .cart-btn {
+                        padding: 0.8rem 2.5rem;
+                        border: none;
+                        border-radius: 20px;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: 0.3s;
+                    }
+
+                    .fav-btn {
+                        background: white;
+                        color: #ff7300;
+                        font-size: 1.5rem;
+                        border: none;
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 15px;
+                        cursor: pointer;
+                        transition: 0.3s;
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .no-item {
+            color: #ccc;
+        }
+    }
+}
+
+/* Медиа-запросы для адаптации */
+@media (max-width: 1024px) {
+    .detail-bike {
+        padding: 1.5rem;
+        
+        .current-detail-card {
+            padding: 1.5rem;
+            gap: 1.5rem;
+        }
+        .size-options{
+            .highlight{
+                height: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .detail-bike {
+        padding: 1rem;
+        margin-top: 45px;
+        
+        .current-detail-card {
+            padding: 1rem;
+            gap: 1rem;
+            
+            .detail-card {
+                h3 {
+                    font-size: 1.7rem;
+                }
+                
+                .price {
+                    font-size: 1.5rem;
+                }
+                .size-options{
+                    .highlight{
+                        height: 50%;
+                    }
+                }
+                
+                .actions {
+                    gap: 1rem;
+                    
+                    .cart-btn {
+                        padding: 0.7rem 2rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-bike {
+        padding: 0.8rem;
+        
+        .current-detail-card {
+            padding: 0.8rem;
+            
+            .detail-card {
+                min-width: 100%;
+
+                
+                h3 {
+                    font-size: 1.5rem;
+                }
+                
+                .price {
+                    font-size: 1.3rem;
+                    
+                    .old {
+                        font-size: 1.1rem;
+                    }
+                }
+                
+                
+                .actions {
+                    flex-direction: column;
+                    gap: 0.8rem;
+                    
+                    .cart-btn {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
