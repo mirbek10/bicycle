@@ -4,8 +4,8 @@ import mapBanner from '../../assets/image/NurislamImg/contactBanner.png'
 import messageIMG from '../../assets/image/NurislamImg/orangeB.png'
 import "./contact.scss"
 import BikeBrands from '../../Components/BikeBrand/Bikebrands'
-import { faqs } from '../../data/faqData'
 import FaqList from '../../Components/FaqList/FaqList'
+import { faqs } from '../../shared/data/faqData';
 
 
 function Contact() {
