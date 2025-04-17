@@ -19,6 +19,7 @@ import Workshop from "../pages/workshop/Workshop";
 import Agreement from "../pages/agreement/Agreement";
 import DetailBike from "../pages/BikeDetails/BikeDetails";
 import Chat from "../pages/Chat/Chat";
+import Grant from "../pages/grant/Grant";
 
 
 export const myRouter = createBrowserRouter([
@@ -42,8 +43,6 @@ export const myRouter = createBrowserRouter([
                  path: "/cart",
                   element: <Cart/>
              },
-            
-
             {
                 path: "/register",
                  element: <Register/>
@@ -100,14 +99,18 @@ export const myRouter = createBrowserRouter([
                 path: "/userAgreement",
                 element:<Agreement/>
              },
-
+            {
                 path: "/product-details",
                  element: <DetailBike/>
              },
              {
                 path: "/chat",
                  element: <Chat/>
-             }
+             },
+             {
+                path: "/guarantees",
+                 element: <Grant/>
+             },
 
         ]
     }
