@@ -75,7 +75,7 @@ function Cart() {
             <>
               <p className="cart-success">Заказ №{orderNumber} успешно оформлен!</p>
               <p>Скоро вы будете перенаправлены на страницу заказов...</p>
-              <Link to="/orders" className="cart-orders-link">
+              <Link to="/profile" className="cart-orders-link">
                 Перейти к заказам сейчас
               </Link>
             </>

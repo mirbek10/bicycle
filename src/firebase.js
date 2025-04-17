@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDEm8Ksy0_-gPBYiC5NfCdV_CkEutiyTyo",
-  authDomain: "bicycle-2025.firebaseapp.com",
-  projectId: "bicycle-2025",
-  storageBucket: "bicycle-2025.firebasestorage.app",
-  messagingSenderId: "715950718279",
-  appId: "1:715950718279:web:4a2ca48ea62755378f6062",
-  measurementId: "G-DWB00NCMME"
+  apiKey: "AIzaSyDU5yIcJKCfWg8LZsBhXoMjtoupD5dxcOQ",
+  authDomain: "bicycle-c4115.firebaseapp.com",
+  projectId: "bicycle-c4115",
+  storageBucket: "bicycle-c4115.firebasestorage.app",
+  messagingSenderId: "215313328692",
+  appId: "1:215313328692:web:c276936326ebd014113861",
+  measurementId: "G-8RTNN9E128"
 };
 
 // Initialize Firebase

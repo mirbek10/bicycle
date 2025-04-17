@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './faqlist.scss';
+import { Link } from 'react-router-dom';
 
 const FaqList = ({ data }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -33,6 +34,13 @@ const FaqList = ({ data }) => {
           </div>
         </div>
       ))}
+      <div className="faq-item" >
+        <button className="faq-button">
+          <Link className='a-href' style={{ textDecoration:"none", color:"#333", fontSize:"18px",}} to='/chat'>
+            <span>Если есть вопросы то пишите нам в чат</span>
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };
