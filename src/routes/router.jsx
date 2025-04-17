@@ -7,20 +7,23 @@ import Register from "../pages/register/Register";
 import SignIn from "../pages/signIn/SignIn";
 import PrivateRoute from "./PrivateRoter";
 import Profile from "../pages/Profile/Profile";
-
 import About from "../pages/about/About";
-
-
 import Catalog from "../pages/catalog/Catalog";
 import ForgotPassword from "../pages/forgetPassword/ForgotPassword";
 import EmailSent from "../pages/emailSend/EmailSent";
 import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
+
 import ProductList from "../pages/productList/ProductList";
 import ProductDetail from "../pages/productDetail/ProductDetail";
-
-
+import Contact from "../pages/contact/Contact";
+import Workshop from "../pages/workshop/Workshop";
+import Agreement from "../pages/agreement/Agreement";
+import DetailBike from "../pages/BikeDetails/BikeDetails";
+import Chat from "../pages/Chat/Chat";
+import Grant from "../pages/grant/Grant";
+import Delivery from "../pages/delivery/Delivery";
 
 
 
@@ -53,8 +56,6 @@ export const myRouter = createBrowserRouter([
                  path: "/cart",
                   element: <Cart/>
              },
-            
-
             {
                 path: "/register",
                  element: <Register/>
@@ -94,6 +95,38 @@ export const myRouter = createBrowserRouter([
              {
                 path: "/resend-verification",
                 element:<EmailVerified/>
+             },
+             {
+                path: "/about",
+                element:<About/>
+             },
+             {
+                path: "/contact",
+                element:<Contact/>
+             },
+             {
+                path: "/workshop",
+                element:<Workshop/>
+             },
+             {
+                path: "/userAgreement",
+                element:<Agreement/>
+             },
+            {
+                path: "/product-details",
+                 element: <DetailBike/>
+             },
+             {
+                path: "/chat",
+                 element: <Chat/>
+             },
+             {
+                path: "/guarantees",
+                 element: <Grant/>
+             },
+             {
+                path:"/deliveryAndPayment",
+                element:<Delivery/>
              }
 
         ]

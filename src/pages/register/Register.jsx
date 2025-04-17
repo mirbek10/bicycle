@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { auth } from '/src/firebase';
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { auth, db } from '/src/firebase';
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import EyeToggle from '../../Components/eye-password/EyeToggle';
 import './register.scss';
+import { FcGoogle } from 'react-icons/fc';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -18,8 +25,10 @@ function Register() {
   const [username, setUsername] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
 
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,10 +74,12 @@ function Register() {
   const handleCreateUser = async (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email) ||
+    if (
+      !validateEmail(email) ||
       !validatePassword(password) ||
       !validateConfirmPassword(confirmPassword) ||
-      !validateUsername(username)) {
+      !validateUsername(username)
+    ) {
       toast.error('Пожалуйста, исправьте ошибки перед регистрацией');
       return;
     }
@@ -77,8 +88,16 @@ function Register() {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-      await sendEmailVerification(userCredential.user, {
+      // Сохраняем имя пользователя в Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        username,
+        email: user.email,
+        createdAt: new Date(),
+      });
+
+      await sendEmailVerification(user, {
         url: `${window.location.origin}/email-verified`,
         handleCodeInApp: true,
       });
@@ -94,7 +113,6 @@ function Register() {
       navigate('/verify-email-message', {
         state: { email }
       });
-
     } catch (error) {
       console.error('Ошибка регистрации:', error);
 
@@ -120,6 +138,24 @@ function Register() {
     }
   };
 
+  const signInWithGoogle = async () => {
+    setIsGoogleLoading(true);
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      toast.success('Вы успешно вошли через Google');
+      navigate('/');
+    } catch (error) {
+      console.error('Ошибка входа через Google:', error);
+      let errorMessage = 'Ошибка при входе через Google';
+      if (error.code === 'auth/account-exists-with-different-credential') {
+        errorMessage = 'Аккаунт с этим email уже существует';
+      }
+      toast.error(errorMessage);
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
   return (
     <div className="register">
       <div className="register-content container">
@@ -139,7 +175,7 @@ function Register() {
                 setUsername(e.target.value);
                 validateUsername(e.target.value);
               }}
-              disabled={isLoading}
+              disabled={isLoading || isGoogleLoading}
             />
             {usernameError && <p className="error-message">{usernameError}</p>}
           </div>
@@ -154,7 +190,7 @@ function Register() {
               }}
               value={email}
               type="email"
-              disabled={isLoading}
+              disabled={isLoading || isGoogleLoading}
             />
             {emailError && <p className="error-message">{emailError}</p>}
           </div>
@@ -170,7 +206,7 @@ function Register() {
                 }}
                 value={password}
                 type={showPassword ? 'text' : 'password'}
-                disabled={isLoading}
+                disabled={isLoading || isGoogleLoading}
               />
               <EyeToggle className="eye-icon" showPassword={showPassword} togglePassword={() => setShowPassword(!showPassword)} />
             </div>
@@ -188,7 +224,7 @@ function Register() {
                 }}
                 value={confirmPassword}
                 type={showConfirmPassword ? 'text' : 'password'}
-                disabled={isLoading}
+                disabled={isLoading || isGoogleLoading}
               />
               <EyeToggle
                 className="eye-icon"
@@ -204,6 +240,7 @@ function Register() {
               type="submit"
               disabled={
                 isLoading ||
+                isGoogleLoading ||
                 emailError ||
                 passwordError ||
                 confirmPasswordError ||
@@ -216,6 +253,20 @@ function Register() {
             >
               {isLoading ? 'Регистрация...' : 'Регистрация'}
             </button>
+
+            <div className="google-auth">
+              <p>Или</p>
+              <button
+                type="button"
+                className="google-btn"
+                onClick={signInWithGoogle}
+                disabled={isLoading || isGoogleLoading}
+              >
+                <FcGoogle className="google-icon" />
+                {isGoogleLoading ? 'Вход...' : 'Войти через Google'}
+              </button>
+            </div>
+
             <p>Уже регистрировались? <Link to="/signIn">Войти</Link></p>
           </div>
         </form>

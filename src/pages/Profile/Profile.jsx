@@ -6,13 +6,15 @@ import Userinfo from './Userinfo';
 import OrderHistory from './OrderHistory';
 import ChangePassword from './ChangePassword';  
 import "./profile.scss";
+import WhishList from '../whishList/WhishList';
+import Account from './Accaunt/Account';
 
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isAuthenticated, user } = useSelector(state => state.auth);
-  const [activeTab, setActiveTab] = useState("userinfo");
+  const [activeTab, setActiveTab] = useState("myAcc");
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -34,8 +36,12 @@ function Profile() {
         return <OrderHistory />;
       case "changepassword":
         return <ChangePassword />;
+        case "whishlist":
+          return <WhishList/>
+        case "myAcc":
+        return <Account info={user}/>  
       default:
-        return <Userinfo user={user} />;
+        return <Account info={user} />;
     }
   };
 
@@ -44,12 +50,13 @@ function Profile() {
   return (
     <div className="account-container container">
       <aside className="account-menu">
-        <h2>Мой аккаунт</h2>
+        <h2 onClick={()=> setActiveTab("myAcc")}>Мой аккаунт</h2>
         <hr />
         <ul>
-          <li onClick={() => setActiveTab("userinfo")}>Персональные данные</li>
-          <li onClick={() => setActiveTab("orderhistory")}>История заказов</li>
-          <li onClick={() => setActiveTab("changepassword")}>Смена пароля</li>
+          <li className={activeTab === 'userinfo'? 'active':''} onClick={() => setActiveTab("userinfo")}>Персональные данные</li>
+          <li className={activeTab === 'orderhistory'? 'active':''} onClick={() => setActiveTab("orderhistory")}>История заказов</li>
+          <li className={activeTab === 'changepassword'? 'active':''} onClick={() => setActiveTab("changepassword")}>Смена пароля</li>
+          <li className={activeTab ==='whishlist' ? "active":'' } onClick={()=>setActiveTab('whishlist')}>Список желаний</li>
           <li onClick={handleLogout}>Выйти</li>
         </ul>
       </aside>

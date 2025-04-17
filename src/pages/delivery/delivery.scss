@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.delivery{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    .delivery-head {
+        position: relative;
+        img {
+          width: 100%;
+          height: 278px;
+          object-fit: cover;
+          filter: brightness(50%);
+        }
+      
+        .delivery-head-text {
+          position: absolute;
+          top: 60%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      
+          .head-text {
+              display: flex;
+              justify-content: left;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+      
+            .home-link {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 500;
+                position: relative;
+                display: inline-block;
+                transition: color 0.3s ease;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -2px;
+                    width: 0%;
+                    height: 2px;
+                    background: #ffa500;
+                    transition: width 0.3s ease;
+                  }
+        
+                  &:hover {
+                    color: #ffa500;
+        
+                    &::after {
+                      width: 100%;
+                    }
+                  }
+            }
+            
+            p {
+                font-family: Inter;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                color: #FFA500;
+              margin: 0;
+            }
+          }
+      
+          h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 10px;
+            text-align: left;
+          }
+        }
+      }
+    .delivery-content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .delivery-info{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            h1{
+                            /* desk h3 */
+            color: rgb(16, 16, 16);
+            font-family: Bebas Neue Cyrillic;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 123%;
+            letter-spacing: 5%;
+            text-align: left;
+            }
+            .delivery-info-text{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                p{
+                color: rgb(16, 16, 16);
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 160%;
+                letter-spacing: 0%;
+                text-align: left;
+                }
+            }
+        }
+    }
+    .payment-content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .payment-info{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            h1{
+                            /* desk h3 */
+            color: rgb(16, 16, 16);
+            font-family: Bebas Neue Cyrillic;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 123%;
+            letter-spacing: 5%;
+            text-align: left;
+            }
+            p{
+            color: rgb(16, 16, 16);
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 160%;
+            letter-spacing: 0%;
+            text-align: left;
+            }
+        }
+    }
+}
+
+
+.delivery-content, .payment-content {
+    animation: fadeInUp 0.6s ease-in-out both;
+  
+    h1 {
+      color: #111;
+      font-family: 'Bebas Neue Cyrillic', sans-serif;
+      font-size: 40px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      position: relative;
+      transition: color 0.3s ease;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        height: 2px;
+        width: 100%;
+        background-color: #FFA500;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+  
+      &:hover {
+        color: #FFA500;
+      }
+  
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  
+    p {
+      color: #222;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 10px;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+  
+      &:hover {
+        color: #FFA500;
+        padding-left: 18px;
+      }
+  
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #FFA500;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

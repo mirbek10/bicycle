@@ -10,9 +10,8 @@ import ProductList from '../../Components/ProducList/ProductList'
 import Banner from '../../Components/banner/Banner'
 import { CiFilter } from "react-icons/ci"
 import { IoClose } from "react-icons/io5"
+import { FiSearch } from "react-icons/fi"
 import NotFoundMessage from './notFound/NoteFound'
-
-
 
 const Catalog = () => {
   const dispatch = useDispatch()
@@ -54,6 +53,8 @@ const Catalog = () => {
   })
 
   const [inStockOnly, setInStockOnly] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(9)
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     dispatch(fetchBicycles())
@@ -62,7 +63,6 @@ const Catalog = () => {
     dispatch(getEquipment())
     dispatch(getbikeStation())
   }, [dispatch])
-  
 
   const allProducts = useMemo(() => {
     const result = []
@@ -82,15 +82,23 @@ const Catalog = () => {
     if (categories.equipment && equipment) {
       result.push(...equipment.map(item => ({ ...item, productType: 'equipment' })))
     }
+
     if (categories.bikeStation && list) {
-      result.push(...list.map(item => ({...item, productType: 'bikeStation' })))
+      result.push(...list.map(item => ({ ...item, productType: 'bikeStation' })))
     }
 
     return result
-  }, [bicycles, parts, accessories, equipment, list , categories])
+  }, [bicycles, parts, accessories, equipment, list, categories])
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
+      // Поиск по названию и описанию
+      if (searchQuery &&
+        !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        !product.description?.toLowerCase().includes(searchQuery.toLowerCase())) {
+        return false
+      }
+
       if (product.price < priceRange[0] || product.price > priceRange[1]) return false
 
       if (inStockOnly && (!product.buying || product.buying <= 0)) return false
@@ -110,7 +118,11 @@ const Catalog = () => {
 
       return true
     })
-  }, [allProducts, priceRange, inStockOnly, materials, colors])
+  }, [allProducts, searchQuery, priceRange, inStockOnly, materials, colors])
+
+  const visibleProducts = useMemo(() => {
+    return filteredProducts.slice(0, visibleCount)
+  }, [filteredProducts, visibleCount])
 
   const handleCategoryChange = (category) => {
     setCategories(prev => ({
@@ -157,8 +169,17 @@ const Catalog = () => {
       'Carbon': false
     })
     setColors(colors.map(color => ({ ...color, selected: false })))
-    setPriceRange([0, 600])
+    setPriceRange([0, 1600])
     setInStockOnly(false)
+    setVisibleCount(12)
+    setSearchQuery('')
+  }
+
+  const handleShowMore = () => {
+    setVisibleCount(prev => prev + 12)
+  }
+  const handleShowLess = () => {
+    setVisibleCount(prev => prev - 12)
   }
 
   return (
@@ -175,6 +196,19 @@ const Catalog = () => {
             <div className="filter-panel__header">
               <h3>Фильтры</h3>
               <IoClose className="close-filter" onClick={() => setOpen(false)} />
+            </div>
+
+            <div className="filter-section">
+              <h4 className="filter-section__title">Поиск</h4>
+              <div className="search-input">
+                <FiSearch className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
             </div>
 
             <div className="filter-section">
@@ -210,7 +244,7 @@ const Catalog = () => {
                   onChange={(e) => handlePriceChange(e, 1)}
                 />
                 <div className="price-values">
-                  ${priceRange[0]} - ${priceRange[1]}
+                  ₽{priceRange[0]} - ₽{priceRange[1]}
                 </div>
               </div>
             </div>
@@ -273,10 +307,26 @@ const Catalog = () => {
               <CiFilter /> Фильтры
             </button>
           </div>
-          {filteredProducts.length > 0 ? (
-            <ProductList data={filteredProducts} />
+          {visibleProducts.length > 0 ? (
+            <>
+              <ProductList data={visibleProducts} />
+              {visibleCount < filteredProducts.length && (
+                <div className="show-more-wrapper">
+                  <button className="show-more-button" onClick={handleShowMore}>
+                    Показать ещё
+                  </button>
+                  <button
+                    className="show-less-button"
+                    style={{ display: visibleCount <= 9 ? 'none' : 'block' }}
+                    onClick={handleShowLess}
+                  >
+                    свернуть
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
-           <NotFoundMessage/>
+            <NotFoundMessage />
           )}
         </div>
       </div>
