@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import workshopIMG from '../../assets/image/NurislamImg/workShopIMG.png'
 import "./workshop.scss"
 import FaqList from '../../Components/FaqList/FaqList';
-import { serviceData } from '../../data/serviceData';
+import {serviceData} from "../../shared/data/serviceData"
 
 const worksShop = [
     {
