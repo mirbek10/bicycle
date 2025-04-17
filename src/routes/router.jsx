@@ -17,6 +17,8 @@ import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmai
 import Contact from "../pages/contact/Contact";
 import Workshop from "../pages/workshop/Workshop";
 import Agreement from "../pages/agreement/Agreement";
+import DetailBike from "../pages/BikeDetails/BikeDetails";
+import Chat from "../pages/Chat/Chat";
 
 
 export const myRouter = createBrowserRouter([
@@ -99,6 +101,13 @@ export const myRouter = createBrowserRouter([
                 element:<Agreement/>
              },
 
+                path: "/product-details",
+                 element: <DetailBike/>
+             },
+             {
+                path: "/chat",
+                 element: <Chat/>
+             }
 
         ]
     }

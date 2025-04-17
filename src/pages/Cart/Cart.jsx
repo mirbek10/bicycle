@@ -47,14 +47,14 @@ function Cart() {
     setShowModal(false);
   };
 
-  useEffect(() => {
-    if (orderCompleted) {
-      const timer = setTimeout(() => {
-        navigate("/profile");
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [orderCompleted, navigate]);
+  // useEffect(() => {
+  //   if (orderCompleted) {
+  //     const timer = setTimeout(() => {
+  //       navigate("/profile");
+  //     }, 3000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [orderCompleted, navigate]);
 
   return (
     <div className="cart-container">
@@ -75,7 +75,7 @@ function Cart() {
             <>
               <p className="cart-success">Заказ №{orderNumber} успешно оформлен!</p>
               <p>Скоро вы будете перенаправлены на страницу заказов...</p>
-              <Link to="/orders" className="cart-orders-link">
+              <Link to="/profile" className="cart-orders-link">
                 Перейти к заказам сейчас
               </Link>
             </>

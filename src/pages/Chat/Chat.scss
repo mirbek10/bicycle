@@ -1,0 +1,337 @@
+.chat-room {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 800px;
+    margin: 120px auto;
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #ff6b00;
+    color: white;
+  
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: black;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  
+    .logout-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+  
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+  
+  .messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  
+    .message {
+      display: flex;
+      gap: 10px;
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+  
+      &.own {
+        align-self: flex-end;
+        background: #ff6b00;
+  
+        .message-actions {
+          right: auto;
+          left: -40px;
+        }
+      }
+  
+      .avatar {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #000;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 12px;
+        margin-top: 3px;
+      }
+  
+      .content {
+        flex: 1;
+  
+        .message-header {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 5px;
+          font-size: 14px;
+  
+          .email {
+            font-weight: bold;
+            color: black;
+          }
+  
+          .time {
+            color: #777;
+            font-size: 12px;
+          }
+  
+          .edited {
+            color: #999;
+            font-size: 12px;
+            font-style: italic;
+          }
+        }
+  
+        .animated-text {
+          margin: 0;
+          word-break: break-word;
+        }
+  
+        .edit-form {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+  
+          input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            &:focus{
+                outline: none;
+            }
+          }
+  
+          .edit-actions {
+            display: flex;
+            gap: 5px;
+  
+            button {
+              flex: 1;
+              padding: 5px;
+              border: none;
+              border-radius: 3px;
+              cursor: pointer;
+  
+              &:first-child {
+                background: #ff6b00;
+                color: white;
+              }
+  
+              &:last-child {
+                background: #f5f5f5;
+              }
+            }
+          }
+        }
+      }
+  
+      .message-actions {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 5px;
+        opacity: 0;
+        transition: opacity 0.2s;
+  
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 16px;
+          padding: 2px;
+  
+          &:hover {
+            color: #ff6b00;
+          }
+        }
+      }
+  
+      &:hover .message-actions {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .typing-notice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+  
+    .typing-text {
+      font-style: italic;
+    }
+  
+    .typing-indicator {
+      display: flex;
+      gap: 3px;
+  
+      span {
+        width: 6px;
+        height: 6px;
+        background: #666;
+        border-radius: 50%;
+        display: inline-block;
+        animation: bounce 1.5s infinite ease-in-out;
+  
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+      }
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .send-form {
+    display: flex;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+  
+    input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      outline: none;
+      font-size: 16px;
+  
+      &:focus {
+        border-color: #ff6b00;
+      }
+    }
+  
+    button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: #ff6b00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+  
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f5f5f5;
+  
+    .auth-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+  
+      h2 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+  
+      p {
+        margin-bottom: 20px;
+        color: #666;
+      }
+  
+      .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 12px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.3s;
+  
+        img {
+          width: 20px;
+          height: 20px;
+        }
+  
+        &:hover {
+          background: #f5f5f5;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+  

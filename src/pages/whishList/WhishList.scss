@@ -1,0 +1,95 @@
+.whishlist-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    .whishlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+  
+      h2 {
+        font-size: 28px;
+        color: #333;
+      }
+  
+      .clear-all-btn {
+        background: #ff4444;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+  
+        &:hover {
+          background: #cc0000;
+        }
+      }
+    }
+  
+    .empty-whishlist {
+      text-align: center;
+      padding: 50px 0;
+      color: #666;
+      font-size: 18px;
+    }
+  
+    .whishlist-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+      justify-content: center;
+  
+      .whishlist-item {
+        width: 240px;
+        display: grid;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        height: 443px;
+        padding: 0;
+        .product-card{
+            margin: 5px auto;
+        }
+        
+        
+  
+        
+  
+          .remove-btn {
+            background-color: #ff7300;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(255, 115, 0, 0.2);
+            position: absolute;
+            width: 65%;
+            left: 18%;
+            top: -15%;
+            transition: all 0.3s ease;
+            z-index: 10;
+          
+            &:hover {
+              background-color: #e06200;
+              transform: scale(1.05);
+            }
+          
+            &:active {
+              transform: scale(1);
+            }
+          }
+          &:hover .remove-btn{
+            top: 3%;
+          }
+          
+        }
+      }
+    }
+  
