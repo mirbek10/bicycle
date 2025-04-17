@@ -36,7 +36,7 @@
         }
   
         a {
-          color: #4dd0e1;
+          color: #8f4403;
           text-decoration: none;
           font-weight: bold;
           &:hover {
@@ -45,7 +45,7 @@
        
         }
         h6{
-            color: #26c6da;
+            color: #a7550e;
 font-family: Inter;
 font-size: 16px;
 font-weight: 400;
@@ -84,18 +84,18 @@ height: 60px;
   .button-wrapper {
     text-align: center;
     margin: 0 auto;
-    margin-left: -100px;
+    margin-left: -100px                                           ;
   
     button {
       padding: 10px 10px;
-      background: #4dd0e1;
+      background: #b97234;
       border: none;
       border-radius: 4px;
       color: black;
       font-weight: bold;
       cursor: pointer;
       &:hover {
-        background: #26c6da;
+        background:  #8f4403;
       }
     }
   }
