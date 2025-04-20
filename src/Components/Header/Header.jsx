@@ -58,7 +58,7 @@ const Header = () => {
               setLinksActive("search");
               setmodalIcon('search');
             }} 
-            style={LinksActive === "search" || modalIcon === "search" ? { color: 'rgb(245, 117, 32)' } : {}}
+            style={LinksActive === "search"  ? { color: 'rgb(245, 117, 32)' } : {}}
           />
       
           {isAuth ? (
@@ -69,7 +69,7 @@ const Header = () => {
                 setmodalIcon('profile');
                 navigateWithAuth(isAuth, navigate, "/profile");
               }}
-              style={LinksActive === "profile" || modalIcon === "profile" ? { color: 'rgb(245, 117, 32)' } : {}}
+              style={LinksActive === "profile"? { color: 'rgb(245, 117, 32)' } : {}}
             />
           ) : (
             <Link 
@@ -78,7 +78,7 @@ const Header = () => {
                 setLinksActive("profile");
                 setmodalIcon('profile');
               }}
-              style={{ color: LinksActive === "profile" || modalIcon === "profile" ? 'rgb(245, 117, 32)' : 'inherit' }}
+              style={{ color: LinksActive === "profile"  ? 'rgb(245, 117, 32)' : 'inherit' }}
             >
               <FaRegUser size={20} />
             </Link>
@@ -90,7 +90,7 @@ const Header = () => {
               setLinksActive("favorites");
               setmodalIcon('favorites');
             }} 
-            style={LinksActive === "favorites" || modalIcon === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
+            style={LinksActive === "favorites"  ? { color: 'rgb(245, 117, 32)' } : {}}
           />
       
           <FaShoppingCart 
@@ -100,7 +100,7 @@ const Header = () => {
               setmodalIcon('cart');
               navigateWithAuth(isAuth, navigate, "/cart");
             }}
-            style={LinksActive === "cart" || modalIcon === "cart" ? { color: 'rgb(245, 117, 32)' } : {}}
+            style={LinksActive === "cart"?  { color: 'rgb(245, 117, 32)' } : {}}
           />
         </div>
       );
