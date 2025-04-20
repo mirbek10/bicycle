@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './DetailBike.scss';
 import { FiHeart } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa"; // Добавлена заполненная иконка
+import { FaHeart } from "react-icons/fa"; 
 import { addToCart } from '../../store/cart/CartSlise';
 import { toast } from 'react-toastify';
 import BikeSpecs from './BikeSpecs/BikeSpecs';

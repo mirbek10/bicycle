@@ -1,4 +1,4 @@
-// components/EBikeCarousel.tsx
+
 import React, { useState, useEffect } from 'react';
 import './Banner.scss';
 import { Link } from 'react-router-dom';

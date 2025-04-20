@@ -9,10 +9,6 @@ import { navigateWithAuth } from '../../shared/hooks/navigateWithAuth';
 
 import logo from "../../assets/svg/logo.svg";
 import logoB from "../../assets/svg/logoBlack.svg";
-import heart from "../../assets/svg/heart.svg";
-import cart from "../../assets/svg/cart.svg";
-import search from "../../assets/svg/search.svg";
-import profile from "../../assets/svg/profile.svg";
 import menuIcon from "../../assets/svg/menu.svg";
 import { IoClose } from "react-icons/io5";
 import { FaSearch, FaRegUser,FaRegHeart, FaShoppingCart } from 'react-icons/fa';

@@ -8,7 +8,7 @@ import phone from "../../assets/svg/phone.svg";
 import { FiCheckCircle } from 'react-icons/fi';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-import './Footer.scss';
+import './footer.scss';
 
 function Footer() {
   const [emailInput, setEmailInput] = useState('');
