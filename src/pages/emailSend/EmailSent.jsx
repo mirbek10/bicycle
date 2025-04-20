@@ -1,5 +1,5 @@
 import React from "react";
-import "./EmailSent.scss";
+import "./emailsent.scss";
 
 const EmailSent = () => {
   const handleLogin = () => {
