@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../../../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import './account.scss';
+import './Account.scss';
 
 function Account() {
   const [userInfo, setUserInfo] = useState({

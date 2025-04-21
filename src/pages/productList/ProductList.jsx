@@ -7,6 +7,10 @@ import './ProductList.scss';
 import { FcLike } from "react-icons/fc";
 import { FaUsersViewfinder } from "react-icons/fa6";
 
+
+import BikeLoader from '../../shared/loader/BikeLoader';
+
+
 const ProductList = () => {
   const dispatch = useDispatch();
   const { items, showAll, status } = useSelector((state) => state.products);
@@ -20,7 +24,11 @@ const ProductList = () => {
   return (
     <>
       <div className="product-list">
+
         {status === 'loading' && <p>Загрузка...</p>}
+
+        {status === 'loading' && <BikeLoader/>}
+
         {status === 'succeeded' &&
           visibleItems.map((item) => (
             <div className="card" key={item.id}>

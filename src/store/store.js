@@ -5,9 +5,13 @@ import partsReducer from './partsSlice.js';
 import EquipmentReducer from './Equipmentslice/EquipmentSLice.js';
 import CardReducer from './cart/CartSlise.js'
 import bikeStationReducer from './BikeStation/bikeStation.js'
+
+import productReducer from "./product/productSlice"
+
 import detailsReducer from './Details/Details.js'
 import wishListReducer from "./WishListSlice/WishListSlice.js"
 import productReducer from "./product/productSlice"
+
 
 import authReducer from "./authSlice.js"
 const myStore = configureStore({
@@ -19,9 +23,14 @@ const myStore = configureStore({
     cart:CardReducer,
     auth: authReducer,
     bikeStation: bikeStationReducer, 
+
+    products:productReducer,
+
     detail: detailsReducer,
     wishList: wishListReducer,
+
     products:productReducer,
+
   },
 });
 

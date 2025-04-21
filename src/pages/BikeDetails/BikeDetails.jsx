@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './DetailBike.scss';
 import { FiHeart } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa"; // Добавлена заполненная иконка
+import { FaHeart } from "react-icons/fa"; 
 import { addToCart } from '../../store/cart/CartSlise';
 import { toast } from 'react-toastify';
 import BikeSpecs from './BikeSpecs/BikeSpecs';
@@ -92,7 +92,7 @@ const DetailBike = () => {
 
                     <div className="detail-card">
                         <h3>{currentDetail.name}</h3>
-                        <p style={currentDetail.byuing ? {}:{color:"red"}} className={`availability `}>{currentDetail.byuing ? 'В наличии': 'Распродоно'}</p>
+                        <p style={currentDetail.buying ? {}:{color:"red"}} className={`availability `}>{currentDetail.buying === true ? 'В наличии': 'Распродоно'}</p>
 
                         <div className="price">
                             <span className="current">{currentDetail.price} ₽</span>

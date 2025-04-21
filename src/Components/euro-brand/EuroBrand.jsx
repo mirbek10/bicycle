@@ -3,7 +3,7 @@ import EuropeIcon from "../../assets/svg/EuropeIcon.svg";
 import WarrantyIcon from "../../assets/svg/grant.svg";
 import SettingsIcon from "../../assets/svg/setting.svg";
 import DeliveryIcon from "../../assets/svg/dostavka.svg";
-import "./euroBrand.scss"; // Подключаем SCSS стили
+import "./euroBrand.scss"; 
 
 const features = [
   {

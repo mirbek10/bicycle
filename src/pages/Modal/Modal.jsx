@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './Modal.scss';
 
 const Modal = ({ children, onClose, isOpen }) => {
-  // Блокировка скролла при открытии модалки
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
