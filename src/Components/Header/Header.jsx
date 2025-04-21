@@ -97,6 +97,8 @@ function Header() {
           <li><Link to="/" className='sid-link'>Хранение</Link></li>
           <li><Link to="/" className='sid-link'>Блог</Link></li>
           <li><Link to="/userAgreement" className='sid-link'>Пользовательское соглашение</Link></li>
+          <li><Link to="/review" className='sid-link'>Отзывы</Link></li>
+
         </ul>
 
         <div className="sidebar-icons">
