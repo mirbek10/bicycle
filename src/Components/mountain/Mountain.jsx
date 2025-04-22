@@ -5,8 +5,13 @@ import detail2 from "../../assets/svg/comp.svg"
 import detail3 from "../../assets/svg/detail.svg"
 import detail4 from "../../assets/svg/bicycle.svg"
 import "./mountain.scss";
+import { useNavigate } from "react-router-dom";
 
 const Mountain = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/catalog");
+  };
   return (
     <section className="mountain">
         <div className="mountain-title container">
@@ -53,7 +58,7 @@ const Mountain = () => {
           так как обладает рядом характеристик, позволяющих сделать велопрогулку максимально приятной
           и комфортной
         </p>
-        <button className="mountain-button">Каталог</button>
+        <button onClick={handleClick} className="mountain-button">Каталог</button>
       </div>
         </div>
     </section>
