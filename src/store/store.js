@@ -10,6 +10,7 @@ import productReducer from "./product/productSlice"
 
 import detailsReducer from './Details/Details.js'
 import wishListReducer from "./WishListSlice/WishListSlice.js"
+import productReducer from "./product/productSlice"
 
 
 import authReducer from "./authSlice.js"
@@ -27,6 +28,8 @@ const myStore = configureStore({
 
     detail: detailsReducer,
     wishList: wishListReducer,
+
+    products:productReducer,
 
   },
 });

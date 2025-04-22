@@ -20,6 +20,12 @@ import Contact from "../pages/contact/Contact";
 import Workshop from "../pages/workshop/Workshop";
 import Agreement from "../pages/agreement/Agreement";
 import DetailBike from "../pages/BikeDetails/BikeDetails";
+import ProductList from "../pages/productList/ProductList";
+import ProductDetail from "../pages/productDetail/ProductDetail";
+import ReviewPage from "../pages/review/ReviewPage";
+
+
+
 import Chat from "../pages/Chat/Chat";
 import Grant from "../pages/grant/Grant";
 import Delivery from "../pages/delivery/Delivery";
@@ -129,9 +135,15 @@ export const myRouter = createBrowserRouter([
                 element:<Delivery/>
              },
              {
+
                 path:"/bikeFilm",
                 element:<BikeFilm/>
              }
+
+                path: "/review",
+                 element: <ReviewPage/>
+            },
+
 
         ]
     }
