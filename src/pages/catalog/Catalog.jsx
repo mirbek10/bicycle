@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './Catalog.scss'
 import { fetchBicycles } from '../../store/bikeSlice'
@@ -7,13 +7,17 @@ import { fetchAccessories } from '../../store/accessoriesSlice'
 import { getEquipment } from '../../store/Equipmentslice/EquipmentSLice'
 import { getbikeStation } from '../../store/BikeStation/bikeStation'
 import ProductList from '../../Components/ProducList/ProductList'
-import Banner from '../../Components/banner/Banner'
 import { CiFilter } from "react-icons/ci"
 import { IoClose } from "react-icons/io5"
 import { FiSearch } from "react-icons/fi"
 import NotFoundMessage from './notFound/NoteFound'
+import { bikes } from '../../shared/data/bikes'
+import { useLocation } from 'react-router-dom';
+
 
 const Catalog = () => {
+  const inputRef = useRef(null);
+  const location = useLocation();
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
 
@@ -29,7 +33,9 @@ const Catalog = () => {
     'parts': true,
     'accessories': true,
     'equipment': true,
-    'bikeStation': true
+    'bikeStation': true,
+    'bikes': true,
+
   })
 
   const [colors, setColors] = useState([
@@ -86,13 +92,16 @@ const Catalog = () => {
     if (categories.bikeStation && list) {
       result.push(...list.map(item => ({ ...item, productType: 'bikeStation' })))
     }
+    if (categories.bikes && bikes) {
+      result.push(...bikes.map(item => ({ ...item, productType: 'bike' })))
+    }
 
     return result
-  }, [bicycles, parts, accessories, equipment, list, categories])
+  }, [bicycles, parts, accessories, equipment, list, categories, bikes])
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
-      // Поиск по названию и описанию
+      // Поиск по названию и описании
       if (searchQuery &&
         !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
         !product.description?.toLowerCase().includes(searchQuery.toLowerCase())) {
@@ -161,7 +170,8 @@ const Catalog = () => {
       'parts': true,
       'accessories': true,
       'equipment': true,
-      'bikeStation': true
+      'bikeStation': true,
+      'bikes': true,
     })
     setMaterials({
       'Aluminum': false,
@@ -179,12 +189,24 @@ const Catalog = () => {
     setVisibleCount(prev => prev + 12)
   }
   const handleShowLess = () => {
-    setVisibleCount(prev => prev - 12)
+    setVisibleCount(prev => prev - 6)
   }
+
+
+  useEffect(() => {
+    if (location.hash === '#focus' && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [location]);
 
   return (
     <>
-      <Banner />
+      <div className='catalog-banner'>
+        <div className="container-catalog">
+          <p>Главная / <span>Каталог</span></p>
+          <h1 className='catalog-title'>Каталог</h1>
+        </div>
+      </div>
       <div className='all-catalog'>
         <div
           className={`filter-overlay ${open ? 'active' : ''}`}
@@ -207,6 +229,7 @@ const Catalog = () => {
                   placeholder="Поиск товаров..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  ref={inputRef}
                 />
               </div>
             </div>

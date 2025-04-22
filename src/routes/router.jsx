@@ -14,7 +14,6 @@ import EmailSent from "../pages/emailSend/EmailSent";
 import ResetPassword from "../pages/ressetPassword/RessetPassword";
 import EmailVerified from "../pages/register/verifyemailmessage/EmailVerified";
 import VerifyEmailMessage from "../pages/register/verifyemailmessage/МerifyEmail";
-
 import ProductList from "../pages/productList/ProductList";
 import ProductDetail from "../pages/productDetail/ProductDetail";
 import Contact from "../pages/contact/Contact";
@@ -30,6 +29,7 @@ import ReviewPage from "../pages/review/ReviewPage";
 import Chat from "../pages/Chat/Chat";
 import Grant from "../pages/grant/Grant";
 import Delivery from "../pages/delivery/Delivery";
+import BikeFilm from "../pages/FilmBike/FilmBike";
 
 
 
@@ -135,9 +135,15 @@ export const myRouter = createBrowserRouter([
                 element:<Delivery/>
              },
              {
+
+                path:"/bikeFilm",
+                element:<BikeFilm/>
+             }
+
                 path: "/review",
                  element: <ReviewPage/>
             },
+
 
         ]
     }

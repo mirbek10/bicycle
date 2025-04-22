@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&display=swap');
+
+.catalog-banner{
+    background: url('../../assets/image/MirbekImg/headerimg.png') no-repeat center center/cover;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 100px;
+    font: Bebas Neue, sans-serif;
+    
+    .container-catalog{
+         
+        p{
+            font-size: 16px;
+            margin-top: 10px;
+            
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+            span{
+                font-weight: 600;
+                color: #F57520;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            }
+        }
+        h1{
+            font-size: 64px;
+            margin-top: 10px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+
+        }
+
+    }
+    
+}
+
+
 .all-catalog {
     display: flex;
     gap: 2rem;
