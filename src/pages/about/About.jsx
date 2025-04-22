@@ -17,12 +17,12 @@ function About() {
       <div className='about-head'>
         <img src={about} alt="banner" />
         <div className='about-head-text container'>
-        <div className="head-text">
-                <Link to='/' className='home-link'>Главная /</Link><p>О нас</p>
-                </div>
-              <h1>О нас</h1>
+          <div className="head-text">
+            <Link to='/' className='home-link'>Главная /</Link><p>О нас</p>
+          </div>
+          <h1>О нас</h1>
         </div>
-    </div>
+      </div>
       <div className='content'>
         <div className='content-text container'>
           <h1><span>Велосипед</span> – это не просто средство передвижения!</h1>
@@ -61,9 +61,9 @@ function About() {
             <div className='icon'><h6><FaSquarePhone /></h6></div>
           </div>
         </div>
-          <div className='frame-image'>
-            <img src={cycle} alt="bike" />
-          </div>
+        <div className='frame-image'>
+          <img src={cycle} alt="bike" />
+        </div>
       </div>
       <div className='ad'>
         <h1 className='container'>МЫ СОБРАЛИ ДЛЯ ВАС ЛУЧШЕЕ ИЗ ВЕЛОСИПЕДНОГО МИРА</h1>
@@ -102,7 +102,7 @@ function About() {
           <h1>Остались вопросы? </h1>
           <p>Позвоните нам по номеру</p>
           <h1>+996 (550) 01 14 78</h1>
-          <p>Мы к вашим услугам! И, конечно же, приходите в наш магазин, чтобы посмотреть товары вживую, лично оценить качество и сделать правильный выбор!</p>
+          <p>Мы к вашим услугам! И, конечно же, приходите в наш магазин, чтобы посмотреть товары вживую, лично оценить качество и сделать правильный выбор!</p>
         </div>
         <img src={cycle3} alt="" />
       </div>
@@ -110,21 +110,21 @@ function About() {
       <div className='bike-section container'>
         <h1>WORLD-BIKE – ЭТО В ПЕРВУЮ ОЧЕРЕДЬ КОМАНДА!</h1>
         <div className='part-section'>
-        <div className='bike-left'>
-          <p>Все наши сотрудники — это бывшие профессиональные велосипедисты,<br />
-             чемпионы и призёры соревнований Европы и России, участники <br />
-              отечественной сборной. Не сомневайтесь, если кто-то и способен <br />
-               предоставить вам по-настоящему профессиональную консультацию, то это они.</p>
-          <ul>
-          <h5>Консультанты World-Bike помогут вам в любом вопросе:</h5>
-            <li>подбор велосипеда под ваш рост, вес, стиль езды и цели покупки байка;</li>
-            <li>помощь в выборе запчастей, аксессуаров и экипировки;</li>
-            <li>консультации по любой теме, касающейся спортивной тематики.</li>
-          </ul>
-        </div>
-        <div className='bike-right'>
-          <img src={bike} alt="" />
-        </div>
+          <div className='bike-left'>
+            <p>Все наши сотрудники — это бывшие профессиональные велосипедисты,<br />
+              чемпионы и призёры соревнований Европы и России, участники <br />
+              отечественной сборной. Не сомневайтесь, если кто-то и способен <br />
+              предоставить вам по-настоящему профессиональную консультацию, то это они.</p>
+            <ul>
+              <h5>Консультанты World-Bike помогут вам в любом вопросе:</h5>
+              <li>подбор велосипеда под ваш рост, вес, стиль езды и цели покупки байка;</li>
+              <li>помощь в выборе запчастей, аксессуаров и экипировки;</li>
+              <li>консультации по любой теме, касающейся спортивной тематики.</li>
+            </ul>
+          </div>
+          <div className='bike-right'>
+            <img src={bike} alt="" />
+          </div>
         </div>
       </div>
 
@@ -154,70 +154,70 @@ function About() {
       <div className='gallery'>
         <h1>Контакты</h1>
         <div className="map-content">
-      <iframe
-      className="map"
-  title="Bishkek Map"
-  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7120.221850199678!2d74.58019671435099!3d42.88388528486551!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2sus!4v1743502545480!5m2!1sru!2sus"
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-/>
+          <iframe
+            className="map"
+            title="Bishkek Map"
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7120.221850199678!2d74.58019671435099!3d42.88388528486551!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2sus!4v1743502545480!5m2!1sru!2sus"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
 
-      </div>
-        
+        </div>
+
       </div>
 
       <div className='information'>
         <div className='collab'>
-        <div className='address'>
-        <div className='inf-box'>
-          <h6>Адрес магазина:</h6>
-          <p>Россия, Москва, ул. Доватора, дом 7/8 с1</p>
+          <div className='address'>
+            <div className='inf-box'>
+              <h6>Адрес магазина:</h6>
+              <p>Россия, Москва, ул. Доватора, дом 7/8 с1</p>
+            </div>
+            <div className='inf-box'>
+              <h6>Телефоны:</h6>
+              <p>+996 999 12 24 27</p>
+            </div>
+            <div className='inf-box'>
+              <h6>E-mail:</h6>
+              <p>order@world-bike.ru — заказы</p>
+              <p>nfo@world-bike.ru — информация</p>
+              <p>opt@world-bike.ru — опт</p>
+            </div>
+          </div>
+
         </div>
-        <div className='inf-box'>
-          <h6>Телефоны:</h6>
-          <p>+996 999 12 24 27</p>
+        <div className="legal-info">
+          <h1>Юридическая информация</h1>
+
+          <div className="legal-section">
+
+            <ul className="legal-details">
+              <li><strong>Наименование:</strong> ИП Нетребин Владислав Вячеславович</li>
+              <li><strong>ИНН:</strong> 402573939444</li>
+              <li><strong>ОГРН:</strong> 317402700004683</li>
+            </ul>
+          </div>
+
+          <div className="legal-section">
+            <h2>Адреса:</h2>
+            <ul className="legal-details">
+              <li><strong>Фактический адрес:</strong> Москва, ул. Доватора, дом 7/8 с1</li>
+              <li><strong>Юридический адрес:</strong> Москва, ул. Доватора, дом 7/8 с1</li>
+            </ul>
+          </div>
+
+          <div className="legal-section">
+            <h2>Банковские реквизиты:</h2>
+            <ul className="legal-details">
+              <li><strong>Расчетный счет:</strong> 4080281080000085888</li>
+              <li><strong>Банк:</strong> АО «ТИНЬКОФФ БАНК»</li>
+              <li><strong>Корр.счет:</strong> 30101810145250000974</li>
+              <li><strong>БИК:</strong> 044525974</li>
+            </ul>
+          </div>
         </div>
-        <div className='inf-box'>
-          <h6>E-mail:</h6>
-          <p>order@world-bike.ru — заказы</p>
-          <p>nfo@world-bike.ru — информация</p>
-          <p>opt@world-bike.ru — опт</p>
-        </div>
-        </div>
-       
       </div>
-      <div className="legal-info">
-  <h1>Юридическая информация</h1>
-  
-  <div className="legal-section">
-    
-    <ul className="legal-details">
-    <li><strong>Наименование:</strong> ИП Нетребин Владислав Вячеславович</li>
-      <li><strong>ИНН:</strong> 402573939444</li>
-      <li><strong>ОГРН:</strong> 317402700004683</li>
-    </ul>
-  </div>
-
-  <div className="legal-section">
-    <h2>Адреса:</h2>
-    <ul className="legal-details">
-      <li><strong>Фактический адрес:</strong> Москва, ул. Доватора, дом 7/8 с1</li>
-      <li><strong>Юридический адрес:</strong> Москва, ул. Доватора, дом 7/8 с1</li>
-    </ul>
-  </div>
-
-  <div className="legal-section">
-    <h2>Банковские реквизиты:</h2>
-    <ul className="legal-details">
-      <li><strong>Расчетный счет:</strong> 4080281080000085888</li>
-      <li><strong>Банк:</strong> АО «ТИНЬКОФФ БАНК»</li>
-      <li><strong>Корр.счет:</strong> 30101810145250000974</li>
-      <li><strong>БИК:</strong> 044525974</li>
-    </ul>
-  </div>
-</div>
-</div>
-<BikeBrands/>
+      <BikeBrands />
     </div>
   );
 }

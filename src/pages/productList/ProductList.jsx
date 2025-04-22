@@ -24,9 +24,6 @@ const ProductList = () => {
   return (
     <>
       <div className="product-list">
-
-        {status === 'loading' && <p>Загрузка...</p>}
-
         {status === 'loading' && <BikeLoader/>}
 
         {status === 'succeeded' &&

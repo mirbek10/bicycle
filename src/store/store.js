@@ -10,7 +10,7 @@ import productReducer from "./product/productSlice"
 
 import detailsReducer from './Details/Details.js'
 import wishListReducer from "./WishListSlice/WishListSlice.js"
-import productReducer from "./product/productSlice"
+
 
 
 import authReducer from "./authSlice.js"
@@ -20,17 +20,14 @@ const myStore = configureStore({
     accessories: accessoriesReducer,
     parts: partsReducer,
     equipment: EquipmentReducer,
-    cart:CardReducer,
+    cart: CardReducer,
     auth: authReducer,
     bikeStation: bikeStationReducer, 
 
-    products:productReducer,
+    products: productReducer,
 
     detail: detailsReducer,
     wishList: wishListReducer,
-
-    products:productReducer,
-
   },
 });
 
