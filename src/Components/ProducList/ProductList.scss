@@ -1,46 +1,92 @@
-.catalog-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    gap: 1px 10px;
 
-    .filters-section {
-        flex: 0 0 250px;
-        max-width: 250px;
+@media (max-width: 1024px) {
+    .header-content {
+      padding: 0 20px;
     }
-
-    .products-section {
-        flex: 1;
-        max-width: calc(100% - 260px); 
+  
+    .main-menu {
+      display: none;
     }
-
-
-    @media (max-width: 1024px) {
-        flex-direction: column;
-
-        .filters-section {
-            flex: 1;
-            max-width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .products-section {
-            flex: 1;
-            max-width: 100%;
-        }
+  
+    .logo-menu {
+      gap: 15px;
     }
-
-    @media (max-width: 600px) {
-        padding: 10px;
-
-        .filters-section {
-            order: 2;
-        }
-
-        .products-section {
-            order: 1;
-        }
+  
+    .header-menu {
+      display: block;
     }
-}
+  }
+  
+
+  @media (max-width: 767px) {
+    .header {
+      padding: 10px 0;
+    }
+  
+    .header-content {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .header-left img {
+      width: 120px;
+    }
+  
+    .main-menu {
+      display: none;
+    }
+  
+    .logo-menu {
+      display: none;
+    }
+  
+    .header-menu {
+      display: block;
+    }
+  
+    .sidebar-menu {
+      width: 80%;
+    }
+  
+    .sidebar-header img {
+      width: 120px;
+    }
+  
+    .sidebar-links {
+      padding: 20px 0;
+    }
+  
+    .sidebar-links li {
+      font-size: 16px;
+      padding: 10px 0;
+    }
+  
+    .sidebar-icons {
+      gap: 20px;
+      padding: 20px 0;
+    }
+  
+    .sidebar-icons svg {
+      font-size: 22px;
+    }
+  }
+  
+ 
+  @media (max-width: 480px) {
+    .header-left img {
+      width: 100px;
+    }
+  
+    .sidebar-menu {
+      width: 90%;
+    }
+  
+    .sidebar-icons {
+      gap: 15px;
+    }
+  
+    .sidebar-icons svg {
+      font-size: 20px;
+    }
+  }
+  
