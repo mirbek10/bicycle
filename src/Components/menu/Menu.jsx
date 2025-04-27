@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './Menu.module.scss';
 
 import img1 from '../../assets/image/MirbekImg/menu1img.png';
@@ -10,62 +10,72 @@ import img5 from '../../assets/image/MirbekImg/menu5img.png';
 import img6 from '../../assets/image/MirbekImg/menu6img.png';
 
 const Menu = () => {
+  const nav = useNavigate()
+  const goToCatalog = ()=>{
+    nav('/catalog')
+  }
   return (
     <div className={styles.menu}>
       <h1>КАТАЛОГ</h1>
       <ul>
         {/* Велосипеды */}
-        <Link to="/category/Велосипеды" className={styles.link}>
-          <div className={`${styles.bike} ${styles.black}`}>
+          <div className={`${styles.bike} ${styles.black}`}
+          onClick={goToCatalog}
+          >
             <li>Велосипеды</li>
             <img src={img1} alt="Велосипеды" />
           </div>
-        </Link>
+        
 
         <div className={styles.downblock}>
           {/* Trade-in */}
-          <Link to="/category/Trade-in" className={styles.link}>
-            <div className={`${styles.tradein} ${styles.black}`}>
+            <div className={`${styles.tradein} ${styles.black}`}
+            onClick={goToCatalog}
+            >
               <li>Trade-in</li>
               <img src={img2} alt="Trade-in" />
             </div>
-          </Link>
+          
 
           <div className={styles.downleftblock}>
             <div className={styles.miniblock1}>
               {/* Запчасти */}
-              <Link to="/category/Запчасти" className={styles.link}>
-                <div className={`${styles.hellper} ${styles.black}`}>
+                <div className={`${styles.hellper} ${styles.black}`}
+                onClick={goToCatalog}
+                >
                   <li>Запчасти</li>
                   <img src={img3} alt="Запчасти" />
                 </div>
-              </Link>
+              
 
               {/* Аксессуары */}
-              <Link to="/category/Аксессуары" className={styles.link}>
-                <div className={`${styles.аксесуар} ${styles.black}`}>
-                  <li>Аксессуары</li>
+                <div className={`${styles.аксесуар} ${styles.black}`}
+                onClick={goToCatalog}
+                >
                   <img src={img4} alt="Аксессуары" />
+                  <li>Аксессуары</li>
                 </div>
-              </Link>
+              
             </div>
 
             <div className={styles.miniblock2}>
               {/* Экипировка */}
-              <Link to="/category/Экипировка" className={styles.link}>
-                <div className={`${styles.экипировка} ${styles.black}`}>
+                <div className={`${styles.экипировка} ${styles.black}`}
+                onClick={goToCatalog}
+                >
                   <li>Экипировка</li>
                   <img src={img5} alt="Экипировка" />
                 </div>
-              </Link>
+              
 
               {/* Велостанки */}
-              <Link to="/category/Велостанки" className={styles.link}>
-                <div className={`${styles.велостанки} ${styles.black}`}>
+                <div className={`${styles.велостанки} ${styles.black}`}
+                onClick={goToCatalog}
+                >
                   <li>Велостанки</li>
                   <img src={img6} alt="Велостанки" />
                 </div>
-              </Link>
+              
             </div>
           </div>
         </div>

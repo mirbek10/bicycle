@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth, db } from '../../../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import './Account.scss';
+import BikeLoader from '../../../shared/loader/BikeLoader';
 
 function Account() {
   const [userInfo, setUserInfo] = useState({
@@ -50,7 +51,7 @@ function Account() {
     }
   };
 
-  if (!user) return <p>Загрузка...</p>;
+  if (!user) return <BikeLoader/>;
 
   return (
     <div className="account container">
