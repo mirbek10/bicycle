@@ -39,25 +39,21 @@ const Header = () => {
     { to: '/guarantees', label: 'Гарантии' },
     { to: '/userAgreement', label: 'Пользовательское соглашение' },
     { to: '/deliveryAndPayment', label: 'Доставка и оплата' },
-    { to: '/catalog', label: 'Каталог' }
+    { to: '/catalog', label: 'Каталог' },
+    { to: '/review', label: 'Отзывы' }
   ];
 
   const [LinksActive, setLinksActive] = useState('');
-  const [modalIcon, setmodalIcon] = useState('');
-
-  const handleClick = () => {
-
-    navigate('/catalog#focus');
-    setLinksActive("search");
-    setmodalIcon('search');
-  };
-
+  const [modalIcon, setModalIcon] = useState('');
 
   const renderIcons = (
     <div className="sidebar-icons">
       <FaSearch
         size={20}
-        onClick={handleClick}
+        onClick={() => {
+          setLinksActive("search");
+          setModalIcon('search');
+        }}
         style={LinksActive === "search" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
 
@@ -66,7 +62,7 @@ const Header = () => {
           size={20}
           onClick={() => {
             setLinksActive("profile");
-            setmodalIcon('profile');
+            setModalIcon('profile');
             navigateWithAuth(isAuth, navigate, "/profile");
           }}
           style={LinksActive === "profile" ? { color: 'rgb(245, 117, 32)' } : {}}
@@ -76,13 +72,14 @@ const Header = () => {
           to="/signIn"
           onClick={() => {
             setLinksActive("profile");
-            setmodalIcon('profile');
+            setModalIcon('profile');
           }}
           style={{ color: LinksActive === "profile" ? 'rgb(245, 117, 32)' : 'inherit' }}
         >
           <FaRegUser size={20} />
         </Link>
       )}
+
 
 <FaRegHeart
   size={20}
@@ -94,17 +91,19 @@ const Header = () => {
   style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
 />
 
+
       <FaShoppingCart
         size={20}
         onClick={() => {
           setLinksActive("cart");
-          setmodalIcon('cart');
+          setModalIcon('cart');
           navigateWithAuth(isAuth, navigate, "/cart");
         }}
         style={LinksActive === "cart" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
     </div>
   );
+
   return (
     <header className='header'>
       <div className="header-content container">
@@ -115,7 +114,14 @@ const Header = () => {
           <div className="main-menu">
             <ul>
               {menuLinks.map(({ to, label }) => (
-                <Link key={to} to={to}><li onClick={() => setLinksActive(label)} className={`'main-li' ${LinksActive === label ? 'link-active' : ''}`}>{label}</li></Link>
+                <Link key={to} to={to}>
+                  <li
+                    onClick={() => setLinksActive(label)}
+                    className={`main-li ${LinksActive === label ? 'link-active' : ''}`}
+                  >
+                    {label}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>
@@ -133,16 +139,24 @@ const Header = () => {
         </div>
         <ul className="sidebar-links">
           {menuLinks.map(({ to, label }) => (
-            <Link to={to} onClick={() => { setmodalIcon(label); setLinksActive(label); setIsMenuOpen(false); }}
-              key={to} className={`'sid-link' ${modalIcon === label ? 'link-modal-active' : ""} `}
-            ><li>{label}</li></Link>
+            <Link
+              to={to}
+              onClick={() => {
+                setModalIcon(label);
+                setLinksActive(label);
+                setIsMenuOpen(false);
+              }}
+              key={to}
+              className={`sid-link ${modalIcon === label ? 'link-modal-active' : ""}`}
+            >
+              <li>{label}</li>
+            </Link>
           ))}
         </ul>
-
+        {renderIcons}
       </div>
     </header>
   );
 };
-
 
 export default Header;
