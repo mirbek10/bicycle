@@ -18,7 +18,6 @@ const ProductDetail = () => {
 
   const {
     image, title, text, date, category, views, likes,
-
     advertisement, advertisementImage,
     describe, describeImage,
     description, descriptionImage,
@@ -29,11 +28,13 @@ const ProductDetail = () => {
     aboutTitle, sizepart, aboutImage
   } = selectedProduct;
 
-  const renderSection = (title, content, image) => (
-    <div className="section">
+  const renderSection = (title, content, image, isMain = false) => (
+    <div className={`section ${isMain ? 'main-section' : ''}`}>
       {title && <h2>{title}</h2>}
-      {image && <img src={image} alt={title || 'section image'} />}
-      {content && <p>{content}</p>}
+      <div className="section-content">
+        {image && <img src={image} alt={title || 'section image'} className="section-image" />}
+        {content && <p>{content}</p>}
+      </div>
     </div>
   );
 
@@ -48,7 +49,7 @@ const ProductDetail = () => {
       <p><strong>Лайки:</strong> {likes}</p>
       <hr />
 
-      {renderSection(advertisement, describe, advertisementImage)}
+      {renderSection(advertisement, describe, advertisementImage, true)} {/* Главная секция */}
       {renderSection(null, description, descriptionImage)}
       {renderSection(null, information1, information1Image)}
       {renderSection(newsTitle, news, newsImage)}
