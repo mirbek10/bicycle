@@ -153,7 +153,6 @@ const Header = () => {
             </Link>
           ))}
         </ul>
-        {renderIcons}
       </div>
     </header>
   );
