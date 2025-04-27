@@ -9,9 +9,10 @@ import {
   doc,
   setDoc,
   deleteDoc,
-  updateDoc
+  updateDoc,
+  getDoc
 } from "firebase/firestore";
-import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../../firebase";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Chat.scss";
@@ -35,29 +36,41 @@ const messageVariants = {
 };
 
 function Chat() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [userInfo, setUserInfo] = useState({
+    username: '',
+    photoURL: ''
+  });
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [typingUsers, setTypingUsers] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
-  const userMessageRef = useRef(null); // Новый ref
+  const userMessageRef = useRef(null);
 
-  // Аутентификация
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      
+      if (currentUser) {
+        const userDoc = doc(db, 'users', currentUser.uid);
+        const docSnap = await getDoc(userDoc);
+        
+        if (docSnap.exists()) {
+          setUserInfo(docSnap.data());
+        } else {
+          setUserInfo({
+            username: currentUser.displayName || currentUser.email.split('@')[0],
+            photoURL: currentUser.photoURL || ''
+          });
+        }
+      }
     });
     return () => unsubscribe();
   }, []);
 
-  const signInWithGoogle = async () => {
-   navigate("/register");
-  };
-
-  // Получение сообщений
   useEffect(() => {
     const q = query(collection(db, "messages"), orderBy("createdAt"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -66,7 +79,6 @@ function Chat() {
     return () => unsubscribe();
   }, []);
 
-  // Индикатор набора
   useEffect(() => {
     const timer = setTimeout(() => setIsTyping(false), 1500);
     return () => clearTimeout(timer);
@@ -98,7 +110,6 @@ function Chat() {
     return () => unsubscribe();
   }, [user]);
 
-  // Прокрутка к сообщению пользователя
   const scrollToOwnMessage = () => {
     if (userMessageRef.current) {
       userMessageRef.current.scrollIntoView({
@@ -112,7 +123,10 @@ function Chat() {
     scrollToOwnMessage();
   }, [messages]);
 
-  // Отправка
+  const signInWithGoogle = async () => {
+    navigate("/register");
+  };
+
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!text.trim() || !user) return;
@@ -129,7 +143,6 @@ function Chat() {
     setIsTyping(false);
   };
 
-  // Редактирование
   const startEditing = (message) => {
     setEditingId(message.id);
     setEditText(message.text);
@@ -170,6 +183,13 @@ function Chat() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
+  const getAvatar = (email, uid) => {
+    if (uid === user?.uid && userInfo.photoURL) {
+      return <img src={userInfo.photoURL} alt="avatar" className="avatar" />;
+    }
+    return <div className="avatar">{getInitials(email)}</div>;
+  };
+
   if (!user) {
     return (
       <div className="auth-container">
@@ -193,14 +213,17 @@ function Chat() {
       </div>
     );
   }
-  
 
   return (
     <div className="chat-room">
       <div className="chat-header">
         <div className="user-info">
-          <div className="avatar">{getInitials(user.email)}</div>
-          <span>{user.email}</span>
+          {userInfo.photoURL ? (
+            <img src={userInfo.photoURL} alt="avatar" className="avatar" />
+          ) : (
+            <div className="avatar">{getInitials(user?.email)}</div>
+          )}
+          <span>{userInfo.username || user?.email}</span>
         </div>
         <motion.button
           className="logout-btn"
@@ -229,13 +252,14 @@ function Chat() {
                 transition={{ duration: 0.3 }}
                 layout
               >
-                <div className="avatar">{getInitials(msg.email)}</div>
+                {getAvatar(msg.email, msg.uid)}
                 <div className="content">
                   <div className="message-header">
-                    <span className="email">{msg.email}</span>
+                    <span className="email">{userInfo.username}</span>
                     <span className="time">{formatDate(msg.createdAt)}</span>
                     {msg.isEdited && <span className="edited">(изменено)</span>}
                   </div>
+
 
                   {editingId === msg.id ? (
                     <div className="edit-form">
