@@ -3,9 +3,12 @@
 .about {
   .about-head {
     position: relative;
+    
     img {
       width: 100%;
-      height: 278px;
+      height: auto;
+      min-height: 200px;
+      max-height: 278px;
       object-fit: cover;
       filter: brightness(50%);
     }
@@ -19,60 +22,64 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      width: 90%;
+      padding: 0 15px;
   
       .head-text {
-          display: flex;
-          justify-content: left;
+        display: flex;
+        justify-content: flex-start;
         align-items: center;
         gap: 5px;
-        font-size: 16px;
+        font-size: 14px;
+        flex-wrap: wrap;
   
         .home-link {
-            font-family: Inter;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 160%;
-            letter-spacing: 0%;
-            text-align: left;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            display: inline-block;
-            transition: color 0.3s ease;
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+          position: relative;
+          display: inline-block;
+          transition: color 0.3s ease;
+          
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 2px;
+            background: #ffa500;
+            transition: width 0.3s ease;
+          }
+          
+          &:hover {
+            color: #ffa500;
             &::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              bottom: -2px;
-              width: 0%;
-              height: 2px;
-              background: #ffa500;
-              transition: width 0.3s ease;
+              width: 100%;
             }
-            &:hover {
-              color: #ffa500;
-  
-              &::after {
-                width: 100%;
-              }
-            }
+          }
         }
         
         p {
-            font-family: Inter;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 160%;
-            letter-spacing: 0%;
-            text-align: left;
-            color: #FFA500;
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+          color: #FFA500;
           margin: 0;
         }
       }
   
       h1 {
-        font-size: 40px;
+        font-size: 28px;
         font-weight: 700;
         margin-top: 10px;
         text-align: left;
@@ -85,71 +92,75 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
+    padding: 0 15px;
+    
     .content-text {
-      margin-top: 30px;
+      margin-top: 20px;
 
-      span {
+      span, h1 {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 110px;
+        font-size: 36px;
         font-weight: 400;
         line-height: 123%;
         letter-spacing: 2%;
         text-align: left;
+      }
+
+      span {
         color: rgb(245, 117, 32);
       }
 
       h1 {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 110px;
-        font-weight: 400;
-        line-height: 123%;
-        letter-spacing: 2%;
-        text-align: left;
         color: rgb(16, 16, 16);
       }
     }
+    
     .content-section {
       display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding-bottom: 160px;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 60px;
 
       .content-box,
       .content-box1,
       .content-box2 {
-        width: 400px;
-        height: 334px;
+        width: 100%;
+        height: auto;
+        min-height: 200px;
         border-radius: 10px;
-        padding: 15px 32px;
+        padding: 20px;
 
         h5 {
           color: white;
           font-family: Inter;
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 500;
           line-height: 160%;
           letter-spacing: 1%;
           text-align: left;
+          margin-bottom: 10px;
         }
 
         p {
           color: rgb(229, 229, 229);
           font-family: Inter;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 300;
           line-height: 160%;
           text-align: left;
+          margin-bottom: 15px;
         }
 
         a {
           color: white;
           font-family: Inter;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 500;
           line-height: 123%;
           text-align: left;
           text-decoration: none;
+          display: inline-block;
         }
       }
 
@@ -162,12 +173,10 @@
         position: relative;
 
         img {
-          width: 405.59px;
-          height: 176.62px;
-          position: absolute;
-          left: 5px;
-          bottom: -10px;
-          border-end-end-radius: 20px;
+          width: 100%;
+          height: auto;
+          position: relative;
+          margin-top: 15px;
         }
       }
 
@@ -179,118 +188,93 @@
 
   .frame {
     display: flex;
-    align-items: center;
-    justify-content:space-around;
+    flex-direction: column;
     background: rgb(16, 16, 16);
+    padding: 20px 0;
   
     .des-frame {
-      width: 556px;
-      height: 100%;
+      width: 90%;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 16px;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
-      }
     
       h1 {
         color: rgb(255, 255, 255);
         font-family: Bebas Neue Cyrillic;
-        font-size: 64px;
+        font-size: 28px;
         font-weight: 400;
         line-height: 123%;
         letter-spacing: 5%;
         text-align: left;
-        transition: transform 0.3s ease-in-out, color 0.3s ease; /* smooth hover effect */
-        
-        /* Hover animation for text */
-        &:hover {
-          transform: translateX(10px); /* small movement to the right */
-          color: #FFA500; /* change color on hover */
-        }
       }
     
       p {
         color: rgb(229, 229, 229);
         font-family: Inter;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 160%;
         text-align: left;
-        transition: opacity 0.3s ease; /* fade effect */
       }
     
-      /* Hover effect for paragraph */
-      &:hover p {
-        opacity: 0.7; /* slightly fade the paragraph on hover */
+      .icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        margin-top: 15px;
+        
+        .icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 45%;
+          background: rgb(46, 46, 46);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+    
+          h6 {
+            font-size: 20px;
+            font-weight: 900;
+            color: aliceblue;
+          }
+        }
       }
     }
     
-
     .frame-image {
-      perspective: 1000px;
-    
+      width: 90%;
+      margin: 20px auto 0;
+      
       img {
         width: 100%;
-        max-width: 762px;
         height: auto;
         object-fit: cover;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        border-radius: 20px;
-    
-        &:hover {
-          transform: scale(1.05) rotate3d(1, 2, 1, 5deg);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          cursor: pointer;
-        }
-      }
-    }
-    
-    
-    .icons {
-      display: flex;
-      justify-content: space-around;
-      gap: 16px;
-      width: 264px;
-      height: 40px;
-      .icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 45%  ;
-        background: rgb(46, 46, 46);
-    
-        h6 {
-          font-size: 25px;
-          font-weight: 900;
-          color: aliceblue;
-          padding-left: 7px;
-        }
+        border-radius: 10px;
       }
     }
   }
 
-
-
   .ad {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex; 
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
+    padding: 0 15px;
+    
     img {
-     width: 100%;
-      margin-top: 40px;
+      width: 100%;
+      margin-top: 20px;
     }
 
     h1 {
-          /* desk h2 */
       color: rgb(16, 16, 16);
       font-family: Bebas Neue Cyrillic;
-      font-size: 64px;
+      font-size: 28px;
       font-weight: 400;
       line-height: 123%;
       letter-spacing: 5%;
@@ -299,77 +283,74 @@
 
     .thum {
       display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      
+      flex-direction: column;
+      gap: 15px;
 
       h6 {
-    color: rgb(16, 16, 16);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 0%;
-    text-align: left;
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
       }
 
       p {
-       /* desk mob text 16 */
-    color: rgb(119, 119, 119);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 160%;
-    letter-spacing: 0%;
-    text-align: left;
+        color: rgb(119, 119, 119);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
       }
     }
   }
 
   .slice {
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    h1{
+    margin-top: 30px;
+    padding: 0 15px;
+    
+    h1 {
       color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 34px;
-font-weight: 700;
-line-height: 160%;
-letter-spacing: 1%;
-text-align: left;
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 160%;
+      letter-spacing: 1%;
+      text-align: left;
     }
   
     .slicer-content {
       display: flex;
-      gap: 40px;
-      animation: scrollLeft 30s linear infinite;
-      width: max-content;
-      padding-left: 313px;
-      margin-top: 48px;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+      padding-left: 0;
+      animation: none;
     }
   
-    .brands-card {
-      width: 730px;
-height: 216px;
+    .brands-card,
+    .brands-card2,
+    .brands-card3 {
+      width: 100%;
       height: auto;
       border-radius: 10px;
-      background: rgb(46, 46, 46);
-      padding: 20px;
+      padding: 15px;
   
       h5 {
         color: white;
         font-family: Inter;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 500;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
       }
   
       ul {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
         list-style: none;
         padding: 0;
         margin: 0;
@@ -378,335 +359,505 @@ height: 216px;
       li {
         color: white;
         font-family: Inter;
-        font-size: 16px;
+        font-size: 14px;
       }
     }
 
+    .brands-card {
+      background: rgb(46, 46, 46);
+    }
    
     .brands-card2 {
-      width: 730px;
-height: 216px;
-      height: auto;
-      border-radius: 10px;
-
-      /* bl */
       background: rgb(16, 16, 16);
-      padding: 20px;
-  
-      h5 {
-        color: white;
-        font-family: Inter;
-        font-size: 24px;
-        font-weight: 500;
-        margin-bottom: 16px;
-      }
-  
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-  
-      li {
-        color: white;
-        font-family: Inter;
-        font-size: 16px;
-      }
     }
-
 
     .brands-card3 {
-      width: 730px;
-height: 216px;
-      height: auto;
-      border-radius: 10px;
-
-      /* orange */
       background: rgb(245, 117, 32);
-      padding: 20px;
-  
-      h5 {
-        color: white;
-        font-family: Inter;
-        font-size: 24px;
-        font-weight: 500;
-        margin-bottom: 16px;
-      }
-  
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-  
-      li {
-        color: white;
-        font-family: Inter;
-        font-size: 16px;
-      }
-    }
-  
-    @keyframes scrollLeft {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
     }
   }
-  .contact{
-margin-top:100px;
-background: rgb(245, 117, 32);
-width: 100%;
-height: 420px;
-display: flex;
-align-items: flex-start;
-justify-content: center;
-img{
-  width: 100%;
-height: 100%;
-object-fit: cover;
 
-}
-.des-contact{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-  h1{
-    /* desk h2 */
-color: rgb(255, 255, 255);
-font-family: Bebas Neue Cyrillic;
-font-size: 64px;
-font-weight: 400;
-// line-height: 123%;
-letter-spacing: 5%;
-text-align: left;
-  }
-  p{
-    /* desk mob 20 */
-color: rgb(255, 255, 255);
-font-family: Inter;
-font-size: 20px;
-font-weight: 500;
-// line-height: 160%;
-letter-spacing: 1%;
-text-align: left;
-width: 534px;
-height: 78px;
-  }
-}
-  }
-  .bike-section{
-    margin-top: 140px;
+  .contact {
+    margin-top: 50px;
+    background: rgb(245, 117, 32);
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-
-    .part-section{
-      display: flex;
-      align-items: flex-start;
-    justify-content: space-around;
-    gap: 20px;
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      opacity: 0.7;
     }
-    h1{
-
-color: rgb(16, 16, 16);
-font-family: Bebas Neue Cyrillic;
-font-size: 54px;
-font-weight: 400;
-line-height: 123%;
-letter-spacing: 5%;
-text-align: left;
-
-    }
-    .bike-left{
+    
+    .des-contact {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
       display: flex;
       flex-direction: column;
-      justify-content: left;
-      gap: 70px;
-      ul{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 0;
-      }
-      p{
- 
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 16px;
-font-weight: 400;
-line-height: 160%;
-letter-spacing: 0%;
-text-align: left;
-      }
-      h5{
-        /* desk mob 20 */
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 20px;
-font-weight: 500;
-line-height: 160%;
-letter-spacing: 1%;
-text-align: left;
-      }
-    }
-    .bike-right{
-      img{
-        width: 100%;
-        height: 100%;
-        max-width: 620px;
-max-height: 481px;
-object-fit: cover;
-      }
-    }
-  }
-  .gallery {
-    padding: 40px;
-  
-    h1 {
-     /* desk h2 */
-color: rgb(16, 16, 16);
-font-family: Bebas Neue Cyrillic;
-font-size: 64px;
-font-weight: 400;
-line-height: 123%;
-letter-spacing: 5%;
-text-align: left;
-margin-bottom: 80px;
-    }
-  
-    .bike-photos {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      padding-bottom: 10px;
-  
-      img {
-        flex: 0 0 auto;
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-        scroll-snap-align: center;
-        transition: transform 0.3s;
-  
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-  
-    
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  }
-  .map-content {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    .map {
-      width: 100%;
-      max-width: 1920px;
-      height: 500px;
-    }
-  }
-  .information{
-    display: flex;
-    margin-left: 322px;
-    .collab{
-      display: flex;
       justify-content: center;
-      .inf-box{
-        h6{
-          /* desk mob med 18 */
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 18px;
-font-weight: 500;
-line-height: 160%;
-letter-spacing: 1%;
-text-align: left;
-        }
-        p{
-          /* desk mob 16 light */
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 16px;
-font-weight: 300;
-line-height: 160%;
-letter-spacing: 0%;
-text-align: left;
-        }
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+      
+      h1 {
+        color: rgb(255, 255, 255);
+        font-family: Bebas Neue Cyrillic;
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: 5%;
       }
       
+      p {
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .bike-section {
+    margin-top: 60px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .part-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    h1 {
+      color: rgb(16, 16, 16);
+      font-family: Bebas Neue Cyrillic;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 123%;
+      letter-spacing: 5%;
+      text-align: left;
+    }
+    
+    .bike-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+      }
+      
+      p, li {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+      
+      h5 {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: 1%;
+        text-align: left;
+      }
+    }
+    
+    .bike-right {
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .gallery {
+    padding: 20px;
+    
+    h1 {
+      color: rgb(16, 16, 16);
+      font-family: Bebas Neue Cyrillic;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 123%;
+      letter-spacing: 5%;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    
+    .bike-photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .map-content {
+    width: 100%;
+    padding: 0 15px;
+    
+    .map {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 0;
+    
+    .collab {
+      margin-bottom: 30px;
+      
+      .inf-box {
+        margin-bottom: 20px;
+        
+        h6 {
+          color: rgb(16, 16, 16);
+          font-family: Inter;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 160%;
+          letter-spacing: 1%;
+          text-align: left;
+          margin-bottom: 5px;
+        }
+        
+        p {
+          color: rgb(16, 16, 16);
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
     }
   }
 
   .legal-info {
-    font-family: 'Arial', sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+    font-family: Inter;
     color: #333;
     line-height: 1.6;
+    padding: 0 15px;
+    
+    .legal-section {
+      margin-bottom: 20px;
+      
+      h2, h1 {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: 1%;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      
+      .legal-details {
+        list-style-type: none;
+        padding-left: 0;
+        
+        li {
+          color: rgb(16, 16, 16);
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+          margin-bottom: 8px;
+        }
+        
+        strong {
+          color: rgb(119, 119, 119);
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 160%;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+    }
   }
-  
-  .legal-section {
-    margin-bottom: 25px;
-  }
-  
-  .legal-section h2,h1 {
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 18px;
-font-weight: 500;
-line-height: 160%;
-letter-spacing: 1%;
-text-align: left;
-  }
-  
-  .legal-details {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .legal-details li {
-color: rgb(16, 16, 16);
-font-family: Inter;
-font-size: 16px;
-font-weight: 300;
-line-height: 160%;
-letter-spacing: 0%;
-text-align: left;
-  }
-  
-  .legal-details strong {
-   /* desk mob 16 light */
-color: rgb(119, 119, 119);
-font-family: Inter;
-font-size: 16px;
-font-weight: 300;
-line-height: 160%;
-letter-spacing: 0%;
-text-align: left;
-  }
-  
-  
 }
 
+@media (min-width: 480px) {
+  .about {
+    .about-head {
+      .about-head-text {
+        h1 {
+          font-size: 32px;
+        }
+      }
+    }
 
+    .content {
+      .content-text {
+        span, h1 {
+          font-size: 42px;
+        }
+      }
+    }
 
+    .frame {
+      .des-frame {
+        h1 {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .ad {
+      h1 {
+        font-size: 32px;
+      }
+    }
+
+    .slice {
+      .slicer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .brands-card,
+      .brands-card2,
+      .brands-card3 {
+        width: calc(50% - 10px);
+      }
+    }
+
+    .gallery {
+      .bike-photos {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .about {
+    .about-head {
+      img {
+        height: 278px;
+      }
+
+      .about-head-text {
+        h1 {
+          font-size: 36px;
+        }
+      }
+    }
+
+    .content {
+      .content-text {
+        span, h1 {
+          font-size: 60px;
+        }
+      }
+
+      .content-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .content-box,
+        .content-box1,
+        .content-box2 {
+          width: calc(50% - 15px);
+        }
+      }
+    }
+
+    .frame {
+      flex-direction: row;
+      align-items: center;
+      padding: 40px;
+
+      .des-frame {
+        width: 50%;
+        h1 {
+          font-size: 36px;
+        }
+      }
+
+      .frame-image {
+        width: 45%;
+        margin: 0;
+      }
+    }
+
+    .ad {
+      h1 {
+        font-size: 36px;
+      }
+    }
+
+    .slice {
+      .slicer-content {
+        flex-direction: row;
+        .brands-card,
+        .brands-card2,
+        .brands-card3 {
+          width: calc(33.333% - 15px);
+        }
+      }
+    }
+
+    .contact {
+      height: 350px;
+      
+      .des-contact {
+        h1 {
+          font-size: 36px;
+        }
+      }
+    }
+
+    .bike-section {
+      .part-section {
+        flex-direction: row;
+      }
+    }
+
+    .gallery {
+      .bike-photos {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .about {
+    .about-head {
+      .about-head-text {
+        h1 {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .content {
+      .content-text {
+        span, h1 {
+          font-size: 80px;
+        }
+      }
+
+      .content-section {
+        .content-box,
+        .content-box1,
+        .content-box2 {
+          width: calc(33.333% - 20px);
+        }
+      }
+    }
+
+    .frame {
+      .des-frame {
+        h1 {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .ad {
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    .contact {
+      height: 420px;
+      
+      .des-contact {
+        h1 {
+          font-size: 48px;
+        }
+      }
+    }
+
+    .bike-section {
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    .gallery {
+      h1 {
+        font-size: 48px;
+      }
+      
+      .bike-photos {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    .content {
+      .content-text {
+        span, h1 {
+          font-size: 110px;
+        }
+      }
+    }
+
+    .frame {
+      .des-frame {
+        h1 {
+          font-size: 64px;
+        }
+      }
+    }
+
+    .ad {
+      h1 {
+        font-size: 64px;
+      }
+    }
+
+    .contact {
+      .des-contact {
+        h1 {
+          font-size: 64px;
+        }
+      }
+    }
+  }
+}
