@@ -1,61 +1,154 @@
 .product-detail {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #222;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #000; /* Черный фон */
+  color: #fff; /* Белый текст */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
+
+  h1 {
+    font-size: 36px;
+    color: #ff6600; /* Оранжевый заголовок */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .main-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 8px 0;
+    color: #ccc; /* Светлый серый текст */
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 20px;
+
+    h2 {
+      font-size: 30px;
+      color: #ff6600; /* Оранжевые заголовки для секций */
+      margin-bottom: 15px;
     }
-  
-    .main-image {
+
+    .section-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-  
-    p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 8px 0;
-  
-      strong {
-        color: #555;
-      }
-    }
-  
-    hr {
-      margin: 30px 0;
-      border: none;
-      border-top: 1px solid #ddd;
-    }
-  
-    .section {
-      margin-bottom: 30px;
-  
-      h2 {
-        font-size: 24px;
-        color: #1d3557;
-        margin-bottom: 10px;
-      }
-  
-      img {
-        display: block;
-        max-width: 100%;
+
+      .section-image {
+        max-width: 40%;
         height: auto;
-        margin: 15px 0;
         border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(255, 102, 0, 0.3); /* Оранжевая тень для изображений */
       }
-  
+
       p {
-        font-size: 15px;
-        color: #444;
+        font-size: 16px;
+        color: #ddd;
+        flex: 1;
       }
     }
   }
+
+  hr {
+    border-top: 1px solid #444;
+    margin: 30px 0;
+  }
+
+  /* Главная секция */
+  .main-section .section-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Остальные секции */
+  .section:nth-of-type(even) .section-content {
+    flex-direction: row-reverse;
+  }
+
+  .section:nth-of-type(odd) .section-content {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-detail {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .main-image {
+    max-height: 400px;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .section .section-content {
+    flex-direction: column;
+  }
+
+  .section-image {
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .section h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .main-image {
+    max-height: 300px;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .section .section-content {
+    flex-direction: column;
+  }
+
+  .section-image {
+    max-width: 100%;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+}
