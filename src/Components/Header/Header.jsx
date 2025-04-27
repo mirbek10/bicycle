@@ -80,14 +80,17 @@ const Header = () => {
         </Link>
       )}
 
-      <FaRegHeart
-        size={20}
-        onClick={() => {
-          setLinksActive("favorites");
-          setModalIcon('favorites');
-        }}
-        style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
-      />
+
+<FaRegHeart
+  size={20}
+  onClick={() => {
+    setLinksActive("favorites");
+    setmodalIcon('favorites');
+    navigate('/profile?tab=whishlist'); // Перенаправляем на профиль с активной вкладкой whishlist
+  }}
+  style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
+/>
+
 
       <FaShoppingCart
         size={20}

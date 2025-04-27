@@ -1,290 +1,320 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .sign-in {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 120px;
+
+  .sign-content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    margin-top: 120px;
+    gap: 32px;
 
-    .sign-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 32px;
+    .sign-menu {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 50px;
 
-        .sign-menu {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 50px;
-
-            .regs-btn {
-                color: rgb(119, 119, 119);
-                font-family: Inter;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 160%;
-                text-decoration: none;
-            }
-
-            .signs-btn {
-                color: rgb(16, 16, 16);
-                font-family: Inter;
-                font-size: 24px;
-                font-weight: 500;
-                line-height: 160%;
-            }
-        }
-
-        .sign-inputs {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-
-            .sign-input {
-                p {
-                    color: rgb(76, 76, 76);
-                    font-family: Inter;
-                    font-size: 16px;
-                    font-weight: 400;
-                    line-height: 160%;
-                }
-
-                input {
-                    border-radius: 10px;
-                    background: rgb(248, 248, 248);
-                    width: 350px;
-                    height: 58px;
-                    padding: 10px;
-                    border: none;
-                    outline: none;
-                }
-            }
-            .password-wrapper{
+      .regs-btn {
+        color: rgb(119, 119, 119);
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 160%;
+        text-decoration: none;
                 position: relative;
-                .eye-icon{
-                    position: absolute;
-                    right: 15px;
-                    top: 15px;
-                }
-            }
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background:rgb(119, 119, 119), ;
+          bottom: -2px;
+          left: 0;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: all 0.3s ease;
+          border-radius: 10px;
         }
 
-        .sign-short {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-
-            button {
-                width: 350px;
-                height: 52px;
-                border-radius: 10px;
-                background: rgb(245, 117, 32);
-                color: rgb(255, 255, 255);
-                font-family: Inter;
-                font-size: 16px;
-                font-weight: 500;
-                text-align: center;
-                border: none;
-                cursor: pointer;
-                transition: background 0.3s;
-            }
-
-            button:hover {
-                background: rgba(245, 117, 32, 0.9);
-            }
-
-            .forget-password {
-                display: flex;
-                justify-content: right;
-                align-items: center;
-
-                .forget-password-text {
-                    color: rgb(16, 16, 16);
-                    font-family: Inter;
-                    font-size: 14px;
-                    font-weight: 400;
-                    text-decoration: none;
-                }
-            }
+        &:hover::after {
+          transform: scaleX(1);
         }
+      }
+
+      .signs-btn {
+        color: rgb(16, 16, 16);
+        font-family: Inter;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 160%;
+      }
     }
+
+    .sign-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .sign-input {
+        p {
+          color: rgb(76, 76, 76);
+          font-family: Inter;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 160%;
+        }
+
+        input {
+          border-radius: 10px;
+          background: rgb(248, 248, 248);
+          width: 350px;
+          height: 58px;
+          padding: 10px;
+          border: none;
+          outline: none;
+        }
+      }
+
+      .password-wrapper {
+        position: relative;
+
+        .eye-icon {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+        }
+      }
+    }
+
+    .sign-short {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      button {
+        width: 350px;
+        height: 52px;
+        border-radius: 10px;
+        background: rgb(245, 117, 32);
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+
+
+      .forget-password {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        a{
+          text-decoration: none;
+        }
+
+        .forget-password-text {
+          color: rgb(245, 117, 32);
+          font-family: Inter;
+          font-size: 14px;
+          font-weight: 400;
+          text-decoration: none;
+          transition: all 0.3s;
+          position: relative;
+          text-decoration: none;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(245, 117, 32, 0.9),;
+            bottom: -2px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+          }
+          &:hover::after{
+            transform: scaleX(1);
+          }
+
+        }
+      }
+    }
+  }
 }
 
 
 /* --- LAPTOP (до 1024px) --- */
 @media (max-width: 1024px) {
-    .sign-in {
-        margin-top: 100px;
-    }
+  .sign-in {
+    margin-top: 100px;
+  }
 
-    .sign-content {
-        max-width: 400px;
-    }
+  .sign-content {
+    max-width: 400px;
+  }
 }
 
 /* --- TABLET (до 768px) --- */
 @media (max-width: 768px) {
-    .sign-in {
-        margin-top: 80px;
-    }
+  .sign-in {
+    margin-top: 80px;
+  }
 
-    .sign-content {
-        max-width: 350px;
-    }
+  .sign-content {
+    max-width: 350px;
+  }
 
-    .sign-menu {
-        gap: 20px;
-    }
+  .sign-menu {
+    gap: 20px;
+  }
 
-    .sign-inputs .sign-input input {
-        height: 45px;
-    }
+  .sign-inputs .sign-input input {
+    height: 45px;
+  }
 
-    .sign-short button {
-        height: 45px;
-    }
+  .sign-short button {
+    height: 45px;
+  }
 }
 
 /* --- IPHONE & PHONE (до 480px) --- */
 @media (max-width: 480px) {
-    .sign-in {
-        margin-top: 100px;
-    }
+  .sign-in {
+    margin-top: 100px;
+  }
 
-    .sign-content {
-        max-width: 90%;
-    }
+  .sign-content {
+    max-width: 90%;
+  }
 
-    .sign-menu {
-        gap: 10px;
-        text-align: center;
-    }
+  .sign-menu {
+    gap: 10px;
+    text-align: center;
+  }
 
-    .sign-menu .regs-btn, .sign-menu .signs-btn {
-        font-size: 16px;
-    }
+  .sign-menu .regs-btn,
+  .sign-menu .signs-btn {
+    font-size: 16px;
+  }
 
-    .sign-inputs .sign-input input {
-        height: 42px;
-    }
+  .sign-inputs .sign-input input {
+    height: 42px;
+  }
 
-    .sign-short button {
-        height: 42px;
-        font-size: 14px;
-    }
+  .sign-short button {
+    height: 42px;
+    font-size: 14px;
+  }
 
-    .forget-password {
-        justify-content: center;
-    }
+  .forget-password {
+    justify-content: center;
+  }
 }
 
 // --- Анимации ---
 @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  // --- Применение анимаций ---
-  .sign-content {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-  
-  .sign-input {
+  0% {
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 0.5s;
+    transform: translateY(40px);
   }
-  
-  .sign-input:nth-child(1) {
-    animation-delay: 0.4s;
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .sign-input:nth-child(2) {
-    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  // --- Анимация кнопки ---
-  .sign-short button {
-    transition: transform 0.3s ease, background 0.3s ease;
+
+  to {
+    opacity: 1;
   }
-  
-  .sign-short button:hover {
-    transform: scale(1.03);
-    background: rgba(245, 117, 32, 0.95);
+}
+
+// --- Применение анимаций ---
+.sign-content {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.sign-input {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.sign-input:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.sign-input:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+
+.forget-password-text {
+  transition: color 0.3s ease;
+
+}
+
+.forget-password-text:hover {
+  color: rgb(245, 117, 32);
+}
+
+.social-login {
+  text-align: center;
+
+  .divider {
+    position: relative;
+    margin: 20px 0;
+    color: #666;
+
   }
-  
-  // --- Плавное появление текста забыл пароль ---
-  .forget-password-text {
-    transition: color 0.3s ease;
-  }
-  
-  .forget-password-text:hover {
-    color: rgb(245, 117, 32);
-  }
-  
-  .social-login {
-    margin-top: 20px;
-    text-align: center;
-    
-    .divider {
-      position: relative;
-      margin: 20px 0;
-      color: #666;
-      
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 40%;
-        height: 1px;
-        background-color: #ddd;
-      }
-      
-      &::before {
-        left: 0;
-      }
-      
-      &::after {
-        right: 0;
-      }
+
+  .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(245, 117, 32, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    font-family: Inter;
+    transition: all 0.3s ease;
+    &:hover{
+      background-color: rgb(245, 117, 32);
+      transform: scale(1.05);
     }
-    
-    .google-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 10px;
-      background-color: rgba(245, 117, 32, 0.95);
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      color: white;
-      
-     
-      
-      .google-icon {
-        font-size: 20px;
-        margin-right: 10px;
-      }
+
+
+
+    .google-icon {
+      font-size: 20px;
+      margin-right: 10px;
     }
   }
+}

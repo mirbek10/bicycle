@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
 import { auth } from "../../firebase"; 
 import { toast } from "react-toastify";
+import "./resetPassword.scss"; 
 
 const ResetPassword = () => {
   const navigate = useNavigate();

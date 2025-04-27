@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from "../../store/authSlice"; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom'; // Добавляем useSearchParams
 import Userinfo from './Userinfo';
 import OrderHistory from './OrderHistory';
 import ChangePassword from './ChangePassword';  
@@ -12,6 +12,8 @@ import Account from './Accaunt/Account';
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams(); // Получаем параметры URL
+  const tabParam = searchParams.get('tab'); // Получаем параметр tab
 
   const { isAuthenticated, user } = useSelector(state => state.auth);
   const [activeTab, setActiveTab] = useState("myAcc");
@@ -20,13 +22,17 @@ function Profile() {
     if (!isAuthenticated) {
       navigate('/signIn');
     }
-  }, [isAuthenticated, navigate]);
+    
+    // Если в URL есть параметр tab, активируем соответствующую вкладку
+    if (tabParam) {
+      setActiveTab(tabParam);
+    }
+  }, [isAuthenticated, navigate, tabParam]);
 
   const handleLogout = () => {
     dispatch(logoutUser()); 
     navigate('/'); 
   };
-
 
   const renderContent = () => {
     switch (activeTab) {
@@ -36,10 +42,10 @@ function Profile() {
         return <OrderHistory />;
       case "changepassword":
         return <ChangePassword />;
-        case "whishlist":
-          return <WhishList/>
-        case "myAcc":
-        return <Account info={user}/>  
+      case "whishlist":
+        return <WhishList/>;
+      case "myAcc":
+        return <Account info={user}/>;  
       default:
         return <Account info={user} />;
     }
@@ -68,8 +74,3 @@ function Profile() {
 }
 
 export default Profile;
-
-
-
-
-
