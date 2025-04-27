@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const loadFromLocalStorage = () => {
   try {
-    const serializedState = localStorage.getItem('bikeDetailState');
+    const serializedState = localStorage.getItem("bikeDetailState");
     if (serializedState === null) return { currentDetail: null };
     return JSON.parse(serializedState);
   } catch (e) {
@@ -11,15 +11,21 @@ const loadFromLocalStorage = () => {
   }
 };
 
+const initialState = {
+  ...loadFromLocalStorage(),
+  loading: false,
+  error: null,
+};
+
 const detailSlice = createSlice({
   name: "detail",
-  initialState: loadFromLocalStorage(), 
+  initialState,
   reducers: {
     setDetail: (state, action) => {
       state.currentDetail = action.payload;
       try {
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem('bikeDetailState', serializedState);
+        const serializedState = JSON.stringify({ currentDetail: state.currentDetail });
+        localStorage.setItem("bikeDetailState", serializedState);
       } catch (e) {
         console.warn("Failed to save state to localStorage", e);
       }
@@ -27,7 +33,7 @@ const detailSlice = createSlice({
     clearDetail: (state) => {
       state.currentDetail = null;
       try {
-        localStorage.removeItem('bikeDetailState');
+        localStorage.removeItem("bikeDetailState");
       } catch (e) {
         console.warn("Failed to remove state from localStorage", e);
       }
@@ -36,14 +42,14 @@ const detailSlice = createSlice({
       if (state.currentDetail) {
         state.currentDetail = { ...state.currentDetail, ...action.payload };
         try {
-          const serializedState = JSON.stringify(state);
-          localStorage.setItem('bikeDetailState', serializedState);
+          const serializedState = JSON.stringify({ currentDetail: state.currentDetail });
+          localStorage.setItem("bikeDetailState", serializedState);
         } catch (e) {
           console.warn("Failed to save updated state to localStorage", e);
         }
       }
-    }
-  }
+    },
+  },
 });
 
 export const { setDetail, clearDetail, updateDetail } = detailSlice.actions;

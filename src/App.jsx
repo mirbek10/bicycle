@@ -6,6 +6,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useDispatch } from 'react-redux';
 import { setAuth } from './store/authSlice';
+import BikeLoader from './shared/loader/BikeLoader';
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function App() {
   }, [dispatch]);
 
   if (loading) {
-    return <div className="loading">Загрузка...</div>; 
+    return <BikeLoader/>
   }
 
   return (

@@ -9,6 +9,10 @@
     max-width: 1280px;
     margin: 0 auto;
     font-family: Bebas Neue;
+    @media (max-width:390px) {
+        margin-bottom: 260px;
+        
+    }
 
     ul {
         list-style: none;
@@ -26,7 +30,8 @@
             align-items: center;
             justify-content: space-around;
             position: relative;
-            width: 1280px;
+            width: 100%;
+            max-width: 1280px;
             height: 300px;
             @media (max-width:980px) {
                 width: 100%;

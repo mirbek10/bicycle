@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSingleProduct } from '../../store/product/productSlice';
 import './ProductDetail.scss';
+import BikeLoader from '../../shared/loader/BikeLoader';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const ProductDetail = () => {
     dispatch(fetchSingleProduct(id));
   }, [dispatch, id]);
 
-  if (status === 'loading') return <p>Загрузка...</p>;
+  if (status === 'loading') return <BikeLoader/>
   if (!selectedProduct) return <p>Продукт не найден.</p>;
 
   const {

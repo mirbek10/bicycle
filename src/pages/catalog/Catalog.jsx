@@ -27,7 +27,7 @@ const Catalog = () => {
   const { data: equipment } = useSelector((state) => state.equipment)
   const { list } = useSelector((state) => state.bikeStation)
 
-  const [priceRange, setPriceRange] = useState([0, 1600])
+  const [priceRange, setPriceRange] = useState([0, 2000])
   const [categories, setCategories] = useState({
     'bicycles': true,
     'parts': true,
@@ -250,19 +250,19 @@ const Catalog = () => {
             </div>
 
             <div className="filter-section">
-              <h4 className="filter-section__title">Цена (до 1600)</h4>
+              <h4 className="filter-section__title">Цена (до 2000)</h4>
               <div className="price-range">
                 <input
                   type="range"
                   min="0"
-                  max="1600"
+                  max="2000"
                   value={priceRange[0]}
                   onChange={(e) => handlePriceChange(e, 0)}
                 />
                 <input
                   type="range"
                   min="0"
-                  max="1600"
+                  max="2000"
                   value={priceRange[1]}
                   onChange={(e) => handlePriceChange(e, 1)}
                 />

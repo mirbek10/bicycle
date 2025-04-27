@@ -1,106 +1,59 @@
 $primary: #F57520;
-$secondary: #000;
-$accent: #F9A05B;
-$background: #000;
-$text-light: #FFF;
 
-.bike-loader {
+.loader {
+  border: 5px solid transparent;
+  border-bottom: 5px solid $primary;
+  padding: 1em;
+  border-radius: 50%;
+  rotate: 180deg;
+  animation: loader 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67) infinite;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  max-width: 60px;
+  max-height: 60px;
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  color: $background;
-  overflow: hidden;
-  margin-top: 100px;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  .loader-container {
-    position: relative;
-    width: 300px;
-    height: 150px;
+@keyframes loader {
+  0% {
+    rotate: 180deg;
   }
-
-  .bike-wheel {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    border: 3px solid $primary;
-    border-radius: 50%;
-    animation: rotate 1.5s linear infinite;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 10px;
-      height: 10px;
-      background: $primary;
-      border-radius: 50%;
-    }
-
-    .wheel-spokes {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 2px;
-        height: 100%;
-        background: $primary;
-        transform-origin: center;
-      }
-
-      &::before {
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  .track {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    height: 4px;
-    background: rgba($color: #333, $alpha: 0.5);
-    border-radius: 2px;
-    overflow: hidden;
-
-    .progress {
-      height: 100%;
-      background: linear-gradient(90deg, $primary, $accent);
-      transition: width 0.3s ease;
-    }
-  }
-
-  .progress-text {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #000;
-    font-weight: bold;
-    font-size: 18px;
+  100% {
+    rotate: -180deg;
   }
 }
 
-@keyframes rotate {
+.circle {
+  border-radius: 0.25em;
+  width: 1em;
+  height: 1em;
+  background-color: $primary;
+
+  animation: circle 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) infinite;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+}
+
+@keyframes circle {
   0% {
-    transform: translateX(-50%) rotate(0deg);
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.8); // Уменьшили с 2.5
+  }
+  75% {
+    transform: scale(1.1);
   }
   100% {
-    transform: translateX(-50%) rotate(360deg);
+    transform: scale(1);
   }
 }

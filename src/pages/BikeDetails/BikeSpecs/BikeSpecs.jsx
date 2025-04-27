@@ -13,7 +13,7 @@ const BikeSpecs = ({ bike }) => {
   }, []);
 
   // Определяем, является ли товар велосипедом
-  const isBicycle = bike.productType === 'bicycle';
+  const isBicycle = bike.category === 'bicycle';
   const baseSpecs = {
     "Цвет": bike.color,
     "Страна": bike.country || "Неизвестно",
