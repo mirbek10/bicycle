@@ -7,6 +7,7 @@ import brand4 from '../../assets/image/MirbekImg/svg/brand4.svg'
 import brand5 from '../../assets/image/MirbekImg/svg/brand5.svg'
 import brand6 from '../../assets/image/MirbekImg/svg/brand6.svg'
 import brand7 from '../../assets/image/MirbekImg/svg/brand7.svg'
+import { Link } from 'react-router-dom';
 
 const BikeBrands = () => {
   const brands = [
@@ -83,7 +84,7 @@ const BikeBrands = () => {
           <div key={index} className="brand-card">
             <div className="brand-logo-container">
               {brand.logo ? (
-                <img src={brand.logo} alt={brand.name} className="brand-logo" />
+                <Link to={'/catalog'}><img src={brand.logo} alt={brand.name} className="brand-logo" /></Link>
               ) : (
                 <span className="brand-name-fallback">{brand.name}</span>
               )}

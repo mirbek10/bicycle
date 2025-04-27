@@ -138,7 +138,11 @@ const Header = () => {
           {menuLinks.map(({ to, label }) => (
             <Link
               to={to}
-              onClick={() => setModalIcon(label)}
+              onClick={() => {
+                setModalIcon(label);
+                setLinksActive(label);
+                setIsMenuOpen(false);
+              }}
               key={to}
               className={`sid-link ${modalIcon === label ? 'link-modal-active' : ""}`}
             >
