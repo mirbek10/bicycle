@@ -3,7 +3,6 @@ import "./emailsent.scss";
 
 const EmailSent = () => {
   const handleLogin = () => {
-    // Перенаправление на страницу входа, например:
     window.location.href = "/signIn";
   };
 

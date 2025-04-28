@@ -1,4 +1,3 @@
-// BikeBrands.scss
 $card-bg: #f8f9fa;
 $card-hover: #e9ecef;
 $text-color: #212529;
@@ -21,7 +20,7 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 .brands-scroll {
   display: flex;
-  overflow-x: hidden; /* Скрываем стандартный скроллбар */
+  overflow-x: hidden; 
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   gap: 1.5rem;

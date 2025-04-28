@@ -71,17 +71,14 @@ const cartSlice = createSlice({
       saveStateToLocalStorage(state.cartItems, state.orders);
     },
 
-    // Обновленный метод для оформления заказа
     checkout: (state, action) => {
       let itemsToCheckout = [];
       let orderTotal = 0;
       
-      // Если переданы данные для покупки в один клик
       if (action.payload && action.payload.items) {
         itemsToCheckout = action.payload.items;
         orderTotal = action.payload.total;
       } 
-      // Иначе оформляем текущую корзину
       else if (state.cartItems.length > 0) {
         itemsToCheckout = [...state.cartItems];
         orderTotal = state.cartItems.reduce(
@@ -89,7 +86,6 @@ const cartSlice = createSlice({
           0
         );
       } 
-      // Если нет ни корзины, ни переданных товаров
       else {
         toast.error("Нет товаров для оформления");
         return;
@@ -106,7 +102,6 @@ const cartSlice = createSlice({
 
       state.orders.unshift(newOrder);
       
-      // Очищаем корзину только если оформляем её, а не покупку в один клик
       if (!action.payload) {
         state.cartItems = [];
       }

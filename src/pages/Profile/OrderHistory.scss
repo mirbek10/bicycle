@@ -38,30 +38,25 @@
           gap: 6px;
         }
       
-        // Адаптация для планшетов
         @media (max-width: 992px) {
           grid-template-columns: 1.5fr 2fr 2fr;
           
-          // Скрываем последнюю колонку на планшетах
           & > *:nth-child(4) {
             display: none;
           }
         }
       
-        // Адаптация для мобильных устройств
         @media (max-width: 768px) {
           grid-template-columns: 1fr;
           padding: 16px;
           gap: 12px;
           border-bottom: 1px solid #e0e0e0;
       
-          // Показываем все элементы в одну колонку
           & > * {
             display: flex;
             justify-content: space-between;
             width: 100%;
             
-            // Добавляем подписи для ячеек
             &:before {
               content: attr(data-label);
               font-weight: 500;
@@ -71,13 +66,12 @@
           }
       
           .status-cell {
-            flex-direction: row; // Оставляем горизонтальное расположение
+            flex-direction: row; 
             justify-content: space-between;
             width: 100%;
           }
         }
       
-        // Дополнительная оптимизация для маленьких экранов
         @media (max-width: 480px) {
           padding: 12px;
           gap: 8px;

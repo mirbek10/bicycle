@@ -90,7 +90,6 @@ function Register() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Сохраняем имя пользователя в Firestore
       await setDoc(doc(db, 'users', user.uid), {
         username,
         email: user.email,

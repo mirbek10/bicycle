@@ -37,7 +37,6 @@ const NotFoundMessage = () => {
   );
 };
 
-// Стили (SCSS)
 const styles = `
   .product-not-found {
     text-align: center;
@@ -115,7 +114,6 @@ const styles = `
   }
 `;
 
-// Добавляем стили в документ
 const styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);

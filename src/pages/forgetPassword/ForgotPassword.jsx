@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../firebase";  // Убедитесь, что путь правильный
+import { auth } from "../../firebase";  
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Обязательно импортировать стили
+import "react-toastify/dist/ReactToastify.css"; 
 import "./forgotpassword.scss";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [isRequesting, setIsRequesting] = useState(false); // Для отслеживания запроса
+  const [isRequesting, setIsRequesting] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Проверка на корректность email перед отправкой
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError("Некорректный email. Проверьте формат.");
       return;
@@ -24,7 +23,7 @@ const ForgotPassword = () => {
       return;
     }
 
-    setIsRequesting(true);  // Начать отслеживание запроса
+    setIsRequesting(true);  
 
     try {
       await sendPasswordResetEmail(auth, email);
@@ -52,7 +51,7 @@ const ForgotPassword = () => {
         autoClose: 1000,
       });
     } finally {
-      setIsRequesting(false); // Завершаем отслеживание запроса
+      setIsRequesting(false); 
     }
   };
 

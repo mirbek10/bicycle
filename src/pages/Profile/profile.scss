@@ -139,9 +139,9 @@ height: 46px;
         
           .password-eye {
             position: absolute;
-            right: 15px; // Добавил отступ, если нужно
-            top: 50%; // Чтобы глаз был по центру
-            transform: translateY(-50%); // Для точного выравнивания по центру
+            right: 15px; 
+            top: 50%; 
+            transform: translateY(-50%); 
           }
         
           input{

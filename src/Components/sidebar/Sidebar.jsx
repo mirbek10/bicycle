@@ -6,7 +6,7 @@ import "./sidebar.scss";
 
 function Sidebar({ isMenuOpen, toggleMenu }) {
   const dispatch = useDispatch();
-  const [activeCategory, setActiveCategory] = useState(null); // Активная категория
+  const [activeCategory, setActiveCategory] = useState(null); 
 
   const { bicycles, status: bikeStatus } = useSelector(state => state.bike);
   const { accessories, status: accessoriesStatus } = useSelector(state => state.accessories);

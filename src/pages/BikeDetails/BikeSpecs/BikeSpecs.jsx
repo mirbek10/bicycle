@@ -4,7 +4,6 @@ import './BikeSpecs.scss';
 const BikeSpecs = ({ bike }) => {
   const [lastUpdated, setLastUpdated] = useState(new Date());
 
-  // Auto-update every minute
   useEffect(() => {
     const interval = setInterval(() => {
       setLastUpdated(new Date());
@@ -12,7 +11,6 @@ const BikeSpecs = ({ bike }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // Определяем, является ли товар велосипедом
   const isBicycle = bike.category === 'bicycle';
   const baseSpecs = {
     "Цвет": bike.color,
