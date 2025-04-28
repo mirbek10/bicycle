@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 function Userinfo({ user }) {
   const [formData, setFormData] = useState({
+    username: '', // Это поле будет отображаться в Account
     firstName: '',
     lastName: '',
     displayName: '',
@@ -15,6 +16,7 @@ function Userinfo({ user }) {
     house: '',
     floor: '',
     apartment: '',
+    photoURL: '' // Добавляем поле для фото
   });
 
   useEffect(() => {
@@ -23,7 +25,21 @@ function Userinfo({ user }) {
         const userRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(userRef);
         if (docSnap.exists()) {
-          setFormData(prev => ({ ...prev, ...docSnap.data() }));
+          const data = docSnap.data();
+          setFormData({
+            username: data.username || data.displayName || `${data.firstName} ${data.lastName}`.trim(),
+            firstName: data.firstName || '',
+            lastName: data.lastName || '',
+            displayName: data.displayName || '',
+            email: data.email || '',
+            phone: data.phone || '',
+            city: data.city || '',
+            street: data.street || '',
+            house: data.house || '',
+            floor: data.floor || '',
+            apartment: data.apartment || '',
+            photoURL: data.photoURL || ''
+          });
         }
       } catch (err) {
         toast.error("Не удалось загрузить данные");
@@ -43,7 +59,11 @@ function Userinfo({ user }) {
     e.preventDefault();
     try {
       const userRef = doc(db, 'users', user.uid);
-      await setDoc(userRef, formData);
+      const userData = {
+        ...formData,
+        username: formData.displayName || `${formData.firstName} ${formData.lastName}`.trim()
+      };
+      await setDoc(userRef, userData);
       toast.success("Данные успешно обновлены");
     } catch (err) {
       toast.error("Ошибка при обновлении данных");
@@ -128,6 +148,13 @@ function Userinfo({ user }) {
             onChange={handleChange}
           />
         </div>
+        <input
+          type="url"
+          name="photoURL"
+          placeholder="Ссылка на фото"
+          value={formData.photoURL}
+          onChange={handleChange}
+        />
         <button type="submit">Изменить</button>
       </form>
     </div>
@@ -135,6 +162,3 @@ function Userinfo({ user }) {
 }
 
 export default Userinfo;
-
-
-

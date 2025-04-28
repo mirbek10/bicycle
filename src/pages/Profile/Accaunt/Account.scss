@@ -1,89 +1,344 @@
-.account {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-  
-    h2 {
-      color: rgb(245, 117, 32);
-      margin-bottom: 20px;
-    }
-  
-    .account-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-  
-      .avatar {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        overflow: hidden;
-        background-color: #eee;
-        border: 2px solid rgb(245, 117, 32);
-  
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-  
-        .no-avatar {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          color: #888;
-        }
-      }
-  
-      .details {
-        flex: 1;
-  
-        p {
-          margin: 5px 0;
-          strong {
-            color: rgb(245, 117, 32);
-          }
-        }
-      }
-    }
-  
-    .edit-section {
-      margin-top: 20px;
-      transition: all 0.3s ease;
-  
-      label {
-        display: block;
-        margin-bottom: 6px;
-        font-weight: bold;
-      }
-  
-      input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 2px solid rgb(245, 117, 32);
-        border-radius: 4px;
-        transition: all 0.3s ease;
-  
-        &.narrow {
-          width: 70%;
-        }
-      }
-  
-      button {
-        padding: 10px 15px;
-        background: rgb(245, 117, 32);
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-  
-        &:hover {
-          background:rgb(245, 117, 32),;
-        }
-      }
+@import '../../../variables';
+
+$primary-color: #ff7a00; // яркий оранжевый
+$secondary-color: #ffa94d; // светлый оранжевый для градиента и вторичных акцентов
+
+.account.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: $primary-color;
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+    border-radius: 2px;
+  }
+}
+
+.profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255, 122, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 2.5rem;
+
+  &:hover {
+    box-shadow: 0 15px 40px rgba(255, 122, 0, 0.12);
+  }
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+
+    .avatar-overlay {
+      opacity: 1;
     }
   }
-  
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(255, 122, 0, 0.1);
+
+  &.has-image {
+    background: #f5f5f5;
+  }
+
+  &.no-image {
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-initials {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 122, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  span {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+.profile-main-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.profile-display-name {
+  font-size: 1.2rem;
+  color: #888;
+  font-weight: normal;
+}
+
+.profile-email {
+  color: #999;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.profile-details {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #fff8f2;
+  border-radius: 12px;
+}
+
+.detail-item {
+  display: flex;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ffe2cc;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.detail-label {
+  font-weight: bold;
+  color: $primary-color;
+  min-width: 120px;
+}
+
+.detail-value {
+  color: #555;
+  flex: 1;
+}
+
+.address-additional {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.profile-edit {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ffe2cc;
+}
+
+.floating-label {
+  position: relative;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+
+  input {
+    width: 100%;
+    padding: 1rem 0.5rem 0.5rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $primary-color;
+
+      + label {
+        transform: translateY(-1.5rem) scale(0.8);
+        color: $primary-color;
+      }
+
+      ~ .input-underline {
+        width: 100%;
+      }
+    }
+
+    &:not(:placeholder-shown) + label {
+      transform: translateY(-1.5rem) scale(0.8);
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 1rem;
+    left: 0.5rem;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 1rem;
+  }
+
+  .input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-color;
+    transition: width 0.3s ease;
+  }
+}
+
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(to right, $primary-color, $secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.2);
+  min-width: 200px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($primary-color, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.saving {
+    background: linear-gradient(to right, lighten($primary-color, 5%), lighten($secondary-color, 5%));
+    pointer-events: none;
+
+    .btn-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 8px;
+    }
+  }
+
+  &.success {
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      animation: fadeInCheck 0.3s ease-out;
+    }
+
+    span {
+      visibility: hidden;
+    }
+  }
+}
+
+.animated-fade {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInCheck {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
