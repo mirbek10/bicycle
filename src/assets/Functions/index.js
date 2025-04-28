@@ -11,10 +11,8 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Генерация 6-значного кода
 const generateCode = () => Math.floor(100000 + Math.random() * 900000).toString();
 
-// Отправка email
 const sendVerificationEmail = async (email, code) => {
   await transporter.sendMail({
     from: 'noreply@ваш_проект.com',
@@ -24,7 +22,6 @@ const sendVerificationEmail = async (email, code) => {
   });
 };
 
-// Регистрация через Google + отправка кода
 exports.authWithGoogle = functions.https.onCall(async (data, context) => {
   const { idToken } = data;
   try {
@@ -43,7 +40,6 @@ exports.authWithGoogle = functions.https.onCall(async (data, context) => {
   }
 });
 
-// Проверка кода
 exports.verifyCode = functions.https.onCall(async (data, context) => {
   const { userId, code } = data;
   const snapshot = await admin.firestore().collection('verificationCodes').doc(userId).get();

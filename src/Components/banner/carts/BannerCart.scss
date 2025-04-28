@@ -13,7 +13,6 @@
       font-size: 24px;
       transition: all 0.3s ease-out;
       cursor: pointer;
-    //   position: relative; // Для правильного позиционирования при масштабировании
   
       p {
         display: none;
@@ -25,7 +24,7 @@
         background: #F57520;
         transform: scale(1.08);
         border-radius: 7px;
-        z-index: 1; // Чтобы активный элемент был поверх остальных
+        z-index: 1; 
       }
   
       .visible {
@@ -33,7 +32,6 @@
       }
     }
   
-    // Медиазапросы для адаптивности
     @media (max-width: 1200px) {
       height: 220px;
       
@@ -51,7 +49,7 @@
     @media (max-width: 992px) {
       height: auto;
       flex-wrap: wrap; 
-      justify-content: center; // ��ентрируем блоки по горизонтали
+      justify-content: center; 
       margin: 20px auto 20px auto; 
       gap: 15px;
   

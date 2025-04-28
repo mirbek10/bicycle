@@ -12,8 +12,8 @@ import Account from './Accaunt/Account';
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams(); // Получаем параметры URL
-  const tabParam = searchParams.get('tab'); // Получаем параметр tab
+  const [searchParams] = useSearchParams(); 
+  const tabParam = searchParams.get('tab'); 
 
   const { isAuthenticated, user } = useSelector(state => state.auth);
   const [activeTab, setActiveTab] = useState("myAcc");
@@ -23,7 +23,6 @@ function Profile() {
       navigate('/signIn');
     }
     
-    // Если в URL есть параметр tab, активируем соответствующую вкладку
     if (tabParam) {
       setActiveTab(tabParam);
     }

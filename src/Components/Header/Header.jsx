@@ -53,6 +53,8 @@ const Header = () => {
         onClick={() => {
           setLinksActive("search");
           setModalIcon('search');
+          navigate('/catalog#focus')
+          
         }}
         style={LinksActive === "search" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
@@ -85,8 +87,8 @@ const Header = () => {
   size={20}
   onClick={() => {
     setLinksActive("favorites");
-    setmodalIcon('favorites');
-    navigate('/profile?tab=whishlist'); // Перенаправляем на профиль с активной вкладкой whishlist
+    setModalIcon('favorites');
+    navigate('/profile?tab=whishlist'); 
   }}
   style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
 />

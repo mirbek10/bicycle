@@ -15,9 +15,8 @@ function EmailVerified() {
         setChecking(false);
         setTimeout(() => navigate('/profile'), 3000);
       }
-    }, 10000); // каждые 10 секунд
+    }, 10000); 
 
-    // Первая проверка сразу
     (async () => {
       await auth.currentUser?.reload();
       if (auth.currentUser?.emailVerified) {

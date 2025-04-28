@@ -1,14 +1,14 @@
 .feature-content {
     width: 100%;
     background: #1e1e1e;
-    margin-top: 80px; // Тёмный фон
+    margin-top: 80px;  
 
     .feature {
         background: #1e1e1e;
         display: flex;
         justify-content: space-between;
         padding: 30px;
-        flex-wrap: wrap; // Позволяет элементам переноситься на новую строку
+        flex-wrap: wrap; 
 
         .feature-card {
             display: flex;
@@ -42,7 +42,7 @@
                 font-weight: 500;
                 line-height: 160%;
                 letter-spacing: 1%;
-                text-align: center; // Выравнивание заголовка по центру
+                text-align: center; 
             }
 
             .feature-text {
@@ -52,10 +52,9 @@
                 font-weight: 300;
                 line-height: 160%;
                 letter-spacing: 0%;
-                text-align: center; // Выравнивание текста по центру
+                text-align: center; 
             }
 
-            // Анимация появления при загрузке
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.5s ease forwards;
@@ -71,31 +70,28 @@
                 }
             }
 
-            // Эффект при наведении
             &:hover {
                 transform: scale(1.05);
                 box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
 
                 .feature-icon {
-                    opacity: 1; // Иконка становится ярче
+                    opacity: 1; 
                 }
             }
         }
     }
 
-    // ==== 📲 Адаптив для планшетов (iPad) ====
     @media (max-width: 1024px) {
         .feature {
-            justify-content: center; // Выравнивание карточек по центру
+            justify-content: center;
             gap: 20px;
         }
         
         .feature-card {
-            width: 45%; // Две карточки в ряд
+            width: 45%;
         }
     }
 
-    // ==== 📱 Адаптив для телефонов ====
     @media (max-width: 768px) {
         .feature {
             flex-direction: column;
@@ -104,7 +100,7 @@
         }
 
         .feature-card {
-            width: 90%; // Одна карточка в ряд
+            width: 90%; 
         }
     }
 }

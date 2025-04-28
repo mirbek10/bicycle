@@ -101,7 +101,6 @@ const Catalog = () => {
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
-      // Поиск по названию и описании
       if (searchQuery &&
         !product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
         !product.description?.toLowerCase().includes(searchQuery.toLowerCase())) {

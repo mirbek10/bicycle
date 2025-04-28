@@ -47,14 +47,6 @@ function Cart() {
     setShowModal(false);
   };
 
-  // useEffect(() => {
-  //   if (orderCompleted) {
-  //     const timer = setTimeout(() => {
-  //       navigate("/profile");
-  //     }, 3000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [orderCompleted, navigate]);
 
   return (
     <div className="cart-container">

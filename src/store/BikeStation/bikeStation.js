@@ -13,7 +13,6 @@ export const getbikeStation = createAsyncThunk(
   }
 );
 
-// Срез состояния
 const bikeStationSlice = createSlice({
   name: "bikeStation",
   initialState: {
@@ -30,7 +29,7 @@ const bikeStationSlice = createSlice({
       })
       .addCase(getbikeStation.fulfilled, (state, action) => {
         state.status = false;
-        state.list = action.payload; // исправлено здесь
+        state.list = action.payload; 
       })
       .addCase(getbikeStation.rejected, (state, action) => {
         state.status = false;

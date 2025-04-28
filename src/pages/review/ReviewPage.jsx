@@ -86,7 +86,7 @@ const ReviewPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newReview.name && newReview.text.length > 20 && newReview.rating > 0) {
-      setReviews([newReview, ...reviews].slice(0, 15)); // сохраняем только топ 15
+      setReviews([newReview, ...reviews].slice(0, 15)); 
       setNewReview({ name: '', text: '', rating: 0 });
     }
   };
