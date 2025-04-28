@@ -6,7 +6,7 @@ import { fetchParts } from "../../store/partsSlice";
 import { getEquipment } from '../../store/Equipmentslice/EquipmentSLice';
 import { Link, useNavigate } from 'react-router-dom';
 import { navigateWithAuth } from '../../shared/hooks/navigateWithAuth';
-
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import logo from "../../assets/svg/logo.svg";
 import logoB from "../../assets/svg/logoBlack.svg";
 import menuIcon from "../../assets/svg/menu.svg";
@@ -54,7 +54,7 @@ const Header = () => {
           setLinksActive("search");
           setModalIcon('search');
           navigate('/catalog#focus')
-          
+
         }}
         style={LinksActive === "search" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
@@ -83,15 +83,15 @@ const Header = () => {
       )}
 
 
-<FaRegHeart
-  size={20}
-  onClick={() => {
-    setLinksActive("favorites");
-    setModalIcon('favorites');
-    navigate('/profile?tab=whishlist'); 
-  }}
-  style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
-/>
+      <FaRegHeart
+        size={20}
+        onClick={() => {
+          setLinksActive("favorites");
+          setModalIcon('favorites');
+          navigate('/profile?tab=whishlist');
+        }}
+        style={LinksActive === "favorites" ? { color: 'rgb(245, 117, 32)' } : {}}
+      />
 
 
       <FaShoppingCart
@@ -103,6 +103,16 @@ const Header = () => {
         }}
         style={LinksActive === "cart" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
+      <IoChatboxEllipsesOutline
+        size={20}
+        onClick={() => {
+          setLinksActive("cart");
+          setModalIcon('cart');
+          navigateWithAuth(isAuth, navigate, "/chat");
+        }}
+        style={LinksActive === "cart" ? { color: 'rgb(245, 117, 32)' } : {}}
+      />
+
     </div>
   );
 

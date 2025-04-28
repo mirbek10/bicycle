@@ -121,7 +121,7 @@ const DetailBike = () => {
                     <div className="detail-card">
                         <h3>{currentDetail.name}</h3>
                         <p 
-                            className={`availability ${!currentDetail.buying ? 'out-of-stock' : ''}`}
+                            className={`availability ${currentDetail.buying ? 'out-of-stock' : 'red'}`}
                         >
                             {currentDetail.buying ? 'В наличии' : 'Распродоно'}
                         </p>
