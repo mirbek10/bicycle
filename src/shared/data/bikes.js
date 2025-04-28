@@ -15,7 +15,7 @@ import green from '../../assets/image/MirbekImg/FilmImg/green.png';
 import wofrine from '../../assets/image/MirbekImg/FilmImg/wofrine.png';
 import superman from '../../assets/image/MirbekImg/FilmImg/superman.png';
 
-export const bikes = [
+export const filmBike = [
   {
     id: 1,
     name: "Iron Bike",

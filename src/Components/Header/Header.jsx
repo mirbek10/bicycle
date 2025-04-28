@@ -106,11 +106,11 @@ const Header = () => {
       <IoChatboxEllipsesOutline
         size={20}
         onClick={() => {
-          setLinksActive("cart");
-          setModalIcon('cart');
+          setLinksActive("chat");
+          setModalIcon('chat');
           navigateWithAuth(isAuth, navigate, "/chat");
         }}
-        style={LinksActive === "cart" ? { color: 'rgb(245, 117, 32)' } : {}}
+        style={LinksActive === "chat" ? { color: 'rgb(245, 117, 32)' } : {}}
       />
 
     </div>
