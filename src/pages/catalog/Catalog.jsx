@@ -11,9 +11,8 @@ import { CiFilter } from "react-icons/ci"
 import { IoClose } from "react-icons/io5"
 import { FiSearch } from "react-icons/fi"
 import NotFoundMessage from './notFound/NoteFound'
-import { bikes } from '../../shared/data/bikes'
+import { filmBike } from '../../shared/data/bikes'
 import { useLocation } from 'react-router-dom';
-
 
 const Catalog = () => {
   const inputRef = useRef(null);
@@ -34,8 +33,7 @@ const Catalog = () => {
     'accessories': true,
     'equipment': true,
     'bikeStation': true,
-    'bikes': true,
-
+    'filmBike': true,
   })
 
   const [colors, setColors] = useState([
@@ -92,12 +90,13 @@ const Catalog = () => {
     if (categories.bikeStation && list) {
       result.push(...list.map(item => ({ ...item, productType: 'bikeStation' })))
     }
-    if (categories.bikes && bikes) {
-      result.push(...bikes.map(item => ({ ...item, productType: 'bike' })))
+
+    if (categories.filmBike && filmBike) {
+      result.push(...filmBike.map(item => ({ ...item, productType: 'filmBike' })))
     }
 
     return result
-  }, [bicycles, parts, accessories, equipment, list, categories, bikes])
+  }, [bicycles, parts, accessories, equipment, list, categories, filmBike])
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(product => {
@@ -170,7 +169,7 @@ const Catalog = () => {
       'accessories': true,
       'equipment': true,
       'bikeStation': true,
-      'bikes': true,
+      'filmBike': true,
     })
     setMaterials({
       'Aluminum': false,
@@ -191,7 +190,6 @@ const Catalog = () => {
     setVisibleCount(prev => prev - 6)
   }
 
-
   useEffect(() => {
     if (location.hash === '#focus' && inputRef.current) {
       inputRef.current.focus();
@@ -200,7 +198,7 @@ const Catalog = () => {
 
   return (
     <>
-      <div className='catalog-banner'>
+           <div className='catalog-banner'>
         <div className="container-catalog">
           <p>Главная / <span>Каталог</span></p>
           <h1 className='catalog-title'>Каталог</h1>
@@ -353,6 +351,7 @@ const Catalog = () => {
         </div>
       </div>
     </>
+
   )
 }
 
